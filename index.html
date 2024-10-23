@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora 2</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Oswald:wght@200..700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="imagens/logo.png">
+</head>
+<body>
+    <main>
+        <section class="sectionCalculos" id="calculoContainer">
+            <h1>Calculos</h1>
+            <div class="dropdownDentro">
+                <ul id="calculoLista">
+                    <li><button value="eval">Expressão</button></li>
+                    <li><button value="raiz">Raiz</button></li>
+                    <li><button value="porcentagem">Porcentagem</button></li>
+                    <li><button value="hipotenusa">Hipotenusa</button></li>
+                    <li><button value="bhaskara">Bhaskara</button></li>
+                    <li><button value="fatorial">Fatorial</button></li>
+                    <li><button value="duploFatorial">Duplo Fatorial</button></li>
+                    <li><button value="teoremaDePitagoras">Teorema de Pitágoras</button></li>
+                    <li><button value="Trigonometria">Trigonometria</button></li>
+                    <li><button value="logaritmo">Logaritmo</button></li>
+                    <li><button value="Matriz">Matriz</button></li>
+                    <li><button value="RazãoeProporção">Razão e Proporção</button></li>
+                    <li><button value="geometria">Geometria</button></li>
+                    <li><button value="funcao">Função</button></li>
+                    <li><button value="Progressão">Progressão</button></li>
+                </ul>            
+            </div>
+        </section>
+        <hr>
+        <input type="image" src="imagens/dropdownImage.jpg" id="dropdownCalculos" alt="Dropdown" title="Abrir cálculos">
+        <section class="sectionContainer">
+            <h1>Seja bem-vindo!</h1>
+            <div class="container">
+                <div class="inputs">
+                    <input type="text" id="input1" placeholder="Input 1">
+                    <input type="text" id="input2" placeholder="Input 2">
+                    <input type="text" id="input3" placeholder="Input 3">
+                    <input type="text" id="input4" placeholder="Input 4">
+                    <input type="text" id="input5" placeholder="Input 5">
+                    <input type="text" id="input6" placeholder="Input 6">
+                    <input type="text" id="input7" placeholder="Input 7">
+                    <input type="text" id="input8" placeholder="Input 8">
+                    <input type="text" id="input9" placeholder="Input 9">
+                    <input type="text" id="input10" placeholder="Input 10">
+                    <input type="text" id="input11" placeholder="Input 11">
+                    <input type="text" id="input12" placeholder="Input 12">
+                </div>
+                <button>Calcular</button>
+                <div class="resultados">
+                    <h1 id="resultado">
+                        Resultado:<br>
+                        <span id="resultadoModificador">A</span>
+                    </h1>
+                </div>
+            </div>
+            <h1>Criado por Trilha</h1>
+        </section>
+    </main>
+    <script src="script.js"></script>
+</body>
+</html>
