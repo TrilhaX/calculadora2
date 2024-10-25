@@ -21,9 +21,9 @@
                     <li><button value="porcentagem">Porcentagem</button></li>
                     <li><button value="bhaskara">Bhaskara</button></li>
                     <li><button value="fatorial">Fatorial</button></li>
-                    <li><button value="duploFatorial">Duplo Fatorial</button></li>
+                    <li><button value="duplofatorial">Duplo Fatorial</button></li>
                     <li><button value="pitagoras">Teorema de Pitágoras</button></li>
-                    <li><button value="Trigonometria">Trigonometria</button></li>
+                    <li><button value="trigonometria">Trigonometria</button></li>
                     <li><button value="logaritmo">Logaritmo</button></li>
                     <li><button value="Matriz">Matriz</button></li>
                     <li><button value="RazãoeProporção">Razão e Proporção</button></li>
@@ -40,40 +40,65 @@
             <div class="container">
                 <div class="inputs">
                     <div class="calculo">
+                        
                         <div class="calculo-div" id="eval-div">
                             <h3>Para exemplos como 3√5 utilize 3x√5</h3>
                             <input type="text" id="eval" placeholder="Digite a expressão">
                         </div>
+                        
                         <div class="calculo-div" id="raiz-div" style="display: none;">
-                            <h3>O primeiro numero é o que fica la em cima da raiz(²√4)</h3>
+                            <h3>O primeiro número é o que fica lá em cima da raiz(²√4)</h3>
                             <div id="raiz">
                                 <input id="raiz-input" type="number" name="raiz" placeholder="Digite a raiz">
                                 <input id="numero-raiz" type="number" placeholder="Digite o número">
                             </div>
                         </div>                                                
+                        
                         <div class="calculo-div" id="porcentagem-div" style="display: none;">
                             <input type="number" placeholder="Valor">
                             <input type="number" placeholder="Percentual">
+                        </div>                  
+                        
+                        <div class="calculo-div" id="bhaskara-div" style="display: none; align-items: center; gap: .2rem;">
+                            <input id="viado" type="number" placeholder="">
+                            <label for="">X²</label>
+                            <input id="viado" type="number" placeholder="">
+                            <label for="">X</label>
+                            <input  id="viado" type="number" placeholder="">
+                            <label for="">= 0</label>
                         </div>
+                        
+                        <div class="calculo-div" id="fatorial-div" style="display: none;">
+                            <input id="fatorial1" type="number" placeholder="Digite o numero">
+                        </div>
+                        
+                        <div class="calculo-div" id="duplofatorial-div" style="display: none;">
+                            <input id="fatorial2" type="number" placeholder="Digite o numero">
+                        </div>
+
                         <div class="calculo-div" id="pitagoras-div" style="display: none;">
-                            <select id="pitagorasSelect">
-                                <option value="hipotenusa">Calcular Hipotenusa</option>
-                                <option value="cateto">Calcular Cateto</option>
-                            </select>
-                            <div class="hipotenusa" style="display: none;">
-                                <input type="number" placeholder="Cateto A" id="catetoA">
-                                <input type="number" placeholder="Cateto B" id="catetoB">
-                            </div>
-                            <div class="cateto" style="display: none;">
-                                <input type="number" placeholder="Cateto" id="cateto">
-                                <input type="number" placeholder="Hipotenusa" id="hipotenusa">
+                            <div id="hipotenusa" style="margin-bottom: 1.5rem;">
+                                <input type="number" placeholder="" id="catetoA" style="text-align: center;">
+                                <input type="number" placeholder="" id="catetoB" style="text-align: center;">
+                                <input type="number" placeholder="" id="Hipotenusa" style="text-align: center;">
                             </div>
                         </div>
                         
-                        <div class="calculo-div" id="bhaskara-div" style="display: none;">
-                            <input type="number" placeholder="Valor de A">
-                            <input type="number" placeholder="Valor de B">
-                            <input type="number" placeholder="Valor de C">
+                        <div class="calculo-div" id="trigonometria-div" style="display: none;">
+                            <div id="trigonometria" style="margin-bottom: 1.5rem;">
+                                <input type="number" placeholder="" id="valorA" style="text-align: center;">
+                                <input type="number" placeholder="" id="valorB" style="text-align: center;">
+                                <input type="number" placeholder="" id="valorC" style="text-align: center;">
+                                <input type="number" placeholder="" id="angulo" style="text-align: center;">
+                            </div>
+                        </div>
+
+                        <div class="calculo-div" id="logaritmo-div" style="display: none;">
+                            <div id="logaritmod" style="margin-bottom: 1.5rem;">
+                                <input type="number" placeholder="" id="logaritmando" style="text-align: center;">
+                                <input type="number" placeholder="" id="base" style="text-align: center;">
+                                <input type="number" placeholder="" id="logaritmo" style="text-align: center;">
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -83,9 +108,10 @@
                         Resultado:<br>
                         <span id="resultadoModificador"></span>
                     </h1>
+                    <button id="buttonDeleteCal">Excluir Calculo</button>
                 </div>
             </div>
-            <h1>Criado por Trilha</h1>
+            <h1 id="creditos">Criado por Trilha</h1>
         </section>
     </main>
     <script src="script.js"></script>
