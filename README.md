@@ -18,4 +18,4 @@ Seja para cálculos simples ou avançados, esta calculadora foi projetada para a
 ## Como usar?
 Acesse o link:
 
-#Developed by Trilha
+# Developed by Trilha
