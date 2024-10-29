@@ -1,3 +1,4 @@
+const history = [];
 let resposta = document.querySelector("#resultadoModificador");
 
 function substituicao(input) {
@@ -273,12 +274,6 @@ function handleSquareRoots(expression) {
     return expression;
 }
 
-function mostrarResultado() {
-    let { result, conta } = calcular();
-    let resposta = document.querySelector("#resultado");
-    resposta.innerHTML = result !== undefined ? `Resultado: ${result}<br><br>Conta:<br> ${conta}` : "";
-}
-
 function mostrarCalculo(calculoId) {
     const divs = document.querySelectorAll('.calculo-div');
     let resposta = document.querySelector("#resultado");
@@ -307,11 +302,6 @@ function mostrarCalculo(calculoId) {
     }
 
     calculoDiv.style.gap = '.5rem';
-}
-
-function deleteCalculo(){
-    const resposta = document.querySelector("#resultado");
-    resposta.innerHTML = '';
 }
 
 function blockPitagoras() {
@@ -403,10 +393,72 @@ function configurarBotoes() {
 window.onload = () => {
     configurarBotoes();
     mostrarCalculo('eval-div');
+    updateHistory();
 };
 
-document.getElementById("buttonDeleteCal").addEventListener("click", deleteCalculo);
+function updateHistory() {
+    const historyDiv = document.querySelector('.history');
+    historyDiv.innerHTML = '<h3>Histórico</h3>';
+    
+    const savedHistory = JSON.parse(localStorage.getItem('history')) || [];
+
+    if (savedHistory.length === 0) {
+        const p = document.createElement('p');
+        p.innerHTML = "Sem registros no histórico.";
+        historyDiv.appendChild(p);
+        return;
+    }
+
+    savedHistory.forEach(entry => {
+        const p = document.createElement('p');
+        p.style.color = "black";
+        p.innerHTML = entry;
+        historyDiv.appendChild(p);
+    });
+}
+
+function clearHistory() {
+    localStorage.removeItem('history');
+    updateHistory();
+}
+
+function mostrarResultado() {
+    let { result } = calcular();
+    let resposta = document.querySelector("#resultado");
+    resposta.innerHTML = result !== undefined ? `Resultado: ${result}` : "";
+
+    if (result !== undefined && !isNaN(result)) {
+        const savedHistory = JSON.parse(localStorage.getItem('history')) || [];
+        savedHistory.push(result);
+
+        localStorage.setItem('history', JSON.stringify(savedHistory));
+
+        updateHistory();
+    }
+}
+
+
+function mostrarConta(){
+    let {conta} = calcular();
+    let conta1 = document.querySelector("#conta1");
+    conta1.innerHTML = conta!== undefined? `${conta}` : "";
+}
+
+function deleteCalculo(){
+    const conta1 = document.querySelector("#conta1");
+    conta1.innerHTML = '';
+}
+
+function deleteResultado(){
+    const result = document.querySelector("#resultado");
+    result.innerHTML = '';
+}
+
 document.querySelector("#calcularButton").addEventListener("click", mostrarResultado);
+document.getElementById("mostrarCalculo").addEventListener("click", mostrarConta);
+document.querySelector("#deletarResult").addEventListener("click", deleteResultado);
+document.getElementById("buttonDeleteCal").addEventListener("click", deleteCalculo);
+document.querySelector(".clearHistory").addEventListener("click", clearHistory);
 
 document.getElementById('dropdownCalculos').addEventListener('click', function() {
     const calculoSection = document.getElementById('calculoContainer');
