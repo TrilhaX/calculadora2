@@ -218,6 +218,73 @@ function calcularLog() {
 
 }
 
+function calcularRazaoEProporcao() {
+    const valorA = parseFloat(document.getElementById("valorAR").value) || 0;
+    const valorB = parseFloat(document.getElementById("valorBR").value) || 0;
+    const valorC = parseFloat(document.getElementById("valorCR").value) || 0;
+    const valorD = parseFloat(document.getElementById("valorDR").value) || 0;
+    const selected = document.getElementById("razaoeproporção-select").value;
+
+    const values = [valorA, valorB, valorC, valorD].filter(value => !isNaN(value) && value !== 0);
+
+    let resultado;
+    let conta;
+
+    if (selected === "razao" && values.length === 3) {
+        const ratio = (values[0] * values[2]);
+        const teuPai = ratio / values[1];
+        resultado = teuPai.toFixed(2);
+        conta = `Razão = ${values[0]} x ${values[2]}:${values[1]}<br> Razão = ${ratio}/ ${values[1]}<br> Razão = ${teuPai.toFixed(2)}`;
+    } else if (selected === "proporção" && values.length === 2) {
+        const proportion = values[0] / values[1];
+        resultado = proportion.toFixed(2);
+        conta = `Proporção = ${values[0]}:${values[1]}<br> Proporção = ${resultado}`;
+    } else {
+        return { result: "Por favor, preencha exatamente três valores diferentes de zero.", conta: "" };
+    }
+
+    return { result: resultado, conta };
+}
+
+function funcaoExponencial() {
+    const valoresX = [-3, -2, -1, 0, 1, 2, 3];
+    const inputA = document.querySelector(".funcaoExponencialInput");
+    const a = parseFloat(inputA.value);
+    
+    if (isNaN(a)) {
+        return { result: "Valor de 'a' inválido.", conta: "" };
+    } else {
+        const resultados = valoresX.map(x => Math.pow(a, x));
+        const contas = valoresX.map((x, index) => `f(${x}) = ${resultados[index].toFixed(2)}`).join('<br>');
+        return { result: contas, conta: `Base a = ${a}` };
+    }
+}
+
+function funcaoQuadratica() {
+    const A3 = parseFloat(document.querySelector(".BA").value);
+    const B3 = parseFloat(document.querySelector(".BB").value);
+    const C2 = parseFloat(document.querySelector(".BC").value);
+    const delta2 = B3 * B3 - 4 * A3 * C2;
+
+    if (isNaN(A3) || isNaN(B3) || isNaN(C2)) {
+        return { result: "Valores inválidos para a função quadrática.", conta: "" };
+    }
+
+    if (delta2 < 0) {
+        return { result: "Delta negativo, sem raízes reais.", conta: "" };
+    } else {
+        const x1 = (-B3 + Math.sqrt(delta2)) / (2 * A3);
+        const x2 = (-B3 - Math.sqrt(delta2)) / (2 * A3);
+        const Xv = -B3 / (2 * A3);
+        const Yv = -delta2 / (4 * A3);
+        const EY = C2;
+        const contas = `Raízes da função: x1= (${x1.toFixed(2)}, 0), x2= (${x2.toFixed(2)}, 0)<br>
+                        Vértice da parábola: (${Xv.toFixed(2)}, ${Yv.toFixed(2)})<br>
+                        Ponto de interseção com o eixo Y: (0, ${EY.toFixed(2)})`;
+        return { result: contas, conta: `A = ${A3}, B = ${B3}, C = ${C2}` };
+    }
+}
+
 function calcular() {
     const activeDiv = document.querySelector('.calculo-div[style*="display: flex"]');
     let errorMessage = document.querySelector('#erroMensagem');
@@ -309,7 +376,15 @@ function mostrarCalculo(calculoId) {
     } else if (calculoId === 'bhaskara-div') {
         calculoDiv.style.display = 'flex';
         calculoDiv.style.flexDirection = 'row';
-        calculoDiv.style.gap = '.5rem';        
+        calculoDiv.style.gap = '.5rem';
+    } else if (calculoId === 'fatorial-div' || calculoId === 'porcentagem-div'){
+        calculoDiv.style.flexDirection = 'row';
+        calculoDiv.style.alignItems = 'center'
+        calculoDiv.style.justifyContent = 'center'
+    } else if (calculoId === 'duplofatorial-div'){
+        calculoDiv.style.flexDirection = 'row';
+        calculoDiv.style.alignItems = 'center'
+        calculoDiv.style.justifyContent = 'center'
     } else {
         calculoDiv.style.flexDirection = 'column';
     }
@@ -398,27 +473,34 @@ function blockRazaoEProporcao() {
     const valorB = document.getElementById("valorBR");
     const valorC = document.getElementById("valorCR");
     const valorD = document.getElementById("valorDR");
+    const selected = document.getElementById("razaoeproporção-select").value;
 
     const filledInputs = [valorA.value, valorB.value, valorC.value, valorD.value].filter(value => value !== "").length;
 
-    if (filledInputs === 3) {
-        if (valorA.value === "") {
-            valorA.disabled = true;
+    if (selected === 'razao') {
+        if (filledInputs === 3) {
+            valorA.disabled = valorA.value === "";
+            valorB.disabled = valorB.value === "";
+            valorC.disabled = valorC.value === "";
+            valorD.disabled = valorD.value === "";
+        } else {
+            valorA.disabled = false;
+            valorB.disabled = false;
+            valorC.disabled = false;
+            valorD.disabled = false;
         }
-        if (valorB.value === "") {
-            valorB.disabled = true;
+    } else if (selected === 'proporção') {
+        if (filledInputs === 2) {
+            valorA.disabled = valorA.value === "";
+            valorB.disabled = valorB.value === "";
+            valorC.disabled = valorC.value === "";
+            valorD.disabled = valorD.value === "";
+        } else {
+            valorA.disabled = false;
+            valorB.disabled = false;
+            valorC.disabled = false;
+            valorD.disabled = false;
         }
-        if (valorC.value === "") {
-            valorC.disabled = true;
-        }
-        if (valorD.value === "") {
-            valorD.disabled = true;
-        }
-    } else {
-        valorA.disabled = false;
-        valorB.disabled = false;
-        valorC.disabled = false;
-        valorD.disabled = false;
     }
 }
 
@@ -498,6 +580,7 @@ function deleteResultado(){
     result.innerHTML = '';
 }
 
+document.getElementById("razaoeproporção-select").addEventListener("change", blockRazaoEProporcao);
 document.querySelector("#calcularButton").addEventListener("click", mostrarResultado);
 document.getElementById("mostrarCalculo").addEventListener("click", mostrarConta);
 document.querySelector("#deletarResult").addEventListener("click", deleteResultado);
@@ -514,6 +597,21 @@ document.getElementById('dropdownCalculos').addEventListener('click', function()
         calculoSection.style.display = 'none';
     }
 });
+
+document.getElementById("funcoes-select").addEventListener("change", function() {
+    const quadraticaDiv = document.querySelector(".quadratica");
+    const exponencialDiv = document.querySelector(".exponencial");
+    
+    quadraticaDiv.style.display = "flex";
+    exponencialDiv.style.display = "none";
+
+    if (this.value === "quadratica") {
+        quadraticaDiv.style.display = "flex";
+    } else if (this.value === "exponencial") {
+        exponencialDiv.style.display = "flex";
+    }
+});
+
 
 document.getElementById("catetoA").addEventListener("input", () => {
     blockPitagoras();

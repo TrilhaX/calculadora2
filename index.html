@@ -41,7 +41,7 @@
                 <div class="contas" style="display: none;">
                     <h1>Conta</h1>
                     <span id="conta1"></span>
-                    <button id="buttonDeleteCal">Excluir Calculo</button>
+                    <button id="buttonDeleteCal">Fechar Calculo</button>
                 </div>
                 <div class="container">
                     <div class="inputs">
@@ -60,19 +60,28 @@
                             </div>
 
                             <div class="calculo-div" id="porcentagem-div" style="display: none;">
-                                <input id="valorPorcento" type="number" placeholder="Valor">
-                                <input id="percentual" type="number" placeholder="Percentual">
+                                <input id="percentual" type="number" placeholder="digite a porcentagem">%
+                                <label for="">de</label>
+                                <input id="valorPorcento" type="number" placeholder="digite um numero">
                             </div>
 
                             <div class="calculo-div" id="fatorial-div" style="display: none;">
-                                <input id="fatorial1" type="number" placeholder="Digite o numero">
+                                <input id="fatorial1" type="number" placeholder="Digite o numero">!
                             </div>
 
                             <div class="calculo-div" id="duplofatorial-div" style="display: none;">
-                                <input id="fatorial2" type="number" placeholder="Digite o numero">
+                                <input id="fatorial2" type="number" placeholder="Digite o numero">!!
                             </div>
 
                             <div class="calculo-div" id="razaoeproporção-div" style="display: none;">
+                                <div class="selectRazaoeProporção">
+                                    <select name="razaoeproporção" id="razaoeproporção-select">
+                                        <option value="" disabled>Select a function</option>
+                                        <option value="razao">Razão</option>
+                                        <option value="proporção">Proporção</option>
+                                    </select>
+                                </div>
+
                                 <div id="razaoeproporção">
                                     <input type="number" placeholder="" id="valorAR" style="text-align: center;">
                                     <input type="number" placeholder="" id="valorBR" style="text-align: center;">
@@ -114,6 +123,24 @@
                                     <input type="number" placeholder="" id="logaritmo" style="text-align: center;">
                                 </div>
                             </div>
+
+                            <div class="calculo-div" id="funcao-div">
+                                <div class="selectFuncao">
+                                    <select name="funcoes" id="funcoes-select">
+                                        <option value="" disabled>Select a function</option>
+                                        <option value="quadratica">Quadratica</option>
+                                        <option value="exponencial">Exponencial</option>
+                                    </select>
+                                </div>
+
+                                <div class="quadratica">
+
+                                </div>
+
+                                <div class="exponencial">
+
+                                </div>
+                            </div>                            
                         </div>
                     </div>
                     <button id="calcularButton">Calcular</button>
@@ -123,9 +150,8 @@
                             <span id="resultadoModificador"></span>
                         </h1>
                         <div class="buttonsResult">
-                            <button id="deletarResult">Excluir Resultado</button>
+                            <button id="deletarResult">Fechar Resultado</button>
                             <button id="mostrarCalculo">Mostrar Calculo</button>
-                            <button id="mostrarCalculo">Mostrar Grafico</button>
                         </div>
                     </div>
                     <h1 id="erroMensagem"></h1>

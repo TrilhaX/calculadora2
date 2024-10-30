@@ -8,12 +8,10 @@ Seja para cálculos simples ou avançados, esta calculadora foi projetada para a
 - Cálculos básicos: adição, subtração, multiplicação e divisão.
 - Funções científicas: seno, cosseno, tangente, logaritmos e exponenciais.
 - Operações com números complexos.
-- Gráficos de funções matemáticas.
 
 ## Tecnologias Utilizadas
 
 - **Linguagem**: [HTML/CSS/JavaScript/]
-- **Bibliotecas**: []
 
 ## Como usar?
 Acesse o link:

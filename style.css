@@ -191,13 +191,15 @@ button:hover {
     align-items: center;
 }
 
-.buttonsResult {
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: row;
-    justify-content: center;
-    gap: .3rem;
-    width: 70%;
+.selectRazaoeProporção select{
+    padding: .5rem;
+    border: black solid .1rem;
+    border-radius: .5rem;
+}
+
+input:disabled {
+    background-color: #ece0e0;
+    cursor: not-allowed;
 }
 
 #dropdownCalculos {
@@ -324,7 +326,7 @@ button:hover {
 #logaritmod > #logaritmo {
     position: absolute;
     bottom: 28%;
-    left: 67%;
+    left: 75%;
     height: 1.5rem;
     width: 3rem;
 }
@@ -332,7 +334,7 @@ button:hover {
 #logaritmod > #logaritmando {
     position: absolute;
     bottom: 28%;
-    right: 40%;
+    left: 50%;
     height: 1.5rem;
     width: 3rem;
 }
@@ -351,12 +353,12 @@ button:hover {
 
 #buttonDeleteCal{
     color: white;
-    background-color: red;
+    background-color: rgb(177, 176, 176);
 }
 
 #buttonDeleteCal:hover{
     color: white;
-    background-color: rgb(187, 4, 4);
+    background-color: rgb(138, 138, 138);
 }
 
 #mostrarCalculo{
@@ -371,12 +373,12 @@ button:hover {
 
 #deletarResult{
     color: white;
-    background-color: red;
+    background-color: rgb(177, 176, 176);
 }
 
 #deletarResult:hover{
     color: white;
-    background-color: rgb(194, 2, 2);
+    background-color: rgb(138, 138, 138);
 }
 
 #razaoeproporção {
@@ -391,28 +393,28 @@ button:hover {
 #razaoeproporção > #valorAR { 
     position: absolute;
     top: 32%;
-    right: 56%;
+    left: 24%;
     width: 4rem;
 }
 
 #razaoeproporção > #valorBR {
     position: absolute;
     top: 32%;
-    left: 56%;
+    left: 59%;
     width: 4rem;
 }
 
 #razaoeproporção > #valorCR {
     position: absolute;
     top: 58%;
-    left: 32.7%;
+    left: 24%;
     width: 4rem;
 }
 
 #razaoeproporção > #valorDR {
     position: absolute;
     top: 58%;
-    left: 56%;
+    left: 59%;
     width: 4rem;
 }
 
@@ -421,6 +423,11 @@ button:hover {
     font-size: 1.5rem;
     font-weight: bold;
     color: red;
+}
+
+#fatorial-div{
+    display: flex;
+    flex-direction: row;
 }
 
 ::-webkit-scrollbar {
