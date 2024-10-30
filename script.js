@@ -25,7 +25,7 @@ function calcularExpressao() {
 
     try {
         result = evaluateExpression(correctedInput);
-        conta = correctedInput;
+        conta = `Não tenho como explicar`;
     } catch (error) {
         input.value = "Error";
         result = undefined;
@@ -38,14 +38,14 @@ function calcularRaiz() {
     const raiz1 = parseInt(document.querySelector("#raiz-input").value);
     const raiz2 = parseInt(document.querySelector("#numero-raiz").value);
     const result = Math.pow(raiz2, 1 / raiz1);
-    const conta = `${raiz1}√${raiz2}`;
+    const conta = `Não tenho como explicar`;
 
     return { result, conta };
 }
 
 function calcularPorcentagem() {
-    const valor = parseFloat(document.querySelectorAll('.porcentagem-div input')[0].value);
-    const percentual = parseFloat(document.querySelectorAll('.porcentagem-div input')[1].value);
+    const valor = parseFloat(document.querySelector('#valorPorcento').value);
+    const percentual = parseFloat(document.querySelector('#percentual').value);
     const result = (valor * percentual) / 100;
     const conta2 = valor * percentual;
     const conta = `${percentual}% de ${valor} <br> ${valor} * ${percentual}/100 <br> ${conta2}/100 <br> ${result}`;
@@ -54,9 +54,9 @@ function calcularPorcentagem() {
 }
 
 function calcularBhaskara() {
-    const a = parseFloat(document.querySelectorAll('.bhaskara-div input')[0].value);
-    const b = parseFloat(document.querySelectorAll('.bhaskara-div input')[1].value);
-    const c = parseFloat(document.querySelectorAll('.bhaskara-div input')[2].value);
+    const a = parseFloat(document.querySelector('#viado1').value);
+    const b = parseFloat(document.querySelector('#viado2').value);
+    const c = parseFloat(document.querySelector('#viado3').value);
     const discriminant = b ** 2 - 4 * a * c;
     let result, conta;
 
@@ -74,7 +74,7 @@ function calcularBhaskara() {
             Δ = ${discriminant} <br>
             <br>
             x1, x2 = (-${b} ± √${discriminant}) / (2 * ${a}) <br>
-            x1 = (-${b} + √${discriminant}) / ${2 * a} <br>
+            <br>x1 = (-${b} + √${discriminant}) / ${2 * a} <br>
             x1 = ${root1} <br>
             <br>
             x2 = (-${b} - √${discriminant}) / ${2 * a} <br>
@@ -153,39 +153,42 @@ function calcularPitagoras() {
 }
 
 function calcularTrigonometria() {
-    const valorA = document.getElementById("valorA").value || 0;
-    const valorB = document.getElementById("valorB").value || 0;
-    const valorC = document.getElementById("valorC").value || 0;
-    const angulo = document.getElementById("angulo").value || 0;
+    const valorA = parseFloat(document.getElementById("valorA").value) || 0;
+    const valorB = parseFloat(document.getElementById("valorB").value) || 0;
+    const valorC = parseFloat(document.getElementById("valorC").value) || 0;
+    const angulo = parseFloat(document.getElementById("angulo").value) || 0;
+    let resultado, conta;
 
     if (valorA && angulo) {
         const catetoBCalculado = valorA * Math.sin(angulo * Math.PI / 180);
-        conta = `Cateto B (b) = ${valorA} * sin(${angulo}) = ${catetoBCalculado.toFixed(2)}`;
-        return { result: `${catetoBCalculado.toFixed(2)}`, conta };
+        resultado = `${catetoBCalculado.toFixed(2)}`;
+        conta = `Cateto B (b) = ${valorA} * sin(${angulo})<br>Cateto B (b) = ${resultado}`;
     } else if (valorB && angulo) {
         const catetoACalculado = valorB / Math.sin(angulo * Math.PI / 180);
-        conta = `Cateto A (a) = ${valorB} / sin(${angulo}) = ${catetoACalculado.toFixed(2)}`;
-        return { result: `${catetoACalculado.toFixed(2)}`, conta };
+        resultado = catetoACalculado.toFixed(2);
+        conta = `Cateto A (a) = ${valorB} / sin(${angulo})<br>Cateto A (a) = ${resultado}`;
     } else if (valorA && valorB) {
         const anguloCalculado = Math.atan(valorB / valorA) * (180 / Math.PI);
-        conta = `Ângulo = atan(${valorB} / ${valorA}) = ${anguloCalculado.toFixed(2)}°`;
-        return { result: `${anguloCalculado.toFixed(2)}°`, conta };
+        resultado = `${anguloCalculado.toFixed(2)}°`;
+        conta = `Ângulo = atan(${valorB} / ${valorA})<br>Ângulo = ${resultado}`;
     } else if (valorA && valorC) {
         const catetoBCalculado = Math.sqrt(valorC ** 2 - valorA ** 2);
-        conta = `Cateto B (b) = √(${valorC}² - ${valorA}²) = ${catetoBCalculado.toFixed(2)}`;
-        return { result: `${catetoBCalculado.toFixed(2)}`, conta };
+        resultado = catetoBCalculado.toFixed(2);
+        conta = `Cateto B (b) = √(${valorC}² - ${valorA}²)<br>Cateto B (b) = ${resultado}`;
     } else if (valorB && valorC) {
         const catetoACalculado = Math.sqrt(valorC ** 2 - valorB ** 2);
-        conta = `Cateto A (a) = √(${valorC}² - ${valorB}²) = ${catetoACalculado.toFixed(2)}`;
-        return { result: `${catetoACalculado.toFixed(2)}`, conta };
+        resultado = catetoACalculado.toFixed(2);
+        conta = `Cateto A (a) = √(${valorC}² - ${valorB}²)<br>Cateto A (a) = ${resultado}`;
     } else if (angulo && valorC) {
         const catetoA = valorC * Math.cos(angulo * Math.PI / 180);
         const catetoB = valorC * Math.sin(angulo * Math.PI / 180);
-        conta = `Cateto A (a) = ${valorC} * cos(${angulo}) = ${catetoA.toFixed(2)}<br>Cateto B (b) = ${valorC} * sin(${angulo}) = ${catetoB.toFixed(2)}`;
-        return { result: `A: ${catetoA.toFixed(2)}, B: ${catetoB.toFixed(2)}`, conta };
+        resultado = `A: ${catetoA.toFixed(2)}, B: ${catetoB.toFixed(2)}`;
+        conta = `Cateto A (a) = ${valorC} * cos(${angulo})<br>Cateto B (b) = ${valorC} * sin(${angulo})<br>Resultado = ${resultado}`;
     } else {
         return { result: "Preencha dois valores.", conta: "" };
     }
+
+    return { result: resultado, conta };
 }
 
 function calcularLog() {
@@ -215,10 +218,17 @@ function calcularLog() {
 
 }
 
-
 function calcular() {
     const activeDiv = document.querySelector('.calculo-div[style*="display: flex"]');
+    let errorMessage = document.querySelector('#erroMensagem');
     let result, conta;
+
+    errorMessage.innerHTML = "";
+
+    if (!activeDiv) {
+        errorMessage.innerHTML = "Nenhuma operação selecionada.";
+        return { result, conta };
+    }
 
     switch (activeDiv.id) {
         case 'eval-div':
@@ -243,16 +253,19 @@ function calcular() {
             ({ result, conta } = calcularPitagoras());
             break;
         case 'trigonometria-div':
-            ({resposta, conta } = calcularTrigonometria());
+            ({ result, conta } = calcularTrigonometria());
             break;
         case 'logaritmo-div':
             ({ result, conta } = calcularLog());
             break;
+        case 'razaoeproporção-div':
+            ({ result, conta } = calcularRazaoEProporcao());
+            break;
         default:
-            result = "Cálculo não reconhecido.";
-            conta = "";
+            errorMessage.innerHTML = "Operação não reconhecida ou inválida";
+            return { result, conta };
     }
-
+    
     return { result, conta };
 }
 
@@ -380,12 +393,41 @@ function blockLogaritmo() {
     }
 }
 
+function blockRazaoEProporcao() {
+    const valorA = document.getElementById("valorAR");
+    const valorB = document.getElementById("valorBR");
+    const valorC = document.getElementById("valorCR");
+    const valorD = document.getElementById("valorDR");
+
+    const filledInputs = [valorA.value, valorB.value, valorC.value, valorD.value].filter(value => value !== "").length;
+
+    if (filledInputs === 3) {
+        if (valorA.value === "") {
+            valorA.disabled = true;
+        }
+        if (valorB.value === "") {
+            valorB.disabled = true;
+        }
+        if (valorC.value === "") {
+            valorC.disabled = true;
+        }
+        if (valorD.value === "") {
+            valorD.disabled = true;
+        }
+    } else {
+        valorA.disabled = false;
+        valorB.disabled = false;
+        valorC.disabled = false;
+        valorD.disabled = false;
+    }
+}
 
 function configurarBotoes() {
     const botoes = document.querySelectorAll('#calculoLista button');
     botoes.forEach(botao => {
         botao.addEventListener('click', () => {
             mostrarCalculo(botao.value + '-div');
+            deleteCalculo()
         });
     });
 }
@@ -441,12 +483,14 @@ function mostrarResultado() {
 function mostrarConta(){
     let {conta} = calcular();
     let conta1 = document.querySelector("#conta1");
+    let conta2 = document.querySelector(".contas");
     conta1.innerHTML = conta!== undefined? `${conta}` : "";
+    conta2.style.display = "flex"
 }
 
 function deleteCalculo(){
-    const conta1 = document.querySelector("#conta1");
-    conta1.innerHTML = '';
+    let conta2 = document.querySelector(".contas");
+    conta2.style.display = "none"
 }
 
 function deleteResultado(){
@@ -510,4 +554,24 @@ document.getElementById("logaritmando").addEventListener("input", () => {
 
 document.getElementById("base").addEventListener("input", () => {
     blockLogaritmo();
+});
+
+document.getElementById("valorAR").addEventListener("input", () => {
+    blockRazaoEProporcao();
+    calcularRazaoEProporcao();
+});
+
+document.getElementById("valorBR").addEventListener("input", () => {
+    blockRazaoEProporcao();
+    calcularRazaoEProporcao();
+});
+
+document.getElementById("valorCR").addEventListener("input", () => {
+    blockRazaoEProporcao();
+    calcularRazaoEProporcao();
+});
+
+document.getElementById("valorDR").addEventListener("input", () => {
+    blockRazaoEProporcao();
+    calcularRazaoEProporcao();
 });

@@ -1,6 +1,6 @@
-# Calculadora Avançada
+# Calculadora 2
 
-Bem-vindo à Calculadora Avançada! Este projeto oferece uma interface intuitiva e recursos poderosos para realizar operações matemáticas complexas. 
+Bem-vindo à Calculadora 2! Este projeto oferece uma interface intuitiva e recursos poderosos para realizar operações matemáticas complexas. 
 Seja para cálculos simples ou avançados, esta calculadora foi projetada para atender suas necessidades.
 
 ## Recursos
@@ -13,7 +13,7 @@ Seja para cálculos simples ou avançados, esta calculadora foi projetada para a
 ## Tecnologias Utilizadas
 
 - **Linguagem**: [HTML/CSS/JavaScript/]
-- **Bibliotecas**: [Nerdamer]
+- **Bibliotecas**: []
 
 ## Como usar?
 Acesse o link:
