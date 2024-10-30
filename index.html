@@ -22,7 +22,7 @@
                     <li><button value="fatorial">Fatorial</button></li>
                     <li><button value="duplofatorial">Duplo Fatorial</button></li>
                     <li><button value="razaoeproporção">Razão e Proporção</button></li>
-                    <li><button value="Progressão">Progressão</button></li>
+                    <li><button value="progressão">Progressão</button></li>
                     <li><button value="pitagoras">Teorema de Pitágoras</button></li>
                     <li><button value="bhaskara">Bhaskara</button></li>
                     <li><button value="trigonometria">Trigonometria</button></li>
@@ -90,6 +90,41 @@
                                 </div>
                             </div>
 
+                            <div class="calculo-div" id="progressão-div" style="display: none;">
+                                <div class="selectTipoProgressão">
+                                    <select name="tipoProgressão" id="tipoProgressão-select">
+                                        <option value="" disabled selected>Select a function</option>
+                                        <option value="PA">Progressão Aritmética (PA)</option>
+                                        <option value="PG">Progressão Geométrica (PG)</option>
+                                        <option value="PH">Progressão Harmônica (PH)</option>
+                                    </select>
+                                </div>
+                             
+                                <div id="PAD" style="display: none;">
+                                    <div id="TG">
+                                        <input type="number" placeholder="" id="valorAn" style="text-align: center;">
+                                        <input type="number" placeholder="" id="valorA1" style="text-align: center;">
+                                        <input type="number" placeholder="" id="valorN" style="text-align: center;">
+                                        <input type="number" placeholder="" id="valorR" style="text-align: center;">
+                                    </div>
+                                </div>
+                            
+                                <div id="PGD" style="display: none;">
+                                    <input type="number" placeholder="" id="valorAn" style="text-align: center;">
+                                    <input type="number" placeholder="" id="valorA1" style="text-align: center;">
+                                    <input type="number" placeholder="" id="valorN" style="text-align: center;">
+                                    <input type="number" placeholder="" id="valorR" style="text-align: center;">
+                                </div>
+                            
+                                <div id="PHD" style="display: none;">
+                                    <input type="number" placeholder="" id="valorAn" style="text-align: center;">
+                                    <input type="number" placeholder="" id="valorA1" style="text-align: center;">
+                                    <input type="number" placeholder="" id="valorN" style="text-align: center;">
+                                    <input type="number" placeholder="" id="valorR" style="text-align: center;">
+                                </div>                            
+                            </div>
+                            
+
                             <div class="calculo-div" id="bhaskara-div" style="display: none; align-items: center; gap: .2rem;">
                                 <input id="viado1" type="number" placeholder="">
                                 <label for="">X²</label>
@@ -112,9 +147,14 @@
                                     <input type="number" placeholder="" id="valorA" style="text-align: center;">
                                     <input type="number" placeholder="" id="valorB" style="text-align: center;">
                                     <input type="number" placeholder="" id="valorC" style="text-align: center;">
-                                    <input type="number" placeholder="" id="angulo" style="text-align: center;">
+                                    
+                                    <div style="display: inline-flex; align-items: center;">
+                                        <input type="number" placeholder="" id="angulo" style="text-align: center;">
+                                        <span style="margin-left: 5px;">°</span>
+                                    </div>
                                 </div>
                             </div>
+                            
 
                             <div class="calculo-div" id="logaritmo-div" style="display: none;">
                                 <div id="logaritmod" style="margin-bottom: 1.5rem;">

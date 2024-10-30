@@ -169,7 +169,7 @@ function calcularTrigonometria() {
         conta = `Cateto A (a) = ${valorB} / sin(${angulo})<br>Cateto A (a) = ${resultado}`;
     } else if (valorA && valorB) {
         const anguloCalculado = Math.atan(valorB / valorA) * (180 / Math.PI);
-        resultado = `${anguloCalculado.toFixed(2)}°`;
+        resultado = `${anguloCalculado.toFixed(2)}`;
         conta = `Ângulo = atan(${valorB} / ${valorA})<br>Ângulo = ${resultado}`;
     } else if (valorA && valorC) {
         const catetoBCalculado = Math.sqrt(valorC ** 2 - valorA ** 2);
@@ -227,9 +227,6 @@ function calcularRazaoEProporcao() {
 
     const values = [valorA, valorB, valorC, valorD].filter(value => !isNaN(value) && value !== 0);
 
-    let resultado;
-    let conta;
-
     if (selected === "razao" && values.length === 3) {
         const ratio = (values[0] * values[2]);
         const teuPai = ratio / values[1];
@@ -256,7 +253,7 @@ function funcaoExponencial() {
     } else {
         const resultados = valoresX.map(x => Math.pow(a, x));
         const contas = valoresX.map((x, index) => `f(${x}) = ${resultados[index].toFixed(2)}`).join('<br>');
-        return { result: contas, conta: `Base a = ${a}` };
+        return { result: resultado, conta };
     }
 }
 
@@ -267,23 +264,85 @@ function funcaoQuadratica() {
     const delta2 = B3 * B3 - 4 * A3 * C2;
 
     if (isNaN(A3) || isNaN(B3) || isNaN(C2)) {
-        return { result: "Valores inválidos para a função quadrática.", conta: "" };
+        resultado = "Valores inválidos para a função quadrática."
+        conta = "";
     }
 
     if (delta2 < 0) {
-        return { result: "Delta negativo, sem raízes reais.", conta: "" };
+        resultado = "Delta negativo, sem raízes reais."
+        conta = '';
     } else {
         const x1 = (-B3 + Math.sqrt(delta2)) / (2 * A3);
         const x2 = (-B3 - Math.sqrt(delta2)) / (2 * A3);
         const Xv = -B3 / (2 * A3);
         const Yv = -delta2 / (4 * A3);
         const EY = C2;
-        const contas = `Raízes da função: x1= (${x1.toFixed(2)}, 0), x2= (${x2.toFixed(2)}, 0)<br>
-                        Vértice da parábola: (${Xv.toFixed(2)}, ${Yv.toFixed(2)})<br>
-                        Ponto de interseção com o eixo Y: (0, ${EY.toFixed(2)})`;
-        return { result: contas, conta: `A = ${A3}, B = ${B3}, C = ${C2}` };
     }
+
+    return { result: resultado, conta };
 }
+
+function calcularProgressao() {
+    const TPselected = document.getElementById('tipoProgressão-select').value;
+
+    const valorA1 = parseFloat(document.getElementById('valorA1').value) || null;
+    const valorR = parseFloat(document.getElementById('valorR').value) || null;
+    const valorN = parseFloat(document.getElementById('valorN').value) || null;
+    const valorAk = parseFloat(document.getElementById('valorAn').value) || null;
+
+    const filledInputs = [valorA1, valorR, valorN, valorAk].filter(value => value !== null).length;
+
+    if (TPselected === 'PA') {
+        valorA1.innerHTML = ''
+        valorAk.innerHTML = ''
+        valorR.innerHTML = ''
+        valorN.innerHTML = ''
+        if (filledInputs === 3) {
+            if (valorN === null) {
+                resultado = (valorAk - valorA1) / valorR + 1;
+                conta1 = valorAk - valorA1;
+                conta = `N = (An - A1) / R + 1<br> N = (${valorAk} - ${valorA1}) / ${valorR} + 1<br> N = ${conta1}/${valorR} + 1<br> N = ${resultado}`;
+            } else if (valorR === null) {
+                resultado = (valorAk - valorA1) / (valorN - 1);
+                conta1 = valorAk - valorA1;
+                conta = `R = (An - A1) / (N - 1)<br> R = (${valorAk} - ${valorA1}) / (${valorN} - 1)<br> R = ${conta1}/${valorN} - 1<br> R = ${resultado.toFixed(2)}`;
+            } else if (valorA1 === null) {
+                resultado = valorAk - (valorN - 1) * valorR;
+                conta1 = (valorN - 1) * valor
+                conta = `A1 = An - (N - 1) * R<br> A1 = ${valorAk} - (${valorN} - 1) * ${valorR}<br> A1 = ${valorAk} - ${conta1}<br> A1 = ${resultado.toFixed(2)}`;
+            } else if (valorAk === null) {
+                resultado = valorA1 + (valorN - 1) * valorR;
+                conta1 = (valorN - 1) * valorR;
+                conta = `An = A1 + (N - 1) * R<br> An = ${valorA1} + (${valorN} - 1) * ${valorR}<br> An = ${valorA1} + ${conta1}<br> An = ${resultado.toFixed(2)}`;
+            }
+        } else {
+            return { result: "Preencha dois valores.", conta: "" };
+        }
+    } else if (TPselected === 'PG') {
+        valorA1.innerHTML = ''
+        valorAk.innerHTML = ''
+        valorR.innerHTML = ''
+        valorN.innerHTML = ''
+        if (filledInputs === 3) {
+            if (valorN === null) {
+                resultado = valorA1 * Math.pow(valorR, valorAk - 1);
+                conta = `An = A1 * R^(N-1) = ${valorA1} * ${valorR}^(${valorAk} - 1)`;
+            } else if (valorAk === null) {
+                resultado = valorA1 * Math.pow(valorR, valorN - 1);
+                conta = `An = A1 * R^(N-1) = ${valorA1} * ${valorR}^(${valorN} - 1)`;
+            }
+        } else {
+            return { result: "Preencha dois valores.", conta: "" };
+        }
+    } else if (TPselected === 'PH') {
+
+    }
+
+    return { result: resultado.toFixed(2), conta };
+}
+
+
+
 
 function calcular() {
     const activeDiv = document.querySelector('.calculo-div[style*="display: flex"]');
@@ -327,6 +386,9 @@ function calcular() {
             break;
         case 'razaoeproporção-div':
             ({ result, conta } = calcularRazaoEProporcao());
+            break;
+        case 'progressão-div':
+            ({ result, conta } = calcularProgressao());
             break;
         default:
             errorMessage.innerHTML = "Operação não reconhecida ou inválida";
@@ -504,6 +566,86 @@ function blockRazaoEProporcao() {
     }
 }
 
+function blockPA() {
+    const valorAn = document.getElementById("valorAn");
+    const valorA1 = document.getElementById("valorA1");
+    const valorN = document.getElementById("valorN");
+    const valorR = document.getElementById("valorR");
+
+    const filledInputs = [valorAn.value, valorA1.value, valorN.value, valorR.value].filter(value => value !== "").length;
+
+    if (filledInputs === 3) {
+        if (valorAn.value === "") {
+            valorAn.disabled = true;
+        }
+        if (valorA1.value === "") {
+            valorA1.disabled = true;
+        }
+        if (valorN.value === "") {
+            valorN.disabled = true;
+        }
+        if (valorR.value === "") {
+            valorR.disabled = true;
+        }
+    } else {
+        valorAn.disabled = false;
+        valorA1.disabled = false;
+        valorN.disabled = false;
+        valorR.disabled = false;
+    }
+}
+
+function getInputFaltandoRazao() {
+    const valorA = document.getElementById("valorAR");
+    const valorB = document.getElementById("valorBR");
+    const valorC = document.getElementById("valorCR");
+    const valorD = document.getElementById("valorDR");
+    const razaoOuProporcao = document.getElementById("razaoeproporção-select").value;
+
+    if (razaoOuProporcao === 'razao') {
+        return [valorA, valorB, valorC, valorD].find(input => input.value === "")?.id;
+    } else if (razaoOuProporcao === 'proporção') {
+        const filledInputs = [valorA, valorB, valorC, valorD].filter(input => input.value !== "").length;
+        if (filledInputs === 2) {
+            return [valorA, valorB, valorC, valorD].find(input => input.value === "")?.id;
+        }
+    }
+    return null;
+}
+
+function getInputFaltandoPitagoras() {
+    const catetoA = document.getElementById("catetoA");
+    const catetoB = document.getElementById("catetoB");
+    const hipotenusa = document.getElementById("Hipotenusa");
+
+    return [catetoA, catetoB, hipotenusa].find(input => input.value === "")?.id || null;
+}
+
+function getInputFaltandoTrigonometria() {
+    const valorA = parseFloat(document.getElementById("valorA").value) || null;
+    const valorB = parseFloat(document.getElementById("valorB").value) || null;
+    const valorC = parseFloat(document.getElementById("valorC").value) || null;
+    const angulo = parseFloat(document.getElementById("angulo").value) || null;
+
+    if (valorA === null && valorB !== null && angulo !== null) {
+        return "valorA";
+    } else if (valorB === null && valorA !== null && angulo !== null) {
+        return "valorB";
+    } else if (angulo === null && valorA !== null && valorB !== null) {
+        return "angulo";
+    } else if (valorA !== null && valorC !== null && valorB === null) {
+        return "valorB";
+    } else if (valorB !== null && valorC !== null && valorA === null) {
+        return "valorA";
+    } else if (valorC === null && valorA !== null && valorB !== null) {
+        return "valorC";
+    } else if (angulo === null && valorC !== null) {
+        return "angulo";
+    }
+
+    return null;
+}
+
 function configurarBotoes() {
     const botoes = document.querySelectorAll('#calculoLista button');
     botoes.forEach(botao => {
@@ -549,18 +691,32 @@ function clearHistory() {
 function mostrarResultado() {
     let { result } = calcular();
     let resposta = document.querySelector("#resultado");
+    const calculoSelecionado = document.querySelector('.calculo-div[style*="display: flex"]').id;
+    let razaoOuProporcao = document.querySelector("#razaoeproporção-select");
+
+    let inputFaltando = null;
+
+    if (calculoSelecionado === 'razaoeproporção-div' && razaoOuProporcao.value === 'razao') {
+        inputFaltando = getInputFaltandoRazao();
+    } else if (calculoSelecionado === 'pitagoras-div') {
+        inputFaltando = getInputFaltandoPitagoras();
+    } else if (calculoSelecionado === 'trigonometria-div') {
+        inputFaltando = getInputFaltandoTrigonometria();
+    }
+
+    if (inputFaltando && result !== undefined) {
+        document.getElementById(inputFaltando).value = result;
+    }
+
     resposta.innerHTML = result !== undefined ? `Resultado: ${result}` : "";
 
     if (result !== undefined && !isNaN(result)) {
         const savedHistory = JSON.parse(localStorage.getItem('history')) || [];
         savedHistory.push(result);
-
         localStorage.setItem('history', JSON.stringify(savedHistory));
-
         updateHistory();
     }
 }
-
 
 function mostrarConta(){
     let {conta} = calcular();
@@ -612,35 +768,69 @@ document.getElementById("funcoes-select").addEventListener("change", function() 
     }
 });
 
+document.getElementById("tipoProgressão-select").addEventListener("change", function() {
+    const PAD = document.querySelector("#PAD");
+    const PGD = document.querySelector("#PGD");
+    const PHD = document.querySelector("#PHD");
+
+    PAD.style.display = "none";
+    PGD.style.display = "none";
+    PHD.style.display = "none";
+
+    if (this.value === "PA") {
+        PAD.style.display = "block";
+    } else if (this.value === "PG") {
+        PGD.style.display = "block";
+    } else if (this.value === "PH") {
+        PHD.style.display = "block";
+    } else {
+        let errorMessage = document.querySelector('#erroMensagem');
+        errorMessage.innerHTML = 'Selecione um cálculo válido';
+    }
+});
+
+document.getElementById("tipoPA-select").addEventListener("change", function() {
+    const TG = document.querySelector("#TG");
+    const TGG = document.querySelector("#TGG");
+    const ST = document.querySelector("#ST");
+
+    TG.style.display = "none";
+    TGG.style.display = "none";
+    ST.style.display = "none";
+
+    if (this.value === "TG") {
+        TG.style.display = "block";
+    } else if (this.value === "TGG") {
+        TGG.style.display = "block";
+    } else if (this.value === "ST") {
+        ST.style.display = "block";
+    } else {
+        let errorMessage = document.querySelector('#erroMensagem');
+        errorMessage.innerHTML = 'Selecione um cálculo válido';
+    }
+});
 
 document.getElementById("catetoA").addEventListener("input", () => {
     blockPitagoras();
-    calcularPitagoras();
 });
 document.getElementById("catetoB").addEventListener("input", () => {
     blockPitagoras();
-    calcularPitagoras();
 });
 document.getElementById("Hipotenusa").addEventListener("input", () => {
     blockPitagoras();
-    calcularPitagoras();
 });
 document.getElementById("valorA").addEventListener("input", () => {
     blockTrigonometria();
-    calcularTrigonometria();
 });
 
 document.getElementById("valorB").addEventListener("input", () => {
     blockTrigonometria();
-    calcularTrigonometria();
 });
 document.getElementById("valorC").addEventListener("input", () => {
     blockTrigonometria();
-    calcularTrigonometria();
 });
 document.getElementById("angulo").addEventListener("input", () => {
     blockTrigonometria();
-    calcularTrigonometria();
 });
 document.getElementById("logaritmo").addEventListener("input", () => {
     blockLogaritmo();
@@ -656,20 +846,32 @@ document.getElementById("base").addEventListener("input", () => {
 
 document.getElementById("valorAR").addEventListener("input", () => {
     blockRazaoEProporcao();
-    calcularRazaoEProporcao();
 });
 
 document.getElementById("valorBR").addEventListener("input", () => {
     blockRazaoEProporcao();
-    calcularRazaoEProporcao();
 });
 
 document.getElementById("valorCR").addEventListener("input", () => {
     blockRazaoEProporcao();
-    calcularRazaoEProporcao();
 });
 
 document.getElementById("valorDR").addEventListener("input", () => {
     blockRazaoEProporcao();
-    calcularRazaoEProporcao();
+});
+
+document.getElementById("valorAn").addEventListener("input", () => {
+    blockPA();
+});
+
+document.getElementById("valorA1").addEventListener("input", () => {
+    blockPA();
+});
+
+document.getElementById("valorN").addEventListener("input", () => {
+    blockPA();
+});
+
+document.getElementById("valorR").addEventListener("input", () => {
+    blockPA();
 });

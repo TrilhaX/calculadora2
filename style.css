@@ -191,10 +191,14 @@ button:hover {
     align-items: center;
 }
 
-.selectRazaoeProporção select{
+select{
     padding: .5rem;
     border: black solid .1rem;
     border-radius: .5rem;
+}
+
+#tipoPA-select{
+    margin-bottom: .5rem;
 }
 
 input:disabled {
@@ -289,7 +293,7 @@ input:disabled {
 #trigonometria > #valorA { 
     position: absolute;
     top: 35%;
-    right: 70%;
+    left: 12%;
     width: 4rem;
 }
 
@@ -307,11 +311,21 @@ input:disabled {
     width: 4rem;
 }
 
-#trigonometria > #angulo {
+#trigonometria > div {
     position: absolute;
     top: 70%;
     left: 55%;
+    display: inline-flex;
+    align-items: center;
+}
+
+#trigonometria > div > #angulo {
     width: 3rem;
+}
+
+#trigonometria > div > span {
+    margin-left: 5px;
+    font-size: 1rem;
 }
 
 #logaritmod {
@@ -428,6 +442,44 @@ input:disabled {
 #fatorial-div{
     display: flex;
     flex-direction: row;
+}
+
+#TG {
+    background-image: url(imagens/paTG.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position-x: center;
+    background-position: center;
+    height: 60px;
+    position: relative;
+}
+
+#TG > #valorAn { 
+    position: absolute;
+    top: 15%;
+    left: 0;
+    width: 3rem;
+}
+
+#TG > #valorA1 {
+    position: absolute;
+    top: 15%;
+    left: 27%;
+    width: 3rem;
+}
+
+#TG > #valorN {
+    position: absolute;
+    top: 15%;
+    left: 56%;
+    width: 2.5rem;
+}
+
+#TG > #valorR {
+    position: absolute;
+    top: 15%;
+    left: 95%;
+    width: 3rem;
 }
 
 ::-webkit-scrollbar {
