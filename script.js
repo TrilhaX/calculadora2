@@ -290,13 +290,14 @@ function calcularProgressao() {
     const valorAn1 = parseFloat(document.getElementById('valorAn1').value) || null;
     const valorS = parseFloat(document.getElementById('valorS1').value) || null;
 
-    const filledInputs = [valorA1, valorR, valorN, valorAn, valorAk].filter(value => value !== null).length;
-
+    const filledInputs1 = [valorA1, valorR, valorN, valorAn, valorAk].filter(value => value !== null).length;
+    const filledInputs2 = [valorA11, valorAn1, valorN1, valorS].filter(value =>value !== null).length;
+    
     let selected = document.getElementById('tipoPA-select').value;
 
     if (TPselected === 'PA') {
         if (selected === 'TG'){
-            if (filledInputs === 4) {
+            if (filledInputs1 === 4) {
                 if (valorN === null) {
                     resultado = (valorAk - valorA1) / valorR + 1;
                     conta = `N = (Ak - A1) / R + 1<br> N = (${valorAk} - ${valorA1}) / ${valorR} + 1<br> N = ${(valorAk - valorA1)}/${valorR} + 1<br> N = ${resultado}`;
@@ -311,19 +312,22 @@ function calcularProgressao() {
                     conta = `Ak = A1 + (N - 1) * R<br> Ak = ${valorA1} + (${valorN} - 1) * ${valorR}<br> Ak = ${valorA1} + ${(valorN - 1) * valorR}<br> Ak = ${resultado.toFixed(2)}`;
                 }
             }
-        } else if (selected === 'somaGeral') {
-            if (filledInputs === 3) {
-                if (valorN1 !== null && valorA11 !== null && (valorAn1 !== null || valorS !== null)) {
-                    if (valorAn1 !== null) {
+            } else if (selected === 'somaGeral') {
+                if (filledInputs2 === 3) {
+                    if (valorS === null) {
                         resultado = (valorN1 / 2) * (valorA11 + valorAn1);
-                        conta = `S_N = N/2 * (A1 + Ak) = ${valorN1}/2 * (${valorA11} + ${valorAn1}) = ${resultado.toFixed(2)}`;
-                    } else if (valorS !== null) {
+                        conta = `S = N/2 * (A1 + Ak)<br> S = ${valorN1}/2 * (${valorA11} + ${valorAn1})<br> S = ${resultado.toFixed(2)}`;
+                    } else if (valorAn1 === null) {
                         resultado = (valorN1 / 2) * (2 * valorA11 + (valorN1 - 1) * valorS);
-                        conta = `S_N = N/2 * (2A1 + (N-1)R) = ${valorN1}/2 * (2 * ${valorA11} + (${valorN1} - 1) * ${valorS}) = ${resultado.toFixed(2)}`;
+                        conta = `S = N/2 * (2A1 + (N-1)R)<br> S = ${valorN1}/2 * (2 * ${valorA11} + (${valorN1} - 1) * ${valorS})<br> S = ${resultado.toFixed(2)}`;
+                    }else if (valorN1 === null){
+                        resultado = (valorS * 2)/(valorA11 + valorAn1)
+                        let conta1 = valorS * 2
+                        let conta2 =  valorA11 + valorAn1
+                        conta = `N = ${valorS} x 2/${valorA11} + ${valorAn1}<br> N = ${conta1}/${conta2}<br> N = ${resultado.toFixed(2)} `
                     }
                 }
-            }
-        }
+            }        
     } else if (TPselected === 'PG') {
         if (filledInputs === 3) {
             if (valorN === null) {
@@ -345,7 +349,7 @@ function calcularProgressao() {
     } else if (TPselected === 'PH') {
     }
 
-    return { result: resultado.toFixed(2), conta };
+    return { result: resultado.toFixed(2), conta};
 }
 
 function calcular() {
@@ -601,7 +605,7 @@ function blockPaSg() {
         input.disabled = false; // Enable all inputs initially
     });
 
-    if (filledInputs >= 4) {
+    if (filledInputs >= 3) {
         inputs.forEach(input => {
             input.disabled = input.value === ""; // Disable empty inputs if 4 or more are filled
         });
