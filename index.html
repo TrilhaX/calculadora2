@@ -23,7 +23,7 @@
                     <li><button value="duplofatorial">Duplo Fatorial</button></li>
                     <li><button value="razaoeproporção">Razão e Proporção</button></li>
                     <li><button value="progressão">Progressão</button></li>
-                    <li><button value="pitagoras">Teorema de Pitágoras</button></li>
+                    <li><button value="pitagoras">Pitagoras</button></li>
                     <li><button value="bhaskara">Bhaskara</button></li>
                     <li><button value="trigonometria">Trigonometria</button></li>
                     <li><button value="funcao">Função</button></li>
@@ -93,19 +93,35 @@
                             <div class="calculo-div" id="progressão-div" style="display: none;">
                                 <div class="selectTipoProgressão">
                                     <select name="tipoProgressão" id="tipoProgressão-select">
-                                        <option value="" disabled selected>Select a function</option>
+                                        <option value="" disabled selected>Selecione o tipo</option>
                                         <option value="PA">Progressão Aritmética (PA)</option>
                                         <option value="PG">Progressão Geométrica (PG)</option>
                                         <option value="PH">Progressão Harmônica (PH)</option>
                                     </select>
                                 </div>
-                             
-                                <div id="PAD" style="display: none;">
-                                    <div id="TG">
-                                        <input type="number" placeholder="" id="valorAn" style="text-align: center;">
-                                        <input type="number" placeholder="" id="valorA1" style="text-align: center;">
-                                        <input type="number" placeholder="" id="valorN" style="text-align: center;">
-                                        <input type="number" placeholder="" id="valorR" style="text-align: center;">
+
+                                <div class="selectTipoProgressão">
+                                    <select name="tipoPA" id="tipoPA-select" style="display: none;">
+                                        <option value="" disabled selected>Selecione o calculo</option>
+                                        <option value="TG">Termo geral com qualquer termo</option>
+                                        <option value="somaGeral">Soma dos Termos</option>
+                                    </select>
+                                    
+                                    <div id="PAD">
+                                        <div id="TG" style="display: none;">
+                                            <input type="number" placeholder="" id="valorAn" style="text-align: center;">
+                                            <input type="number" placeholder="" id="valorA1" style="text-align: center;">
+                                            <input type="number" placeholder="" id="valorN" style="text-align: center;">
+                                            <input type="number" placeholder="" id="valorR" style="text-align: center;">
+                                            <input type="number" placeholder="" id="valorAk" style="text-align: center;">
+                                        </div>
+
+                                        <div id="somaGeral" style="display: none;">
+                                            <input type="number" placeholder="" id="valorS1" style="text-align: center;">
+                                            <input type="number" placeholder="" id="valorAn1" style="text-align: center;">
+                                            <input type="number" placeholder="" id="valorA11" style="text-align: center;">
+                                            <input type="number" placeholder="" id="valorN1" style="text-align: center;">
+                                        </div>
                                     </div>
                                 </div>
                             

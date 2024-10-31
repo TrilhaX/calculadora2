@@ -106,6 +106,7 @@ button:hover {
     border-radius: 0.5rem;
     width: 15rem;
     padding: 1rem;
+    z-index: 1;
 }
 
 .sectionCalculos ul {
@@ -191,10 +192,17 @@ button:hover {
     align-items: center;
 }
 
+.selectTipoProgressão{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
 select{
     padding: .5rem;
     border: black solid .1rem;
     border-radius: .5rem;
+    justify-content: center;
 }
 
 #tipoPA-select{
@@ -342,23 +350,23 @@ input:disabled {
     bottom: 28%;
     left: 75%;
     height: 1.5rem;
-    width: 3rem;
+    width: 4rem;
 }
 
 #logaritmod > #logaritmando {
     position: absolute;
     bottom: 28%;
-    left: 50%;
+    left: 49%;
     height: 1.5rem;
-    width: 3rem;
+    width: 4rem;
 }
 
 #logaritmod > #base {
     position: absolute;
     top: 100%;
-    left: 45%;
+    left: 40%;
     height: 1.5rem;
-    width: 3rem;
+    width: 4rem;
 }
 
 #creditos{
@@ -406,29 +414,29 @@ input:disabled {
 
 #razaoeproporção > #valorAR { 
     position: absolute;
-    top: 32%;
-    left: 24%;
+    top: 30%;
+    left: 12%;
     width: 4rem;
 }
 
 #razaoeproporção > #valorBR {
     position: absolute;
-    top: 32%;
-    left: 59%;
+    top: 30%;
+    left: 66%;
     width: 4rem;
 }
 
 #razaoeproporção > #valorCR {
     position: absolute;
-    top: 58%;
-    left: 24%;
+    top: 60%;
+    left: 12%;
     width: 4rem;
 }
 
 #razaoeproporção > #valorDR {
     position: absolute;
-    top: 58%;
-    left: 59%;
+    top: 60%;
+    left: 66%;
     width: 4rem;
 }
 
@@ -480,6 +488,52 @@ input:disabled {
     top: 15%;
     left: 95%;
     width: 3rem;
+}
+
+#TG > #valorAk {
+    position: absolute;
+    top: 15%;
+    left: 76.5%;
+    width: 2.5rem;
+}
+
+#somaGeral {
+    background-image: url(imagens/paS.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position-x: center;
+    background-position: center;
+    height: 100px;
+    position: relative;
+}
+
+
+#somaGeral > #valorS1 { 
+    position: absolute;
+    top: 40%;
+    left: 3%;
+    width: 4rem;
+}
+
+#somaGeral > #valorAn1 { 
+    position: absolute;
+    top: 10%;
+    left: 61%;
+    width: 3rem;
+}
+
+#somaGeral > #valorA11 {
+    position: absolute;
+    top: 10%;
+    left: 39%;
+    width: 3rem;
+}
+
+#somaGeral > #valorN1 {
+    position: absolute;
+    top: 10%;
+    left: 82%;
+    width: 4rem;
 }
 
 ::-webkit-scrollbar {
@@ -553,6 +607,7 @@ input:disabled {
         padding: 0.5rem;
         font-size: 0.9rem;
         width: 100%;
+        z-index: 1;
     }
 
     #dropdownCalculos {
