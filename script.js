@@ -30,7 +30,7 @@ function calcularExpressao() {
         result = undefined;
     }
 
-    return { result, conta };
+    return { result, conta, resultado2:'' };
 }
 
 function calcularRaiz() {
@@ -49,7 +49,7 @@ function calcularPorcentagem() {
     const conta2 = valor * percentual;
     const conta = `${percentual}% de ${valor} <br> ${valor} * ${percentual}/100 <br> ${conta2}/100 <br> ${result}`;
 
-    return { result, conta };
+    return { result, conta, resultado2:'' };
 }
 
 function calcularBhaskara() {
@@ -80,7 +80,7 @@ function calcularBhaskara() {
         `;
     }
 
-    return { result, conta };
+    return { result, conta, resultado2:'' };
 }
 
 function calcularFatorial() {
@@ -99,7 +99,7 @@ function calcularFatorial() {
             conta += (i > 1) ? `${i} * ` : `${i}`;
         }
         conta += ` = ${factorial}`;
-        return { result: `${factorial}`, conta };
+        return { result: `${factorial}`, conta, resultado2:''};
     }
 }
 
@@ -121,32 +121,7 @@ function calcularDuploFatorial() {
             firstTerm = false;
         }
         conta += ` = ${factorial}`;
-        return { result: `${factorial}`, conta };
-    }
-}
-
-function calcularPitagoras() {
-    const catetoA = parseFloat(document.getElementById("catetoA").value) || 0;
-    const catetoB = parseFloat(document.getElementById("catetoB").value) || 0;
-    const hipotenusa = parseFloat(document.getElementById("Hipotenusa").value) || 0;
-
-    if (catetoA && catetoB) {
-        const hipotenusaCalculada = Math.sqrt(catetoA ** 2 + catetoB ** 2);
-        const raizZuada = catetoA ** 2 + catetoB ** 2
-        conta = `Hipotenusa (c) = √(${catetoA}² + ${catetoB}²)<br> Hipotenusa (c) = √(${catetoA ** 2} + ${catetoB ** 2})<br> Hipotenusa (c) = √${raizZuada} <br>Hipotenusa (c)  = ${hipotenusaCalculada.toFixed(2)}`;
-        return { result: `${hipotenusaCalculada.toFixed(2)}`, conta };
-    } else if (catetoA && hipotenusa) {
-        const catetoBCalculado = Math.sqrt(hipotenusa ** 2 - catetoA ** 2);
-        const raizZuada = hipotenusa ** 2 - catetoA ** 2
-        conta = `Cateto B (b) = √(${hipotenusa}² - ${catetoA}²)<br> Cateto B (b) = √(${hipotenusa ** 2} - ${catetoA ** 2})<br> Cateto B (b) = √${raizZuada} <br>Cateto B (b) = ${catetoBCalculado.toFixed(2)}`;
-        return { result: `${catetoBCalculado.toFixed(2)}`, conta };
-    } else if (catetoB && hipotenusa) {
-        const catetoACalculado = Math.sqrt(hipotenusa ** 2 - catetoB ** 2);
-        const raizZuada = hipotenusa ** 2 - catetoB ** 2
-        conta = `Cateto A (a) = √(${hipotenusa}² - ${catetoB}²)<br> Cateto A (a) = √(${hipotenusa ** 2} - ${catetoB ** 2})<br>Cateto A (a) = √${raizZuada} <br>Cateto A (a) = ${catetoACalculado.toFixed(2)}`;
-        return { result: `${catetoACalculado.toFixed(2)}`, conta };
-    } else {
-        return { result: "Preencha dois valores.", conta};
+        return { result: `${factorial}`, conta, resultado2:'' };
     }
 }
 
@@ -156,36 +131,55 @@ function calcularTrigonometria() {
     const valorC = parseFloat(document.getElementById("valorC").value) || 0;
     const angulo = parseFloat(document.getElementById("angulo").value) || 0;
 
+    let resultado, resultado2;
+    let result; // Variável para armazenar o resultado final da operação
+    let conta; // Variável para a conta formatada
+
     if (valorA && angulo) {
-        const catetoBCalculado = valorA * Math.sin(angulo * Math.PI / 180);
-        resultado = `${catetoBCalculado.toFixed(2)}`;
-        conta = `Cateto B (b) = ${valorA} * sin(${angulo})<br>Cateto B (b) = ${resultado}`;
+        const catetoB = valorA * Math.tan(angulo * Math.PI / 180);
+        const hipotenusa = valorA / Math.cos(angulo * Math.PI / 180);
+        resultado = catetoB.toFixed(2);
+        resultado2 = hipotenusa.toFixed(2);
+        result = `${resultado}, ${resultado2}`;
+        conta = `${valorA} * tan(${angulo})<br>${valorA} / cos(${angulo})<br>${resultado}, ${resultado2}`;
     } else if (valorB && angulo) {
-        const catetoACalculado = valorB / Math.sin(angulo * Math.PI / 180);
-        resultado = catetoACalculado.toFixed(2);
-        conta = `Cateto A (a) = ${valorB} / sin(${angulo})<br>Cateto A (a) = ${resultado}`;
+        const catetoA = valorB / Math.tan(angulo * Math.PI / 180);
+        const hipotenusa = valorB / Math.sin(angulo * Math.PI / 180);
+        resultado = catetoA.toFixed(2);
+        resultado2 = hipotenusa.toFixed(2);
+        result = `${resultado}, ${resultado2}`;
+        conta = `${valorB} / tan(${angulo})<br>${valorB} / sin(${angulo})<br>${resultado}, ${resultado2}`;
     } else if (valorA && valorB) {
         const anguloCalculado = Math.atan(valorB / valorA) * (180 / Math.PI);
-        resultado = `${anguloCalculado.toFixed(2)}`;
-        conta = `Ângulo = atan(${valorB} / ${valorA})<br>Ângulo = ${resultado}`;
+        const hipotenusa = Math.sqrt(valorA ** 2 + valorB ** 2);
+        resultado = anguloCalculado.toFixed(2);
+        resultado2 = hipotenusa.toFixed(2);
+        result = `${resultado}, ${resultado2}`;
+        conta = `atan(${valorB} / ${valorA})<br>√(${valorA}² + ${valorB}²)<br>${resultado}, ${resultado2}`;
     } else if (valorA && valorC) {
-        const catetoBCalculado = Math.sqrt(valorC ** 2 - valorA ** 2);
-        resultado = catetoBCalculado.toFixed(2);
-        conta = `Cateto B (b) = √(${valorC}² - ${valorA}²)<br>Cateto B (b) = ${resultado}`;
+        const catetoB = Math.sqrt(valorC ** 2 - valorA ** 2);
+        resultado = catetoB.toFixed(2);
+        resultado2 = ""; // Sem segundo resultado
+        result = `${resultado}`;
+        conta = `√(${valorC}² - ${valorA}²)<br>${resultado}`;
     } else if (valorB && valorC) {
-        const catetoACalculado = Math.sqrt(valorC ** 2 - valorB ** 2);
-        resultado = catetoACalculado.toFixed(2);
-        conta = `Cateto A (a) = √(${valorC}² - ${valorB}²)<br>Cateto A (a) = ${resultado}`;
+        const catetoA = Math.sqrt(valorC ** 2 - valorB ** 2);
+        resultado = catetoA.toFixed(2);
+        resultado2 = ""; // Sem segundo resultado
+        result = `${resultado}`;
+        conta = `√(${valorC}² - ${valorB}²)<br>${resultado}`;
     } else if (angulo && valorC) {
         const catetoA = valorC * Math.cos(angulo * Math.PI / 180);
         const catetoB = valorC * Math.sin(angulo * Math.PI / 180);
-        resultado = `A: ${catetoA.toFixed(2)}, B: ${catetoB.toFixed(2)}`;
-        conta = `Cateto A (a) = ${valorC} * cos(${angulo})<br>Cateto B (b) = ${valorC} * sin(${angulo})<br>Resultado = ${resultado}`;
+        resultado = catetoA.toFixed(2);
+        resultado2 = catetoB.toFixed(2);
+        result = `${resultado}, ${resultado2}`;
+        conta = `${valorC} * cos(${angulo})<br>${valorC} * sin(${angulo})<br>${resultado}, ${resultado2}`;
     } else {
         return { result: "Preencha dois valores.", conta: "" };
     }
 
-    return { result: resultado, conta };
+    return { result, resultado2, conta, resultado1: resultado };
 }
 
 function calcularLog() {
@@ -211,7 +205,7 @@ function calcularLog() {
         return { result: "Preencha dois valores.", conta: "" };
     }
 
-    return { result: resultado, conta };
+    return { result: resultado, conta , resultado2:''};
 
 }
 
@@ -235,7 +229,7 @@ function calcularRazaoEProporcao() {
         conta = `Proporção = ${values[0]}:${values[1]}<br> Proporção = ${resultado}`;
     }
 
-    return { result: resultado, conta };
+    return { result: resultado, conta , resultado2:''};
 }
 
 function funcaoExponencial() {
@@ -248,7 +242,7 @@ function funcaoExponencial() {
     } else {
         const resultados = valoresX.map(x => Math.pow(a, x));
         const contas = valoresX.map((x, index) => `f(${x}) = ${resultados[index].toFixed(2)}`).join('<br>');
-        return { result: resultado, conta };
+        return { result: resultado, conta , resultado2:''};
     }
 }
 
@@ -274,7 +268,7 @@ function funcaoQuadratica() {
         const EY = C2;
     }
 
-    return { result: resultado, conta };
+    return { result: resultado, conta , resultado2: ''};
 }
 
 function calcularProgressao() {
@@ -349,62 +343,60 @@ function calcularProgressao() {
     } else if (TPselected === 'PH') {
     }
 
-    return { result: resultado.toFixed(2), conta};
+    return { result: resultado.toFixed(2), conta , resultado2: ''};
 }
 
 function calcular() {
     const activeDiv = document.querySelector('.calculo-div[style*="display: flex"]');
     let errorMessage = document.querySelector('#erroMensagem');
-    let result, conta;
+    let result, conta, resultado1, resultado2;
 
     errorMessage.innerHTML = "";
 
     if (!activeDiv) {
         errorMessage.innerHTML = "Nenhuma operação selecionada.";
-        return { result, conta };
+        return { result, conta, resultado1, resultado2 };
     }
 
     switch (activeDiv.id) {
         case 'eval-div':
-            ({ result, conta } = calcularExpressao());
+            ({ result, conta, resultado1 = '', resultado2 = '' } = calcularExpressao());
             break;
         case 'raiz-div':
-            ({ result, conta } = calcularRaiz());
+            ({ result, conta, resultado1 = '', resultado2 = '' } = calcularRaiz());
             break;
         case 'porcentagem-div':
-            ({ result, conta } = calcularPorcentagem());
+            ({ result, conta, resultado1 = '', resultado2 = '' } = calcularPorcentagem());
             break;
         case 'bhaskara-div':
-            ({ result, conta } = calcularBhaskara());
+            ({ result, conta, resultado1 = '', resultado2 = '' } = calcularBhaskara());
             break;
         case 'fatorial-div':
-            ({ result, conta } = calcularFatorial());
+            ({ result, conta, resultado1 = '', resultado2 = '' } = calcularFatorial());
             break;
         case 'duplofatorial-div':
-            ({ result, conta } = calcularDuploFatorial());
+            ({ result, conta, resultado1 = '', resultado2 = '' } = calcularDuploFatorial());
             break;
-        case 'pitagoras-div':
-            ({ result, conta } = calcularPitagoras());
-            break;
-        case 'trigonometria-div':
-            ({ result, conta } = calcularTrigonometria());
+        case 'pitagoras-trigonometria-div':
+            ({ result, conta, resultado1, resultado2 } = calcularTrigonometria());
             break;
         case 'logaritmo-div':
-            ({ result, conta } = calcularLog());
+            ({ result, conta, resultado1 = '', resultado2 = '' } = calcularLog());
             break;
         case 'razaoeproporção-div':
-            ({ result, conta } = calcularRazaoEProporcao());
+            ({ result, conta, resultado1 = '', resultado2 = '' } = calcularRazaoEProporcao());
             break;
         case 'progressão-div':
-            ({ result, conta } = calcularProgressao());
+            ({ result, conta, resultado1 = '', resultado2 = '' } = calcularProgressao());
             break;
         default:
-            errorMessage.innerHTML = "Operação não reconhecida ou inválida";
-            return { result, conta };
+            errorMessage.innerHTML = "Operação não reconhecida ou inválida.";
+            return { result, conta, resultado1, resultado2 };
     }
-    
-    return { result, conta };
+
+    return { result, conta, resultado1, resultado2 };
 }
+
 
 function evaluateExpression(expression) {
     expression = handleSquareRoots(expression);
@@ -462,38 +454,15 @@ function mostrarCalculo(calculoId) {
     calculoDiv.style.gap = '.5rem';
 }
 
-function blockPitagoras() {
-    const catetoA = document.getElementById("catetoA");
-    const catetoB = document.getElementById("catetoB");
-    const hipotenusa = document.getElementById("Hipotenusa");
-
-    const filledInputs = [catetoA.value, catetoB.value, hipotenusa.value].filter(value => value !== "").length;
-
-    if (filledInputs === 2) {
-        if (catetoA.value === "") {
-            catetoA.disabled = true;
-        }
-        if (catetoB.value === "") {
-            catetoB.disabled = true;
-        }
-        if (hipotenusa.value === "") {
-            hipotenusa.disabled = true;
-        }
-    } else {
-        catetoA.disabled = false;
-        catetoB.disabled = false;
-        hipotenusa.disabled = false;
-    }
-}
-
 function blockTrigonometria() {
     const valorA = document.getElementById("valorA");
     const valorB = document.getElementById("valorB");
+    const valorC = document.getElementById("valorC");
     const angulo = document.getElementById("angulo");
 
-    const filledInputs = [valorA.value, valorB.value, angulo.value].filter(value => value !== "").length;
+    const filledInputs = [valorA.value, valorB.value, valorC.value, angulo.value].filter(value => value !== "").length;
 
-    if (filledInputs === 2) {
+    if (filledInputs >= 2 && filledInputs <= 3) {
         if (valorA.value === "") {
             valorA.disabled = true;
         }
@@ -513,6 +482,7 @@ function blockTrigonometria() {
         angulo.disabled = false;
     }
 }
+
 
 function blockLogaritmo() {
     const logaritmo = document.getElementById("logaritmo");
@@ -581,12 +551,12 @@ function blockPaTg() {
     const filledInputs = inputs.filter(input => input.value !== "").length;
 
     inputs.forEach(input => {
-        input.disabled = false; // Enable all inputs initially
+        input.disabled = false;
     });
 
     if (filledInputs >= 4) {
         inputs.forEach(input => {
-            input.disabled = input.value === ""; // Disable empty inputs if 4 or more are filled
+            input.disabled = input.value === "";
         });
     }
 }
@@ -602,12 +572,12 @@ function blockPaSg() {
     const filledInputs = inputs.filter(input => input.value !== "").length;
 
     inputs.forEach(input => {
-        input.disabled = false; // Enable all inputs initially
+        input.disabled = false;
     });
 
     if (filledInputs >= 3) {
         inputs.forEach(input => {
-            input.disabled = input.value === ""; // Disable empty inputs if 4 or more are filled
+            input.disabled = input.value === "";
         });
     }
 }
@@ -629,14 +599,6 @@ function getInputFaltandoRazao() {
         }
     }
     return null;
-}
-
-function getInputFaltandoPitagoras() {
-    const catetoA = document.getElementById("catetoA");
-    const catetoB = document.getElementById("catetoB");
-    const hipotenusa = document.getElementById("Hipotenusa");
-
-    return [catetoA, catetoB, hipotenusa].find(input => input.value === "")?.id || null;
 }
 
 function getInputFaltandoPaTg() {
@@ -676,17 +638,23 @@ function getInputFaltandoTrigonometria() {
 
     if (valorA === null && valorB !== null && angulo !== null) {
         return "valorA";
-    } else if (valorB === null && valorA !== null && angulo !== null) {
+    }
+    if (valorB === null && valorA !== null && angulo !== null) {
         return "valorB";
-    } else if (angulo === null && valorA !== null && valorB !== null) {
+    } 
+    if (angulo === null && valorA !== null && valorB !== null) {
         return "angulo";
-    } else if (valorA !== null && valorC !== null && valorB === null) {
+    } 
+    if (valorA !== null && valorC !== null && valorB === null) {
         return "valorB";
-    } else if (valorB !== null && valorC !== null && valorA === null) {
+    } 
+    if (valorB !== null && valorC !== null && valorA === null) {
         return "valorA";
-    } else if (valorC === null && valorA !== null && valorB !== null) {
+    }
+    if (valorC === null && valorA !== null && valorB !== null) {
         return "valorC";
-    } else if (angulo === null && valorC !== null) {
+    }
+    if (angulo === null && valorC !== null) {
         return "angulo";
     }
 
@@ -736,37 +704,52 @@ function clearHistory() {
 }
 
 function mostrarResultado() {
-    let { result } = calcular();
+    let { result, resultado1, resultado2 } = calcularTrigonometria(); // Chama a função correta
     let resposta = document.querySelector("#resultado");
     const calculoSelecionado = document.querySelector('.calculo-div[style*="display: flex"]').id;
     let razaoOuProporcao = document.querySelector("#razaoeproporção-select");
 
     let inputFaltando = null;
 
+    // Determina qual input está faltando
     if (calculoSelecionado === 'razaoeproporção-div' && razaoOuProporcao.value === 'razao') {
         inputFaltando = getInputFaltandoRazao();
-    } else if (calculoSelecionado === 'pitagoras-div') {
-        inputFaltando = getInputFaltandoPitagoras();
-    } else if (calculoSelecionado === 'trigonometria-div') {
+    } else if (calculoSelecionado === 'pitagoras-trigonometria-div') {
         inputFaltando = getInputFaltandoTrigonometria();
-    }else if(calculoSelecionado === 'logaritmo-div'){
+    } else if (calculoSelecionado === 'logaritmo-div') {
         inputFaltando = getInputFaltandoLog();
-    }else if(calculoSelecionado === 'progressão-div'){
+    } else if (calculoSelecionado === 'progressão-div') {
         let selected = document.getElementById('tipoPA-select').value;
-        if (selected === 'TG'){
+        if (selected === 'TG') {
             inputFaltando = getInputFaltandoPaTg();
-        }else if (selected === 'somaGeral'){
+        } else if (selected === 'somaGeral') {
             inputFaltando = getInputFaltandoPaSg();
         }
     }
 
     if (inputFaltando && result !== undefined) {
-        document.getElementById(inputFaltando).value = result;
-        document.getElementById(inputFaltando).disabled = false;
+        let inputElements = document.querySelectorAll(`#${inputFaltando}`);
+        inputElements.forEach(inputElement => {
+            if (inputElement) {
+                if (calculoSelecionado === 'pitagoras-trigonometria-div') {
+                    if (inputElement.id === 'angulo') {
+                        inputElement.value = resultado1;
+                    } 
+                    if (inputElement.id === 'valorA' || inputElement.id === 'valorB' || inputElement.id === 'valorC') {
+                        inputElement.value = resultado2;
+                    }
+                } else {
+                    inputElement.value = result;
+                }
+                inputElement.disabled = false;
+            }
+        });
     }
 
+    // Atualiza o resultado exibido
     resposta.innerHTML = result !== undefined ? `Resultado: ${result}` : "";
 
+    // Salva o histórico se o resultado for válido
     if (result !== undefined && !isNaN(result)) {
         const savedHistory = JSON.parse(localStorage.getItem('history')) || [];
         savedHistory.push(result);
@@ -774,6 +757,7 @@ function mostrarResultado() {
         updateHistory();
     }
 }
+
 
 function mostrarConta(){
     let {conta} = calcular();
@@ -873,15 +857,6 @@ document.getElementById("tipoPA-select").addEventListener("change", function() {
     }
 });
 
-document.getElementById("catetoA").addEventListener("input", () => {
-    blockPitagoras();
-});
-document.getElementById("catetoB").addEventListener("input", () => {
-    blockPitagoras();
-});
-document.getElementById("Hipotenusa").addEventListener("input", () => {
-    blockPitagoras();
-});
 document.getElementById("valorA").addEventListener("input", () => {
     blockTrigonometria();
 });
