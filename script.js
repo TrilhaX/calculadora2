@@ -132,8 +132,8 @@ function calcularTrigonometria() {
     const angulo = parseFloat(document.getElementById("angulo").value) || 0;
 
     let resultado, resultado2;
-    let result; // Variável para armazenar o resultado final da operação
-    let conta; // Variável para a conta formatada
+    let result;
+    let conta;
 
     if (valorA && angulo) {
         const catetoB = valorA * Math.tan(angulo * Math.PI / 180);
@@ -159,13 +159,13 @@ function calcularTrigonometria() {
     } else if (valorA && valorC) {
         const catetoB = Math.sqrt(valorC ** 2 - valorA ** 2);
         resultado = catetoB.toFixed(2);
-        resultado2 = ""; // Sem segundo resultado
+        resultado2 = "";
         result = `${resultado}`;
         conta = `√(${valorC}² - ${valorA}²)<br>${resultado}`;
     } else if (valorB && valorC) {
         const catetoA = Math.sqrt(valorC ** 2 - valorB ** 2);
         resultado = catetoA.toFixed(2);
-        resultado2 = ""; // Sem segundo resultado
+        resultado2 = "";
         result = `${resultado}`;
         conta = `√(${valorC}² - ${valorB}²)<br>${resultado}`;
     } else if (angulo && valorC) {
@@ -704,14 +704,13 @@ function clearHistory() {
 }
 
 function mostrarResultado() {
-    let { result, resultado1, resultado2 } = calcularTrigonometria(); // Chama a função correta
+    let { result, resultado1, resultado2 } = calcularTrigonometria();
     let resposta = document.querySelector("#resultado");
     const calculoSelecionado = document.querySelector('.calculo-div[style*="display: flex"]').id;
     let razaoOuProporcao = document.querySelector("#razaoeproporção-select");
 
     let inputFaltando = null;
 
-    // Determina qual input está faltando
     if (calculoSelecionado === 'razaoeproporção-div' && razaoOuProporcao.value === 'razao') {
         inputFaltando = getInputFaltandoRazao();
     } else if (calculoSelecionado === 'pitagoras-trigonometria-div') {
@@ -746,10 +745,8 @@ function mostrarResultado() {
         });
     }
 
-    // Atualiza o resultado exibido
     resposta.innerHTML = result !== undefined ? `Resultado: ${result}` : "";
 
-    // Salva o histórico se o resultado for válido
     if (result !== undefined && !isNaN(result)) {
         const savedHistory = JSON.parse(localStorage.getItem('history')) || [];
         savedHistory.push(result);
