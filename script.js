@@ -565,7 +565,7 @@ function blockRazaoEProporcao() {
     }
 }
 
-function blockPA() {
+function blockPaTg() {
     const inputs = [
         document.getElementById("valorAn"),
         document.getElementById("valorA1"),
@@ -574,12 +574,40 @@ function blockPA() {
         document.getElementById("valorAk"),
     ];
 
-    const filledInputsCount = inputs.filter(input => input.value !== "").length;
+    const filledInputs = inputs.filter(input => input.value !== "").length;
 
     inputs.forEach(input => {
-        input.disabled = filledInputsCount >= 4 && input.value === "";
+        input.disabled = false; // Enable all inputs initially
     });
+
+    if (filledInputs >= 4) {
+        inputs.forEach(input => {
+            input.disabled = input.value === ""; // Disable empty inputs if 4 or more are filled
+        });
+    }
 }
+
+function blockPaSg() {
+    const inputs = [
+        document.getElementById("valorAn1"),
+        document.getElementById("valorA11"),
+        document.getElementById("valorN1"),
+        document.getElementById("valorS1"),
+    ];
+
+    const filledInputs = inputs.filter(input => input.value !== "").length;
+
+    inputs.forEach(input => {
+        input.disabled = false; // Enable all inputs initially
+    });
+
+    if (filledInputs >= 4) {
+        inputs.forEach(input => {
+            input.disabled = input.value === ""; // Disable empty inputs if 4 or more are filled
+        });
+    }
+}
+
 
 function getInputFaltandoRazao() {
     const valorA = document.getElementById("valorAR");
@@ -607,32 +635,31 @@ function getInputFaltandoPitagoras() {
     return [catetoA, catetoB, hipotenusa].find(input => input.value === "")?.id || null;
 }
 
-function getInputFaltandoPA() {
+function getInputFaltandoPaTg() {
     const valorAn = document.getElementById("valorAn");
     const valorA1 = document.getElementById("valorA1");
     const valorN = document.getElementById("valorN");
     const valorR = document.getElementById("valorR");
+
+    return [valorAn, valorA1, valorN, valorR]
+        .find(input => input.value === "")?.id || null;
+}
+
+function getInputFaltandoPaSg() {
     const valorAk = document.getElementById("valorAk");
     const valorAn1 = document.getElementById("valorAn1");
     const valorA11 = document.getElementById("valorA11");
     const valorN1 = document.getElementById("valorN1");
 
-    return [valorAn, valorA1, valorN, valorR, valorAk, valorAn1, valorA11, valorN1]
+    return [valorAk, valorAn1, valorA11, valorN1]
         .find(input => input.value === "")?.id || null;
 }
 
+function getInputFaltandoLog() {
+    const logaritmo = document.getElementById("logaritmo");
+    const logaritmando = document.getElementById("logaritmando");
+    const base = document.getElementById("base");
 
-function getInputFaltandoPA() {
-    const inputs = [
-        document.getElementById("valorAn"),
-        document.getElementById("valorA1"),
-        document.getElementById("valorN"),
-        document.getElementById("valorR"),
-        document.getElementById("valorAk"),
-        document.getElementById("valorAn1"),
-        document.getElementById("valorA11"),
-        document.getElementById("valorN1"),
-    ];
 
     return [logaritmo, logaritmando, base].find(input => input.value === "")?.id || null;
 }
@@ -721,7 +748,12 @@ function mostrarResultado() {
     }else if(calculoSelecionado === 'logaritmo-div'){
         inputFaltando = getInputFaltandoLog();
     }else if(calculoSelecionado === 'progressão-div'){
-        inputFaltando = getInputFaltandoPA();   
+        let selected = document.getElementById('tipoPA-select').value;
+        if (selected === 'TG'){
+            inputFaltando = getInputFaltandoPaTg();
+        }else if (selected === 'somaGeral'){
+            inputFaltando = getInputFaltandoPaSg();
+        }
     }
 
     if (inputFaltando && result !== undefined) {
@@ -888,30 +920,33 @@ document.getElementById("valorDR").addEventListener("input", () => {
 });
 
 document.getElementById("valorAn").addEventListener("input", () => {
-    blockPA();
+    blockPaTg();
 });
 
 document.getElementById("valorA1").addEventListener("input", () => {
-    blockPA();
+    blockPaTg();
 });
 
 document.getElementById("valorN").addEventListener("input", () => {
-    blockPA();
+    blockPaTg();
 });
 document.getElementById("valorR").addEventListener("input", () => {
-    blockPA();
+    blockPaTg();
 });
 document.getElementById("valorAk").addEventListener("input", () => {
-    blockPA();
+    blockPaTg();
 });
 document.getElementById("valorAn1").addEventListener("input", () => {
-    blockPA();
+    blockPaSg();
 });
 
 document.getElementById("valorA11").addEventListener("input", () => {
-    blockPA();
+    blockPaSg();
 });
 
 document.getElementById("valorN1").addEventListener("input", () => {
-    blockPA();
+    blockPaSg();
+});
+document.getElementById("valorS1").addEventListener("input", () => {
+    blockPaSg();
 });
