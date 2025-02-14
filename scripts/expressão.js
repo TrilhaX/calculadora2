@@ -1,5 +1,4 @@
-export class Expressao{
-
+export class Expressao {
     static quantityNumbers(string, startChar, startCharIndex) {
         let str = String(string);
         if (startCharIndex === undefined) startCharIndex = str.indexOf(startChar);
@@ -18,15 +17,14 @@ export class Expressao{
     }
 
     static evaluateExpression(expression) {
-        expression = handleSquareRoots(expression);
-    
+        expression = this.handleSquareRoots(expression);
         return eval(expression);
     }
     
     static handleSquareRoots(expression) {
         while (expression.includes('√')) {
             const rootIndex = expression.indexOf('√');
-            const numbersQtd = quantityNumbers(expression, '√', rootIndex);
+            const numbersQtd = this.quantityNumbers(expression, '√', rootIndex);
     
             expression = expression.substring(0, rootIndex) +
                 "Math.sqrt(" + expression.substring(rootIndex + 1, rootIndex + numbersQtd) +
@@ -34,16 +32,21 @@ export class Expressao{
         }
         return expression;
     }
+    
     static calcularExpressao() {
+        let result;
+        let conta;
+        
         const input = document.querySelector("#eval");
-        const correctedInput = substituicao(input.value);
+        const correctedInput = this.substituicao(input.value);
     
         try {
-            result = evaluateExpression(correctedInput);
-            conta = `Não tenho como explicar`;
+            result = this.evaluateExpression(correctedInput);
+            conta = `${input.value} = ${result}`;
         } catch (error) {
             input.value = "Error";
             result = undefined;
+            conta = "Erro na expressão!";
         }
     
         return { result, conta, resultado2: '' };
