@@ -53,6 +53,9 @@ function calcular() {
         case 'progressão-div':
             ({ result, conta, resultado1 = '', resultado2 = '' } = Progressao.calcularProgressao());
             break;
+        case 'funcao-div':
+            ({ result, conta, resultado1 = '', resultado2 = '' } = Funcao.calcularFuncao());    
+            break;                     
         default:
             errorMessage.innerHTML = "Operação não reconhecida ou inválida.";
             return { result, conta, resultado1, resultado2 };
@@ -228,20 +231,6 @@ document.getElementById('dropdownCalculos').addEventListener('click', function (
         calculoSection.style.flexDirection = 'column';
     } else {
         calculoSection.style.display = 'none';
-    }
-});
-
-document.getElementById("funcoes-select").addEventListener("change", function () {
-    const quadraticaDiv = document.querySelector(".quadratica");
-    const exponencialDiv = document.querySelector(".exponencial");
-
-    quadraticaDiv.style.display = "flex";
-    exponencialDiv.style.display = "none";
-
-    if (this.value === "quadratica") {
-        quadraticaDiv.style.display = "flex";
-    } else if (this.value === "exponencial") {
-        exponencialDiv.style.display = "flex";
     }
 });
 

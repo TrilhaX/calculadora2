@@ -1,40 +1,42 @@
 export class Funcao {
-    static funcaoExponencial() {
-        const valoresX = [-3, -2, -1, 0, 1, 2, 3];
-        const inputA = document.querySelector(".funcaoExponencialInput");
-        const a = parseFloat(inputA.value);
+
+    static calcularFuncao() {
+        const valoresX = [-2, -1, 0, 1, 2];
+        const inputEquacao = document.querySelector("#equação");
+        let equacao = inputEquacao.value.replace("F(X) =", "").trim();
     
-        if (isNaN(a)) {
-            return { result: "Valor de 'a' inválido.", conta: "" };
-        } else {
-            const resultados = valoresX.map(x => Math.pow(a, x));
-            const contas = valoresX.map((x, index) => `f(${x}) = ${resultados[index].toFixed(2)}`).join('<br>');
-            return { result: resultado, conta, resultado2: '' };
-        }
-    }
+        const termoRegex = /([+-]?\d*\.?\d*)?\s*\*?\s*x(?:\^(\d+))?|([+-]?\s*\d+\.?\d*)/gi;
     
-    static funcaoQuadratica() {
-        const A3 = parseFloat(document.querySelector(".BA").value);
-        const B3 = parseFloat(document.querySelector(".BB").value);
-        const C2 = parseFloat(document.querySelector(".BC").value);
-        const delta2 = B3 * B3 - 4 * A3 * C2;
+        let termos = [];
+        let constante = 0;
     
-        if (isNaN(A3) || isNaN(B3) || isNaN(C2)) {
-            resultado = "Valores inválidos para a função quadrática."
-            conta = "";
-        }
+        equacao.replace(termoRegex, (match, coef, exp, constTerm) => {
+            if (constTerm !== undefined) {
+                constante = parseFloat(constTerm.replace(/\s+/g, ''));
+            } else {
+                coef = coef ? parseFloat(coef) : (match.trim().startsWith('-') ? -1 : 1);
+                exp = exp ? parseInt(exp) : 1;
+                termos.push({ coef, exp });
+            }
+        });        
     
-        if (delta2 < 0) {
-            resultado = "Delta negativo, sem raízes reais."
-            conta = '';
-        } else {
-            const x1 = (-B3 + Math.sqrt(delta2)) / (2 * A3);
-            const x2 = (-B3 - Math.sqrt(delta2)) / (2 * A3);
-            const Xv = -B3 / (2 * A3);
-            const Yv = -delta2 / (4 * A3);
-            const EY = C2;
-        }
+        termos.sort((a, b) => b.exp - a.exp);
     
-        return { result: resultado, conta, resultado2: '' };
-    }
+        let resultados = valoresX.map(x => {
+            return termos.reduce((acc, term) => acc + term.coef * Math.pow(x, term.exp), constante);
+        });
+    
+        const contas = valoresX.map((x, index) => {
+            let expressao = termos.map(term => `(${x})^${term.exp}`).join(" + ");
+            return `f(${x}) = ${expressao} + ${constante} = ${resultados[index].toFixed(2)}`;
+        });
+        
+        valoresX.forEach((x, index) => {
+            document.querySelector(`#resultado${index + 1}`).value = contas[index];
+            document.querySelector(`#final${index + 1}`).value = resultados[index].toFixed(2);
+            document.querySelector(`#y${index + 1}`).value = resultados[index].toFixed(2);
+        });
+        
+        return { result: resultados, conta: contas.join('<br>') };
+    }          
 }
