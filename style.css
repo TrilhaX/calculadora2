@@ -442,7 +442,7 @@ input:disabled {
 
 #erroMensagem{
     font-family: "Kanit", sans-serif;
-    font-size: 1.5rem;
+    font-size: 1rem;
     font-weight: bold;
     color: red;
 }
@@ -536,6 +536,16 @@ input:disabled {
     width: 4rem;
 }
 
+#funcao {
+    background-image: url(imagens/paS.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position-x: center;
+    background-position: center;
+    height: 100px;
+    position: relative;
+}
+
 #quadratica {
     background-image: url(imagens/funcaoquadratica.png);
     background-size: contain;
@@ -598,15 +608,16 @@ input:disabled {
     position: absolute;
     top: 28%;
     left: 53%;
-    width: 2rem;
+    width: 4rem;
     height: 1rem;
+    text-align: center;
 }
 
 #quadratica > #final2 {
     position: absolute;
     top: 38%;
     left: 53%;
-    width: 2rem;
+    width: 4rem;
     height: 1rem;
 }
 
@@ -614,7 +625,7 @@ input:disabled {
     position: absolute;
     top: 48%;
     left: 53%;
-    width: 2rem;
+    width: 4rem;
     height: 1rem;
 }
 
@@ -622,7 +633,7 @@ input:disabled {
     position: absolute;
     top: 58%;
     left: 53%;
-    width: 2rem;
+    width: 4rem;
     height: 1rem;
 }
 
@@ -630,7 +641,7 @@ input:disabled {
     position: absolute;
     top: 68%;
     left: 53%;
-    width: 2rem;
+    width: 4rem;
     height: 1rem;
 }
 
@@ -638,7 +649,7 @@ input:disabled {
     position: absolute;
     top: 26%;
     left: 88.5%;
-    width: 1.5rem;
+    width: 4rem;
     height: .3rem;
 }
 
@@ -646,7 +657,7 @@ input:disabled {
     position: absolute;
     top: 35%;
     left: 88.5%;
-    width: 1.5rem;
+    width: 4rem;
     height: .3rem;
 }
 
@@ -654,7 +665,7 @@ input:disabled {
     position: absolute;
     top: 44%;
     left: 88.5%;
-    width: 1.5rem;
+    width: 4rem;
     height: .3rem;
 }
 
@@ -662,7 +673,7 @@ input:disabled {
     position: absolute;
     top: 53%;
     left: 88.5%;
-    width: 1.5rem;
+    width: 4rem;
     height: .3rem;
 }
 
@@ -670,7 +681,7 @@ input:disabled {
     position: absolute;
     top: 62%;
     left: 88.5%;
-    width: 1.5rem;
+    width: 4rem;
     height: .3rem;
 }
 
