@@ -53,6 +53,16 @@ function calcular() {
         case 'progressão-div':
             ({ result, conta, resultado1 = '', resultado2 = '' } = Progressao.calcularProgressao());
             break;
+        case 'funcao-div':
+            let whatFuncao = document.querySelector('.selectFuncao').value;
+            switch(whatFuncao) {
+                case 'quadratica':
+                    ({ result, conta, resultado1, resultado2 } = Funcao.funcaoQuadratica());
+                    break;
+                case 'exponencial':
+                    ({ result, conta, resultado1, resultado2 } = Funcao.funcaoExponencial());
+                    break;
+            }            
         default:
             errorMessage.innerHTML = "Operação não reconhecida ou inválida.";
             return { result, conta, resultado1, resultado2 };

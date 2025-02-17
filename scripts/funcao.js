@@ -1,7 +1,7 @@
 export class Funcao {
     static funcaoExponencial() {
         const valoresX = [-3, -2, -1, 0, 1, 2, 3];
-        const inputA = document.querySelector(".funcaoExponencialInput");
+        const inputA = document.querySelector("#equação");
         const a = parseFloat(inputA.value);
     
         if (isNaN(a)) {
