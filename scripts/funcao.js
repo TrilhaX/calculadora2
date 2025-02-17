@@ -9,7 +9,7 @@ export class Funcao {
         } else {
             const resultados = valoresX.map(x => Math.pow(a, x));
             const contas = valoresX.map((x, index) => `f(${x}) = ${resultados[index].toFixed(2)}`).join('<br>');
-            return { result: resultado, conta, resultado2: '' };
+            return { result: resultados, contas, resultado2: '' };
         }
     }
     
