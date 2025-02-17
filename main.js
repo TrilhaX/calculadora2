@@ -1,6 +1,6 @@
 import { Pitagoras } from "./scripts/pitagoras.js";
 import { Logaritmo } from "./scripts/logaritmo.js";
-import { Porcentagem  } from "./scripts/porcentagem.js";
+import { Porcentagem } from "./scripts/porcentagem.js";
 import { Raiz } from "./scripts/raiz.js";
 import { Bhaskara } from "./scripts/bhaskara.js";
 import { Fatorial } from "./scripts/fatorial.js";
@@ -9,97 +9,75 @@ import { RazaoeProporcao } from "./scripts/razaoeproporcao.js";
 import { Progressao } from "./scripts/progressao.js";
 import { Expressao } from "./scripts/expressão.js";
 import { Funcao } from "./scripts/funcao.js";
+import { Matriz } from "./scripts/matriz.js";
 
-const history = [];
-let resposta = document.querySelector("#resultadoModificador");
+const calculosMap = {
+    'eval-div': Expressao.calcularExpressao,
+    'raiz-div': Raiz.calcularRaiz,
+    'porcentagem-div': Porcentagem.calcularPorcentagem,
+    'bhaskara-div': Bhaskara.calcularBhaskara,
+    'fatorial-div': Fatorial.calcularFatorial,
+    'duplofatorial-div': DuploFatorial.calcularDuploFatorial,
+    'pitagoras-trigonometria-div': Pitagoras.calcularTrigonometria,
+    'logaritmo-div': Logaritmo.calcularLog,
+    'razaoeproporção-div': RazaoeProporcao.calcularRazaoEProporcao,
+    'progressão-div': Progressao.calcularProgressao,
+    'funcao-div': Funcao.calcularFuncao,
+    'matriz-div': () => {
+        const matrizSelected = document.getElementById("matriz-select").value;
+        return matrizSelected === "2x2" ? Matriz.matriz2x2() : Matriz.matriz3x3();
+    },
+};
 
 function calcular() {
     const activeDiv = document.querySelector('.calculo-div[style*="display: flex"]');
-    let errorMessage = document.querySelector('#erroMensagem');
-    let result, conta, resultado1, resultado2;
-
+    const errorMessage = document.querySelector('#erroMensagem');
     errorMessage.innerHTML = "";
 
-    if (!activeDiv) return errorMessage.innerHTML = "Nenhuma operação selecionada.";
-
-    switch (activeDiv.id) {
-        case 'eval-div':
-            ({ result, conta, resultado1 = '', resultado2 = '' } = Expressao.calcularExpressao());
-            break;
-        case 'raiz-div':
-            ({ result, conta, resultado1 = '', resultado2 = '' } = Raiz.calcularRaiz());
-            break;
-        case 'porcentagem-div':
-            ({ result, conta, resultado1 = '', resultado2 = '' } = Porcentagem.calcularPorcentagem());
-            break;
-        case 'bhaskara-div':
-            ({ result, conta, resultado1 = '', resultado2 = '' } = Bhaskara.calcularBhaskara());
-            break;
-        case 'fatorial-div':
-            ({ result, conta, resultado1 = '', resultado2 = '' } = Fatorial.calcularFatorial());
-            break;
-        case 'duplofatorial-div':
-            ({ result, conta, resultado1 = '', resultado2 = '' } = DuploFatorial.calcularDuploFatorial());
-            break;
-        case 'pitagoras-trigonometria-div':
-            ({ result, conta, resultado1, resultado2 } = Pitagoras.calcularTrigonometria());
-            break;
-        case 'logaritmo-div':
-            ({ result, conta, resultado1 = '', resultado2 = '' } = Logaritmo.calcularLog());
-            break;
-        case 'razaoeproporção-div':
-            ({ result, conta, resultado1 = '', resultado2 = '' } = RazaoeProporcao.calcularRazaoEProporcao());
-            break;
-        case 'progressão-div':
-            ({ result, conta, resultado1 = '', resultado2 = '' } = Progressao.calcularProgressao());
-            break;
-        case 'funcao-div':
-            ({ result, conta, resultado1 = '', resultado2 = '' } = Funcao.calcularFuncao());    
-            break;                     
-        default:
-            errorMessage.innerHTML = "Operação não reconhecida ou inválida.";
-            return { result, conta, resultado1, resultado2 };
+    if (!activeDiv) {
+        errorMessage.innerHTML = "Nenhuma operação selecionada.";
+        return {};
     }
 
+    const calcularFunc = calculosMap[activeDiv.id];
+    if (!calcularFunc) {
+        errorMessage.innerHTML = "Operação não reconhecida ou inválida.";
+        return {};
+    }
+
+    const { result, conta, resultado1 = '', resultado2 = '' } = calcularFunc();
     return { result, conta, resultado1, resultado2 };
 }
 
 function mostrarCalculo(calculoId) {
     const divs = document.querySelectorAll('.calculo-div');
-    let resposta = document.querySelector("#resultado");
-    resposta.innerHTML = ''
+    const resposta = document.querySelector("#resultado");
+    resposta.innerHTML = '';
 
-    divs.forEach(div => {
-        div.style.display = 'none';
-    });
+    divs.forEach(div => div.style.display = 'none');
 
     const calculoDiv = document.getElementById(calculoId);
     calculoDiv.style.display = 'flex';
+    calculoDiv.style.gap = '.5rem';
 
     if (calculoId === 'raiz-div') {
         const raizDiv = document.getElementById('raiz');
-        raizDiv.style.display = 'flex';
-        raizDiv.style.flexDirection = 'row';
-        raizDiv.style.gap = '.5rem';
-        raizDiv.style.alignItems = 'center';
+        if (raizDiv) {
+            raizDiv.style.display = 'flex';
+            raizDiv.style.flexDirection = 'row';
+            raizDiv.style.gap = '.5rem';
+            raizDiv.style.alignItems = 'center';
+        }
         calculoDiv.style.flexDirection = 'column';
     } else if (calculoId === 'bhaskara-div') {
-        calculoDiv.style.display = 'flex';
         calculoDiv.style.flexDirection = 'row';
-        calculoDiv.style.gap = '.5rem';
-    } else if (calculoId === 'fatorial-div' || calculoId === 'porcentagem-div') {
+    } else if (['fatorial-div', 'porcentagem-div', 'duplofatorial-div'].includes(calculoId)) {
         calculoDiv.style.flexDirection = 'row';
-        calculoDiv.style.alignItems = 'center'
-        calculoDiv.style.justifyContent = 'center'
-    } else if (calculoId === 'duplofatorial-div') {
-        calculoDiv.style.flexDirection = 'row';
-        calculoDiv.style.alignItems = 'center'
-        calculoDiv.style.justifyContent = 'center'
+        calculoDiv.style.alignItems = 'center';
+        calculoDiv.style.justifyContent = 'center';
     } else {
         calculoDiv.style.flexDirection = 'column';
     }
-
-    calculoDiv.style.gap = '.5rem';
 }
 
 function configurarBotoes() {
@@ -107,16 +85,10 @@ function configurarBotoes() {
     botoes.forEach(botao => {
         botao.addEventListener('click', () => {
             mostrarCalculo(botao.value + '-div');
-            deleteCalculo()
+            deleteCalculo();
         });
     });
 }
-
-window.onload = () => {
-    configurarBotoes();
-    mostrarCalculo('eval-div');
-    updateHistory();
-};
 
 function updateHistory() {
     const historyDiv = document.querySelector('.history');
@@ -139,17 +111,17 @@ function updateHistory() {
     });
 }
 
+
 function clearHistory() {
     localStorage.removeItem('history');
     updateHistory();
 }
 
 function mostrarResultado() {
-    let { result, resultado1, resultado2 } = calcular();
-    let resposta = document.querySelector("#resultado");
+    const { result, resultado1, resultado2 } = calcular();
+    const resposta = document.querySelector("#resultado");
     const calculoSelecionado = document.querySelector('.calculo-div[style*="display: flex"]').id;
-    let razaoOuProporcao = document.querySelector("#razaoeproporção-select");
-
+    const razaoOuProporcao = document.querySelector("#razaoeproporção-select");
     let inputFaltando = null;
 
     if (calculoSelecionado === 'razaoeproporção-div' && razaoOuProporcao.value === 'razao') {
@@ -159,7 +131,7 @@ function mostrarResultado() {
     } else if (calculoSelecionado === 'logaritmo-div') {
         inputFaltando = Logaritmo.getInputFaltandoLog();
     } else if (calculoSelecionado === 'progressão-div') {
-        let selected = document.getElementById('tipoPA-select').value;
+        const selected = document.getElementById('tipoPA-select').value;
         if (selected === 'TG') {
             inputFaltando = Progressao.getInputFaltandoPaTg();
         } else if (selected === 'somaGeral') {
@@ -168,19 +140,20 @@ function mostrarResultado() {
     }
 
     if (inputFaltando && result !== undefined) {
-        let inputElements = document.querySelectorAll(`#${inputFaltando}`);
+        const inputElements = document.querySelectorAll(`#${inputFaltando}`);
         inputElements.forEach(inputElement => {
             if (!inputElement) return;
-            if (calculoSelecionado !== 'pitagoras-trigonometria-div') inputElement.value = result
-            else {
+            if (calculoSelecionado !== 'pitagoras-trigonometria-div') {
+                inputElement.value = result;
+            } else {
                 if (inputElement.id === 'angulo') {
                     inputElement.value = resultado1;
-                    let inputElement2 = Pitagoras.getInputFaltandoTrigonometria();
-                    if (inputElement2.id === 'valorA' || inputElement.id === 'valorB' || inputElement.id === 'valorC') {
+                    const inputElement2 = Pitagoras.getInputFaltandoTrigonometria();
+                    if (inputElement2 && ['valorA', 'valorB', 'valorC'].includes(inputElement2.id)) {
                         inputElement2.value = resultado2;
                     }
                 }
-                if (inputElement.id === 'valorA' || inputElement.id === 'valorB' || inputElement.id === 'valorC') {
+                if (['valorA', 'valorB', 'valorC'].includes(inputElement.id)) {
                     inputElement.value = resultado2;
                 }
             }
@@ -199,16 +172,16 @@ function mostrarResultado() {
 }
 
 function mostrarConta() {
-    let { conta } = calcular();
-    let conta1 = document.querySelector("#conta1");
-    let conta2 = document.querySelector(".contas");
+    const { conta } = calcular();
+    const conta1 = document.querySelector("#conta1");
+    const conta2 = document.querySelector(".contas");
     conta1.innerHTML = conta !== undefined ? `${conta}` : "";
-    conta2.style.display = "flex"
+    conta2.style.display = "flex";
 }
 
 function deleteCalculo() {
-    let conta2 = document.querySelector(".contas");
-    conta2.style.display = "none"
+    const conta2 = document.querySelector(".contas");
+    conta2.style.display = "none";
 }
 
 function deleteResultado() {
@@ -216,7 +189,29 @@ function deleteResultado() {
     result.innerHTML = '';
 }
 
-document.getElementById("razaoeproporção-select").addEventListener("change", RazaoeProporcao.blockRazaoEProporcao);
+const inputEventListeners = [
+    { ids: ['valorA', 'valorB', 'valorC', 'angulo'], event: 'input', handler: Pitagoras.blockTrigonometria },
+    { ids: ['logaritmo', 'logaritmando', 'base'], event: 'input', handler: Logaritmo.blockLogaritmo },
+    { ids: ['valorAR', 'valorBR', 'valorCR', 'valorDR'], event: 'input', handler: RazaoeProporcao.blockRazaoEProporcao },
+    { ids: ['valorAn', 'valorA1', 'valorN', 'valorR', 'valorAk'], event: 'input', handler: Progressao.blockPaTg },
+    { ids: ['valorAn1', 'valorA11', 'valorN1', 'valorS1'], event: 'input', handler: Progressao.blockPaSg },
+];
+
+inputEventListeners.forEach(({ ids, event, handler }) => {
+    ids.forEach(id => {
+        const element = document.getElementById(id);
+        if (element) element.addEventListener(event, handler);
+    });
+});
+
+document.getElementById("razaoeproporção-select").addEventListener("change", function () {
+    ['valorAR', 'valorBR', 'valorCR', 'valorDR'].forEach(id => {
+        const input = document.getElementById(id);
+        if (input) input.value = '';
+    });
+    RazaoeProporcao.blockRazaoEProporcao();
+});
+
 document.querySelector("#calcularButton").addEventListener("click", mostrarResultado);
 document.getElementById("mostrarCalculo").addEventListener("click", mostrarConta);
 document.querySelector("#deletarResult").addEventListener("click", deleteResultado);
@@ -225,24 +220,12 @@ document.querySelector(".clearHistory").addEventListener("click", clearHistory);
 
 document.getElementById('dropdownCalculos').addEventListener('click', function () {
     const calculoSection = document.getElementById('calculoContainer');
-
-    if (calculoSection.style.display === 'none' || calculoSection.style.display === '') {
+    if (!calculoSection.style.display || calculoSection.style.display === 'none') {
         calculoSection.style.display = 'flex';
         calculoSection.style.flexDirection = 'column';
     } else {
         calculoSection.style.display = 'none';
     }
-});
-
-document.getElementById("razaoeproporção-select").addEventListener("change", function () {
-    const valorA = document.getElementById("valorAR");
-    const valorB = document.getElementById("valorBR");
-    const valorC = document.getElementById("valorCR");
-    const valorD = document.getElementById("valorDR");
-    valorA.value = '';
-    valorB.value = '';
-    valorC.value = '';
-    valorD.value = '';
 });
 
 document.getElementById("tipoProgressão-select").addEventListener("change", function () {
@@ -251,20 +234,18 @@ document.getElementById("tipoProgressão-select").addEventListener("change", fun
     const PHD = document.querySelector("#PHD");
     const PADS = document.querySelector('#tipoPA-select');
 
-    PAD.style.display = "none";
-    PGD.style.display = "none";
-    PHD.style.display = "none";
+    [PAD, PGD, PHD].forEach(el => { if (el) el.style.display = "none"; });
+    if (PADS) PADS.style.display = "none";
 
     if (this.value === "PA") {
-        PAD.style.display = "block";
-        PADS.style.display = "flex";
+        if (PAD) PAD.style.display = "block";
+        if (PADS) PADS.style.display = "flex";
     } else if (this.value === "PG") {
-        PGD.style.display = "block";
+        if (PGD) PGD.style.display = "block";
     } else if (this.value === "PH") {
-        PHD.style.display = "block";
+        if (PHD) PHD.style.display = "block";
     } else {
-        let errorMessage = document.querySelector('#erroMensagem');
-        errorMessage.innerHTML = 'Selecione um cálculo válido';
+        document.querySelector('#erroMensagem').innerHTML = 'Selecione um cálculo válido';
     }
 });
 
@@ -272,85 +253,31 @@ document.getElementById("tipoPA-select").addEventListener("change", function () 
     const TG = document.querySelector("#TG");
     const somaGeral = document.querySelector("#somaGeral");
 
-    TG.style.display = "none";
-    somaGeral.style.display = "none";
+    if (TG) TG.style.display = "none";
+    if (somaGeral) somaGeral.style.display = "none";
 
     if (this.value === "TG") {
-        TG.style.display = "flex";
+        if (TG) TG.style.display = "flex";
     } else if (this.value === "somaGeral") {
-        somaGeral.style.display = "flex";
+        if (somaGeral) somaGeral.style.display = "flex";
     }
 });
 
-document.getElementById("valorA").addEventListener("input", () => {
-    Pitagoras.blockTrigonometria();
+document.getElementById("matriz-select").addEventListener("change", () => {
+    const matriz2x2 = document.getElementById("matriz2x2");
+    const matriz3x3 = document.getElementById("matriz3x3");
+    const matrizSelected = document.getElementById("matriz-select").value;
+    if (matrizSelected === "2x2") {
+        if (matriz2x2) matriz2x2.style.display = "block";
+        if (matriz3x3) matriz3x3.style.display = "none";
+    } else {
+        if (matriz2x2) matriz2x2.style.display = "none";
+        if (matriz3x3) matriz3x3.style.display = "block";
+    }
 });
 
-document.getElementById("valorB").addEventListener("input", () => {
-    Pitagoras.blockTrigonometria();
-});
-document.getElementById("valorC").addEventListener("input", () => {
-    Pitagoras.blockTrigonometria();
-});
-document.getElementById("angulo").addEventListener("input", () => {
-    Pitagoras.blockTrigonometria();
-});
-document.getElementById("logaritmo").addEventListener("input", () => {
-    Logaritmo.blockLogaritmo();
-});
-
-document.getElementById("logaritmando").addEventListener("input", () => {
-    Logaritmo.blockLogaritmo();
-});
-
-document.getElementById("base").addEventListener("input", () => {
-    Logaritmo.blockLogaritmo();
-});
-
-document.getElementById("valorAR").addEventListener("input", () => {
-    RazaoeProporcao.blockRazaoEProporcao();
-});
-
-document.getElementById("valorBR").addEventListener("input", () => {
-    RazaoeProporcao.blockRazaoEProporcao();
-});
-
-document.getElementById("valorCR").addEventListener("input", () => {
-    RazaoeProporcao.blockRazaoEProporcao();
-});
-
-document.getElementById("valorDR").addEventListener("input", () => {
-    RazaoeProporcao.blockRazaoEProporcao();
-});
-
-document.getElementById("valorAn").addEventListener("input", () => {
-    Progressao.blockPaTg();
-});
-
-document.getElementById("valorA1").addEventListener("input", () => {
-    Progressao.blockPaTg();
-});
-
-document.getElementById("valorN").addEventListener("input", () => {
-    Progressao.blockPaTg();
-});
-document.getElementById("valorR").addEventListener("input", () => {
-    Progressao.blockPaTg();
-});
-document.getElementById("valorAk").addEventListener("input", () => {
-    Progressao.blockPaTg();
-});
-document.getElementById("valorAn1").addEventListener("input", () => {
-    Progressao.blockPaSg();
-});
-
-document.getElementById("valorA11").addEventListener("input", () => {
-    Progressao.blockPaSg();
-});
-
-document.getElementById("valorN1").addEventListener("input", () => {
-    Progressao.blockPaSg();
-});
-document.getElementById("valorS1").addEventListener("input", () => {
-    Progressao.blockPaSg();
-});
+window.onload = () => {
+    configurarBotoes();
+    mostrarCalculo('eval-div');
+    updateHistory();
+};
