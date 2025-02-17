@@ -209,6 +209,10 @@ select{
     margin-bottom: .5rem;
 }
 
+#tipoMatriz-select{
+    margin-bottom: .5rem;
+}
+
 input:disabled {
     background-color: #ece0e0;
     cursor: not-allowed;
@@ -683,6 +687,170 @@ input:disabled {
     left: 88.5%;
     width: 4rem;
     height: .3rem;
+}
+
+#matriz2x2 {
+    background-image: url(imagens/matriz.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position-x: center;
+    background-position: center;
+    height: 200px;
+    position: relative;
+}
+
+#matriz2x2 > #aa{
+    position: absolute;
+    top: 20%;
+    left: 30%;
+    width: 4rem;
+    height: 3rem;
+}
+
+#matriz2x2 > #ab{
+    position: absolute;
+    top: 20%;
+    left: 55%;
+    width: 4rem;
+    height: 3rem;
+}
+
+#matriz2x2 > #ba{
+    position: absolute;
+    top: 60%;
+    left: 30%;
+    width: 4rem;
+    height: 3rem;
+}
+
+#matriz2x2 > #bb{
+    position: absolute;
+    top: 60%;
+    left: 55%;
+    width: 4rem;
+    height: 3rem;
+}
+
+#matriz2x2 > #r1{
+    position: absolute;
+    top: 60%;
+    left: 80%;
+    width: 4rem;
+    height: 3rem;
+}
+
+#matriz2x2 > #r2{
+    position: absolute;
+    top: 20%;
+    left: 80%;
+    width: 4rem;
+    height: 3rem;
+}
+
+#matriz3x3 {
+    background-image: url(imagens/matriz.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position-x: center;
+    background-position: center;
+    height: 200px;
+    position: relative;
+}
+
+#matriz3x3 > #aa2{
+    position: absolute;
+    top: 10%;
+    left: 29%;
+    width: 3rem;
+    height: 2rem;
+}
+
+#matriz3x3 > #ab2{
+    position: absolute;
+    top: 10%;
+    left: 44%;
+    width: 3rem;
+    height: 2rem;
+}
+
+#matriz3x3 > #ac2{
+    position: absolute;
+    top: 10%;
+    left: 59%;
+    width: 3rem;
+    height: 2rem;
+}
+
+#matriz3x3 > #ba2{
+    position: absolute;
+    top: 45%;
+    left: 29%;
+    width: 3rem;
+    height: 2rem;
+}
+
+#matriz3x3 > #bb2{
+    position: absolute;
+    top: 45%;
+    left: 44%;
+    width: 3rem;
+    height: 2rem;
+}
+
+#matriz3x3 > #bc2{
+    position: absolute;
+    top: 45%;
+    left: 59%;
+    width: 3rem;
+    height: 2rem;
+}
+
+#matriz3x3 > #ca2{
+    position: absolute;
+    top: 75%;
+    left: 29%;
+    width: 3rem;
+    height: 2rem;
+}
+
+#matriz3x3 > #cb2{
+    position: absolute;
+    top: 75%;
+    left: 44%;
+    width: 3rem;
+    height: 2rem;
+}
+
+#matriz3x3 > #cc2{
+    position: absolute;
+    top: 75%;
+    left: 59%;
+    width: 3rem;
+    height: 2rem;
+}
+
+#matriz3x3 > #r12{
+    position: absolute;
+    top: 10%;
+    left: 80%;
+    width: 3rem;
+    height: 2rem;
+}
+
+#matriz3x3 > #r22{
+    position: absolute;
+    top: 45%;
+    left: 80%;
+    width: 3rem;
+    height: 2rem;
+}
+
+#matriz3x3 > #r32{
+    position: absolute;
+    top: 75%;
+    left: 80%;
+    width: 3rem;
+    height: 2rem;
 }
 
 ::-webkit-scrollbar {
