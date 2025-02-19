@@ -281,3 +281,5 @@ window.onload = () => {
     mostrarCalculo('eval-div');
     updateHistory();
 };
+
+//Beta Release

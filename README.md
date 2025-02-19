@@ -14,6 +14,6 @@ Seja para cálculos simples ou avançados, esta calculadora foi projetada para a
 - **Linguagem**: [HTML/CSS/JavaScript/]
 
 ## Como usar?
-Acesse o link:
+Acesse o link: https://trilhax.github.io/calculadora2/
 
 # Developed by Trilha

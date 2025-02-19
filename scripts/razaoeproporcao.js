@@ -73,3 +73,4 @@ export class RazaoeProporcao{
         }
     }
 }
+//Beta Release
