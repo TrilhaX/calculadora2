@@ -183,13 +183,19 @@ button:hover {
     gap: 10px;
 }
 
+.bottomButtons{
+    display: flex;
+    flex-direction: column;
+    width: max-content;
+}
+
 .resultados{
     display: flex;
     flex-direction: column;
-    gap: 10px;
     padding-top: .5rem;
     justify-content: center;
     align-items: center;
+    text-align: center;
 }
 
 .selectTipoProgressão{
@@ -872,27 +878,36 @@ input:disabled {
 }
 
 @media (max-width: 794px) {
-    body, main {
-        flex-direction: column;
-        height: 100vh;
+    body, main, .AVIADEI {
+        flex-direction: column-reverse ;
+        height: 150vh;
         width: 100%;
         overflow-x: hidden;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .bottomButtons{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
     }
 
     h1 {
-        font-size: 2rem;
+        font-size: 1rem;
         text-align: center;
     }
 
     .container {
         width: 90%;
-        padding: 1rem;
-        margin: 1rem 0;
+        padding: .5rem;
+        margin: .5rem 0;
         border-radius: 1rem;
+        align-items: center;
     }
 
     .sectionContainer {
-        gap: 0.5rem;
+        gap: .5rem;
         width: 100%;
         align-items: center;
     }
@@ -903,10 +918,21 @@ input:disabled {
         width: 100%;
     }
 
+    .buttonsResult{
+        display: flex;
+        flex-direction: row;
+    }
+
+    #percentual, #valorPorcento {
+        flex-direction: column;
+        align-items: center;
+        width: 50%;
+    }
+
     button {
-        padding: 0.75rem 1.5rem;
-        font-size: 0.9rem;
-        width: 90%;
+        padding: 0.5rem 1rem;
+        font-size: 0.5rem;
+        width: 100%;
     }
 
     .sectionCalculos {
@@ -914,15 +940,16 @@ input:disabled {
         left: unset;
         position: static;
         width: 90%;
-        padding: 1rem;
-        margin: 1rem 0;
+        top: 20%;
+        padding: .5rem;
+        margin: .5rem 0;
         position: fixed;
         z-index: 1;
     }
 
     .sectionCalculos li {
-        padding: 0.5rem;
-        font-size: 0.9rem;
+        padding: .5rem;
+        font-size: .5rem;
         width: 100%;
         z-index: 1;
     }
@@ -939,11 +966,47 @@ input:disabled {
         margin: 1rem 0;
     }
 
-    #raiz > #raiz-input,
-    #raiz > #numero-raiz {
-        width: 4rem;
+    #raiz > #raiz-input {
+        width: 3em;
+        height: 3rem;
+        top: 0;
+        left: 20%;
     }
 
+    #raiz > #numero-raiz {
+        width: 4em;
+        height: 4rem;
+    }
+
+    #trigonometria {
+        background-image: url(imagens/triangulopitagoras.png);
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position-x: center;
+        height: 200px;
+        width: 200px;
+        position: relative;
+    }
+    #trigonometria > #valorA { 
+        position: absolute;
+        top: 35%;
+        left: 0;
+        width: 2.5rem;
+    }
+    
+    #trigonometria > #valorB {
+        position: absolute;
+        top: 90%;
+        left: 35%;
+        width: 2.5rem;
+    }
+    
+    #trigonometria > #valorC {
+        position: absolute;
+        top: 35%;
+        left: 60%;
+        width: 2.5rem;
+    }    
     #viado1, #viado2, #viado3{
         width: 10vw;
     }
@@ -952,5 +1015,476 @@ input:disabled {
         font-size: 1.2rem;
         text-align: center;
         width: 100%;
+    }
+
+    #razaoeproporção {
+        background-image: url(imagens/razaoeproporação.png);
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position-x: center;
+        height: 120px;
+        position: relative;
+    }
+    #razaoeproporção > #valorAR { 
+        position: absolute;
+        top: 5%;
+        left: 0%;
+        width: 2.5rem;
+        height: 2.5rem;
+    }
+    
+    #razaoeproporção > #valorBR {
+        position: absolute;
+        top: 5%;
+        left: 70%;
+        width: 2.5rem;
+        height: 2.5rem;
+    }
+    
+    #razaoeproporção > #valorCR {
+        position: absolute;
+        top: 50%;
+        left: 0%;
+        width: 2.5rem;
+        height: 2.5rem;
+    }
+    
+    #razaoeproporção > #valorDR {
+        position: absolute;
+        top: 50%;
+        left: 70% ;
+        width: 2.5rem;
+        height: 2.5rem;
+    }
+    #TG > #valorAn { 
+        position: absolute;
+        top: 15%;
+        left: 0;
+        width: 2rem;
+    }
+    
+    #TG > #valorA1 {
+        position: absolute;
+        top: 15%;
+        left: 27%;
+        width: 2rem;
+    }
+    
+    #TG > #valorN {
+        position: absolute;
+        top: 15%;
+        left: 57%;
+        width: 1.5rem;
+    }
+    
+    #TG > #valorR {
+        position: absolute;
+        top: 15%;
+        left: 95%;
+        width: 2rem;
+    }
+    
+    #TG > #valorAk {
+        position: absolute;
+        top: 15%;
+        left: 77%;
+        width: 1.5rem;
+    }
+    
+    #somaGeral > #valorS1 { 
+        position: absolute;
+        top: 40%;
+        left: 3%;
+        width: 2rem;
+    }
+    
+    #somaGeral > #valorAn1 { 
+        position: absolute;
+        top: 10%;
+        left: 63%;
+        width: 2rem;
+    }
+    
+    #somaGeral > #valorA11 {
+        position: absolute;
+        top: 10%;
+        left: 39%;
+        width: 2rem;
+    }
+    
+    #somaGeral > #valorN1 {
+        position: absolute;
+        top: 10%;
+        left: 88%;
+        width: 2rem;
+    } 
+    
+    #quadratica {
+        background-image: url(imagens/funcaoquadratica.png);
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position-x: center;
+        background-position: center;
+        height: 200px;
+        width: 300px;
+        position: relative;
+    }
+    
+    #quadratica > #equação {
+        position: absolute;
+        top: 22%;
+        left: 20%;
+        width: 5rem;
+        height: .3rem;
+    }
+    
+    #quadratica > #resultado1 {
+        position: absolute;
+        top: 33%;
+        left: 20%;
+        width: 5rem;
+        height: .3rem;
+        padding: .35rem;
+        font-size: 6px;
+    }
+    
+    #quadratica > #resultado2 {
+        position: absolute;
+        top: 41%;
+        left: 20%;
+        width: 5rem;
+        height: .3rem;
+        padding: .35rem;
+        font-size: 6px;
+    }
+    
+    #quadratica > #resultado3 {
+        position: absolute;
+        top: 48.5%;
+        left: 20%;
+        width: 5rem;
+        height: .3rem;
+        padding: .35rem;
+        font-size: 6px;
+    }
+    
+    #quadratica > #resultado4 {
+        position: absolute;
+        top: 56%;
+        left: 20%;
+        width: 5rem;
+        height: .3rem;
+        padding: .35rem;
+        font-size: 6px;
+    }
+    
+    #quadratica > #resultado5 {
+        position: absolute;
+        top: 64%;
+        left: 20%;
+        width: 5rem;
+        height: .3rem;
+        padding: .35rem;
+        font-size: 6px;
+    }
+    
+    #quadratica > #final1 {
+        position: absolute;
+        top: 33%;
+        left: 53%;
+        width: 2rem;
+        height: .3rem;
+        padding: .35rem;
+        font-size: 6px;
+    }
+    
+    #quadratica > #final2 {
+        position: absolute;
+        top: 40.5%;
+        left: 53%;
+        width: 2rem;
+        height: .3rem;
+        padding: .35rem;
+        font-size: 6px;
+    }
+    
+    #quadratica > #final3 {
+        position: absolute;
+        top: 48%;
+        left: 53%;
+        width: 2rem;
+        height: .3rem;
+        padding: .35rem;
+        font-size: 6px;
+    }
+    
+    #quadratica > #final4 {
+        position: absolute;
+        top: 56%;
+        left: 53%;
+        width: 2rem;
+        height: .3rem;
+        padding: .35rem;
+        font-size: 6px;
+    }
+    
+    #quadratica > #final5 {
+        position: absolute;
+        top: 64%;
+        left: 53%;
+        width: 2rem;
+        height: .3rem;
+        padding: .35rem;
+        font-size: 6px;
+    }
+    
+    #quadratica > #y1 {
+        position: absolute;
+        top: 32%;
+        left: 88.5%;
+        width: 2rem;
+        height: .3rem;
+        padding: .35rem;
+        font-size: 6px;
+    }
+    
+    #quadratica > #y2 {
+        position: absolute;
+        top: 38%;
+        left: 88.5%;
+        width: 2rem;
+        height: .3rem;
+        padding: .35rem;
+        font-size: 6px;
+    }
+    
+    #quadratica > #y3 {
+        position: absolute;
+        top: 44%;
+        left: 88.5%;
+        width: 2rem;
+        height: .3rem;
+        padding: .35rem;
+        font-size: 6px;
+    }
+    
+    #quadratica > #y4 {
+        position: absolute;
+        top: 51%;
+        left: 88.5%;
+        width: 2rem;
+        height: .3rem;
+        padding: .35rem;
+        font-size: 6px;
+    }
+    
+    #quadratica > #y5 {
+        position: absolute;
+        top: 59%;
+        left: 88.5%;
+        width: 2rem;
+        height: .3rem;
+        padding: .35rem;
+        font-size: 6px;
+    }   
+
+    #logaritmod {
+        background-image: url(imagens/log.png);
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position-x: center;
+        height: 50px;
+        width: 150px;
+        position: relative;
+    }
+    
+    #logaritmod > #logaritmo {
+        position: absolute;
+        bottom: 30%;
+        left: 105%;
+        height: 1.5rem;
+        width: 3rem;
+    }
+    
+    #logaritmod > #logaritmando {
+        position: absolute;
+        bottom: 28%;
+        left: 49%;
+        height: 1.5rem;
+        width: 3rem;
+    }
+    
+    #logaritmod > #base {
+        position: absolute;
+        top: 100%;
+        left: 40%;
+        height: 1.5rem;
+        width: 4rem;
+    }
+
+    #matriz2x2 {
+        background-image: url(imagens/matriz.png);
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position-x: center;
+        background-position: center;
+        height: 200px;
+        width: 200px;
+        position: relative;
+    }
+    
+    #matriz2x2 > #aa{
+        position: absolute;
+        top: 20%;
+        left: 15%;
+        width: 4rem;
+        height: 3rem;
+    }
+    
+    #matriz2x2 > #ab{
+        position: absolute;
+        top: 20%;
+        left: 55%;
+        width: 4rem;
+        height: 3rem;
+    }
+    
+    #matriz2x2 > #ba{
+        position: absolute;
+        top: 60%;
+        left: 15%;
+        width: 4rem;
+        height: 3rem;
+    }
+    
+    #matriz2x2 > #bb{
+        position: absolute;
+        top: 60%;
+        left: 55%;
+        width: 4rem;
+        height: 3rem;
+    }
+    
+    #matriz2x2 > #r1{
+        position: absolute;
+        top: 60%;
+        left: 100%;
+        width: 4rem;
+        height: 3rem;
+    }
+    
+    #matriz2x2 > #r2{
+        position: absolute;
+        top: 20%;
+        left: 100%;
+        width: 4rem;
+        height: 3rem;
+    }
+    
+    #matriz3x3 {
+        background-image: url(imagens/matriz.png);
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position-x: center;
+        background-position: center;
+        height: 200px;
+        width: 200px;
+        position: relative;
+    }
+    
+    #matriz3x3 > #aa2{
+        position: absolute;
+        top: 10%;
+        left: 12%;
+        width: 3rem;
+        height: 2rem;
+    }
+    
+    #matriz3x3 > #ab2{
+        position: absolute;
+        top: 10%;
+        left: 38%;
+        width: 3rem;
+        height: 2rem;
+    }
+    
+    #matriz3x3 > #ac2{
+        position: absolute;
+        top: 10%;
+        left: 65%;
+        width: 3rem;
+        height: 2rem;
+    }
+    
+    #matriz3x3 > #ba2{
+        position: absolute;
+        top: 45%;
+        left: 12%;
+        width: 3rem;
+        height: 2rem;
+    }
+    
+    #matriz3x3 > #bb2{
+        position: absolute;
+        top: 45%;
+        left: 38%;
+        width: 3rem;
+        height: 2rem;
+    }
+    
+    #matriz3x3 > #bc2{
+        position: absolute;
+        top: 45%;
+        left: 65%;
+        width: 3rem;
+        height: 2rem;
+    }
+    
+    #matriz3x3 > #ca2{
+        position: absolute;
+        top: 75%;
+        left: 12%;
+        width: 3rem;
+        height: 2rem;
+    }
+    
+    #matriz3x3 > #cb2{
+        position: absolute;
+        top: 75%;
+        left: 38%;
+        width: 3rem;
+        height: 2rem;
+    }
+    
+    #matriz3x3 > #cc2{
+        position: absolute;
+        top: 75%;
+        left: 65%;
+        width: 3rem;
+        height: 2rem;
+    }
+    
+    #matriz3x3 > #r12{
+        position: absolute;
+        top: 10%;
+        left: 100%;
+        width: 3rem;
+        height: 2rem;
+    }
+    
+    #matriz3x3 > #r22{
+        position: absolute;
+        top: 45%;
+        left: 100%;
+        width: 3rem;
+        height: 2rem;
+    }
+    
+    #matriz3x3 > #r32{
+        position: absolute;
+        top: 75%;
+        left: 100%;
+        width: 3rem;
+        height: 2rem;
     }
 }

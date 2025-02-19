@@ -28,7 +28,7 @@
                     <li><button value="funcao">Função</button></li>
                     <li><button value="logaritmo">Logaritmo</button></li>
                     <li><button value="matriz">Matriz</button></li>
-                    <li><button value="geometria">Geometria</button></li>
+                    <li><button value="geometria" disabled>Geometria (W.I.P)</button></li>
                 </ul>            
             </div>
         </section>
@@ -94,8 +94,8 @@
                                     <select name="tipoProgressão" id="tipoProgressão-select">
                                         <option value="" disabled selected>Selecione o tipo</option>
                                         <option value="PA">Progressão Aritmética (PA)</option>
-                                        <option value="PG">Progressão Geométrica (PG)</option>
-                                        <option value="PH">Progressão Harmônica (PH)</option>
+                                        <option value="PG" disabled>Progressão Geométrica (PG) (W.I.P)</option>
+                                        <option value="PH" disabled>Progressão Harmônica (PH) (W.I.P)</option>
                                     </select>
                                 </div>
 
@@ -223,15 +223,17 @@
                             </div>
                         </div>
                     </div>
-                    <button id="calcularButton">Calcular</button>
-                    <div class="resultados">
-                        <h1 id="resultado">
-                            Resultado:<br>
-                            <span id="resultadoModificador"></span>
-                        </h1>
-                        <div class="buttonsResult">
-                            <button id="deletarResult">Fechar Resultado</button>
-                            <button id="mostrarCalculo">Mostrar Calculo</button>
+                    <div class="bottomButtons">
+                        <button id="calcularButton">Calcular</button>
+                        <div class="resultados">
+                            <h1 id="resultado">
+                                Resultado:<br>
+                                <span id="resultadoModificador"></span>
+                            </h1>
+                            <div class="buttonsResult">
+                                <button id="deletarResult">Fechar Resultado</button>
+                                <button id="mostrarCalculo">Mostrar Calculo</button>
+                            </div>
                         </div>
                     </div>
                     <h1 id="erroMensagem"></h1>
