@@ -37,12 +37,12 @@ export class Expressao {
         let result;
         let conta;
         
-        const input = document.querySelector("#eval");
-        const correctedInput = this.substituicao(input.value);
+        const input = document.querySelector("#eval").value;
+        const correctedInput = Expressao.substituicao(input);
     
         try {
-            result = this.evaluateExpression(correctedInput);
-            conta = `${input.value} = ${result}`;
+            result = Expressao.evaluateExpression(correctedInput);
+            conta = `${input} = ${result}`;
         } catch (error) {
             input.value = "Error";
             result = undefined;
