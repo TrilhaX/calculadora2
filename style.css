@@ -170,6 +170,7 @@ button:hover {
     text-align: center;
     color: black;
     max-height: 20vh;
+    overflow-x: hidden;
 }
 
 .contas{
@@ -886,7 +887,7 @@ input:disabled {
 @media (max-width: 794px) {
     body, main, .AVIADEI {
         flex-direction: column-reverse ;
-        height: 150vh;
+        height: 200vh;
         width: 100%;
         overflow-x: hidden;
         align-items: center;
@@ -939,6 +940,10 @@ input:disabled {
         padding: 0.5rem 1rem;
         font-size: 0.5rem;
         width: 100%;
+    }
+
+    #conta1{
+        font-size: .5rem;
     }
 
     .sectionCalculos {
@@ -1018,7 +1023,7 @@ input:disabled {
     }
 
     #resultado, #resultadoModificador {
-        font-size: 1.2rem;
+        font-size: .5rem;
         text-align: center;
         width: 100%;
     }

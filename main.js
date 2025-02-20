@@ -107,21 +107,37 @@ function configurarBotoes() {
 function updateHistory() {
     const historyDiv = document.querySelector('.history');
     historyDiv.innerHTML = '<h3>Histórico</h3>';
-
+    
     const savedHistory = JSON.parse(localStorage.getItem('history')) || [];
-
     if (savedHistory.length === 0) {
         const p = document.createElement('p');
         p.innerHTML = "Sem registros no histórico.";
         historyDiv.appendChild(p);
         return;
     }
-
+    
     savedHistory.forEach(entry => {
-        const p = document.createElement('p');
-        p.style.color = "black";
-        p.innerHTML = entry;
-        historyDiv.appendChild(p);
+        const entryDiv = document.createElement('div');
+        entryDiv.className = 'history-entry';
+
+        if (entry.conta) {
+            const contaP = document.createElement('p');
+            contaP.innerHTML = `Conta: ${entry.conta}`;
+            entryDiv.appendChild(contaP);
+        }
+        
+        const resultP = document.createElement('p');
+        resultP.innerHTML = `Resultado: ${entry.result}`;
+        entryDiv.appendChild(resultP);
+        
+        historyDiv.appendChild(entryDiv);
+        
+        const hr = document.createElement('hr');
+        historyDiv.appendChild(hr);
+        hr.style.width = '100%';
+        hr.style.border = '1px solid black';
+        hr.style.display = 'flex';
+        hr.style.margin = '.5rem';
     });
 }
 
@@ -132,7 +148,7 @@ function clearHistory() {
 }
 
 function mostrarResultado() {
-    const { result, resultado1, resultado2 } = calcular();
+    const { result, conta, resultado1, resultado2 } = calcular();
     const resposta = document.querySelector("#resultado");
     const calculoSelecionado = document.querySelector('.calculo-div[style*="display: flex"]').id;
     const razaoOuProporcao = document.querySelector("#razaoeproporção-select");
@@ -176,10 +192,10 @@ function mostrarResultado() {
     }
 
     resposta.innerHTML = result !== undefined ? `Resultado: ${result}` : "";
-
+    
     if (result !== undefined && !isNaN(result)) {
         const savedHistory = JSON.parse(localStorage.getItem('history')) || [];
-        savedHistory.push(result);
+        savedHistory.push({ result, conta });
         localStorage.setItem('history', JSON.stringify(savedHistory));
         updateHistory();
     }
