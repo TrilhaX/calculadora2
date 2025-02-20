@@ -65,54 +65,54 @@ export class Pitagoras {
         const valorC = parseFloat(document.getElementById("valorC").value) || 0;
         const angulo = parseFloat(document.getElementById("angulo").value) || 0;
 
-        let resultado, resultado2;
-        let result;
+        let resultado1, resultado2;
+        let resultado;
         let conta;
 
         if (valorA && angulo) {
             const catetoB = valorA * Math.tan(angulo * Math.PI / 180);
             const hipotenusa = valorA / Math.cos(angulo * Math.PI / 180);
-            resultado = catetoB.toFixed(2);
+            resultado1 = catetoB.toFixed(2);
             resultado2 = hipotenusa.toFixed(2);
-            result = `<br>Cateto B: ${resultado}<br> Hipotenusa: ${resultado2}`;
+            resultado = `<br>Cateto B: ${resultado}<br> Hipotenusa: ${resultado2}`;
             conta = `${valorA} * tan(${angulo})<br>${valorA} / cos(${angulo})<br>${resultado}, ${resultado2}`;
         } else if (valorB && angulo) {
             const catetoA = valorB / Math.tan(angulo * Math.PI / 180);
             const hipotenusa = valorB / Math.sin / (angulo * Math.PI / 180);
-            resultado = catetoA.toFixed(2);
+            resultado1 = catetoA.toFixed(2);
             resultado2 = hipotenusa.toFixed(2);
-            result = `<br>Cateto A: ${resultado}<br> Hipotenusa: ${resultado2}`;
+            resultado = `<br>Cateto A: ${resultado}<br> Hipotenusa: ${resultado2}`;
             conta = `${valorB} / tan(${angulo})<br>${valorB} / sin(${angulo})<br>${resultado}, ${resultado2}`;
         } else if (valorA && valorB) {
             const anguloCalculado = Math.atan(valorB / valorA) * (180 / Math.PI);
             const hipotenusa = Math.sqrt(valorA ** 2 + valorB ** 2);
-            resultado = anguloCalculado.toFixed(2);
+            resultado1 = anguloCalculado.toFixed(2);
             resultado2 = hipotenusa.toFixed(2);
-            result = `<br>Angulo: ${resultado}<br> Hipotenusa: ${resultado2}`;
+            resultado = `<br>Angulo: ${resultado}<br> Hipotenusa: ${resultado2}`;
             conta = `atan(${valorB} / ${valorA})<br>√(${valorA}² + ${valorB}²)<br>${resultado}, ${resultado2}`;
         } else if (valorA && valorC) {
             const catetoB = Math.sqrt(valorC ** 2 - valorA ** 2);
-            resultado = catetoB.toFixed(2);
+            resultado1 = catetoB.toFixed(2);
             resultado2 = "";
-            result = `<br>Cateto B: ${resultado}`;
+            resultado = `<br>Cateto B: ${resultado}`;
             conta = `√(${valorC}² - ${valorA}²)<br>${resultado}`;
         } else if (valorB && valorC) {
             const catetoA = Math.sqrt(valorC ** 2 - valorB ** 2);
-            resultado = catetoA.toFixed(2);
+            resultado1 = catetoA.toFixed(2);
             resultado2 = "";
-            result = `<br>Cateto A: ${resultado}`;
+            resultado = `<br>Cateto A: ${resultado}`;
             conta = `√(${valorC}² - ${valorB}²)<br>${resultado}`;
         } else if (angulo && valorC) {
             const catetoA = valorC * Math.cos(angulo * Math.PI / 180);
             const catetoB = valorC * Math.sin(angulo * Math.PI / 180);
-            resultado = catetoA.toFixed(2);
+            resultado1 = catetoA.toFixed(2);
             resultado2 = catetoB.toFixed(2);
-            result = `<br>Cateto A: ${resultado}<br> Cateto B: ${resultado2}`;
+            resultado = `<br>Cateto A: ${resultado}<br> Cateto B: ${resultado2}`;
             conta = `${valorC} * cos(${angulo})<br>${valorC} * sin(${angulo})<br>${resultado}, ${resultado2}`;
         } else {
             return { result: "Preencha dois valores.", conta: "" };
         }
 
-        return { result, resultado2, conta, resultado1: resultado };
+        return { result: parseFloat(resultado).toFixed(2), conta};
     }
 }

@@ -23,7 +23,7 @@ export class Logaritmo {
             return { result: "Preencha dois valores.", conta: "" };
         }
     
-        return { result: resultado, conta, resultado2: '' };
+        return { result: parseFloat(resultado).toFixed(2), conta, resultado2: '' };
     
     }
 

@@ -203,6 +203,7 @@ button:hover {
     display: flex;
     justify-content: center;
     flex-direction: column;
+    gap: .5rem;
 }
 
 select{
@@ -514,6 +515,52 @@ input:disabled {
     width: 2.5rem;
 }
 
+.TG {
+    background-image: url(imagens/termoGeralPG.jpg);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position-x: center;
+    background-position: center;
+    height: 150px;
+    position: relative;
+    margin-top: 30px;
+}
+
+.TG > #valorAn2 { 
+    position: absolute;
+    top: 35%;
+    left: 15%;
+    width: 3rem;
+}
+
+.TG > #valorA12 {
+    position: absolute;
+    top: 35%;
+    left: 40%;
+    width: 3rem;
+}
+
+.TG > #valorN2 {
+    position: absolute;
+    top: 35%;
+    left: 56%;
+    width: 3rem;
+}
+
+.TG > #valorQ2 {
+    position: absolute;
+    top: 10%;
+    left: 65%;
+    width: 3rem;
+}
+
+.TG > #valorAk {
+    position: absolute;
+    top: 15%;
+    left: 76.5%;
+    width: 2.5rem;
+}
+
 #somaGeral {
     background-image: url(imagens/paS.png);
     background-size: contain;
@@ -550,6 +597,53 @@ input:disabled {
     position: absolute;
     top: 10%;
     left: 82%;
+    width: 4rem;
+}
+
+.somaGeral {
+    background-image: url(imagens/somaGeralPG.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position-x: center;
+    background-position: center;
+    height: 100px;
+    position: relative;
+    margin-top: 50px;
+}
+
+
+.somaGeral > #valorSn { 
+    position: absolute;
+    top: 35%;
+    left: 8%;
+    width: 4rem;
+}
+
+.somaGeral > #valorA13 { 
+    position: absolute;
+    top: 5%;
+    left: 35%;
+    width: 3rem;
+}
+
+.somaGeral > #valorqN {
+    position: absolute;
+    top: 5%;
+    left: 52%;
+    width: 3rem;
+}
+
+.somaGeral > #valorN3 {
+    position: absolute;
+    bottom: 100%;
+    left: 60%;
+    width: 3rem;
+}
+
+.somaGeral > #valorQ {
+    position: absolute;
+    top: 60%;
+    left: 37%;
     width: 4rem;
 }
 

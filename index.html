@@ -94,12 +94,10 @@
                                     <select name="tipoProgressão" id="tipoProgressão-select">
                                         <option value="" disabled selected>Selecione o tipo</option>
                                         <option value="PA">Progressão Aritmética (PA)</option>
-                                        <option value="PG" disabled>Progressão Geométrica (PG) (W.I.P)</option>
+                                        <option value="PG">Progressão Geométrica (PG)</option>
                                         <option value="PH" disabled>Progressão Harmônica (PH) (W.I.P)</option>
                                     </select>
-                                </div>
 
-                                <div class="selectTipoProgressão">
                                     <select name="tipoPA" id="tipoPA-select" style="display: none;">
                                         <option value="" disabled selected>Selecione o calculo</option>
                                         <option value="TG">Termo geral com qualquer termo</option>
@@ -122,20 +120,35 @@
                                             <input type="number" placeholder="" id="valorN1" style="text-align: center;">
                                         </div>
                                     </div>
+
+                                    
+                                    <select name="tipoPG" id="tipoPG-select" style="display: none;">
+                                        <option value="" disabled selected>Selecione o calculo</option>
+                                        <option value="TG">Termo geral com qualquer termo</option>
+                                        <option value="somaGeral">Soma dos Termos</option>
+                                    </select>
+
+                                    <div id="PGD" style="display: none;">
+                                        <div class="TG" style="display: none;">
+                                            <input type="number" placeholder="" id="valorAn2" style="text-align: center;">
+                                            <input type="number" placeholder="" id="valorA12" style="text-align: center;">
+                                            <input type="number" placeholder="" id="valorN2" style="text-align: center;">
+                                            <input type="number" placeholder="" id="valorQ2" style="text-align: center;">
+                                        </div>
+
+                                        <div class="somaGeral" style="display: none;">
+                                            <input type="number" placeholder="" id="valorSn" style="text-align: center;">
+                                            <input type="number" placeholder="" id="valorA13" style="text-align: center;">
+                                            <input type="number" placeholder="" id="valorqN" style="text-align: center;">
+                                            <input type="number" placeholder="" id="valorN3" style="text-align: center;">
+                                            <input type="number" placeholder="" id="valorQ" style="text-align: center;">
+                                        </div>
+                                    </div>
                                 </div>
-                            
-                                <div id="PGD" style="display: none;">
-                                    <input type="number" placeholder="" id="valorAn" style="text-align: center;">
-                                    <input type="number" placeholder="" id="valorA1" style="text-align: center;">
-                                    <input type="number" placeholder="" id="valorN" style="text-align: center;">
-                                    <input type="number" placeholder="" id="valorR" style="text-align: center;">
-                                </div>
+
                             
                                 <div id="PHD" style="display: none;">
-                                    <input type="number" placeholder="" id="valorAn" style="text-align: center;">
-                                    <input type="number" placeholder="" id="valorA1" style="text-align: center;">
-                                    <input type="number" placeholder="" id="valorN" style="text-align: center;">
-                                    <input type="number" placeholder="" id="valorR" style="text-align: center;">
+
                                 </div>                            
                             </div>
                             
@@ -246,7 +259,7 @@
             <h1 id="creditos">Criado por Trilha</h1>
         </section>
     </main>
-    <script type="module" src="main.js"></script>
+    <script type="module" src="main.js" defer></script>
 </body>
 </html>
 

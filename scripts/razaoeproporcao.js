@@ -21,7 +21,7 @@ export class RazaoeProporcao{
             conta = `Proporção = ${values[0]}:${values[1]}<br> Proporção = ${resultado}`;
         }
     
-        return { result: resultado, conta, resultado2: '' };
+        return { result: parseFloat(resultado).toFixed(2), conta, resultado2: '' };
     }
 
     static getInputFaltandoRazao() {
