@@ -211,6 +211,12 @@ select{
     justify-content: center;
 }
 
+#calcularButton{
+    display: flex;
+    justify-content: center;
+    margin-top: .5rem;
+}
+
 #tipoPA-select{
     margin-bottom: .5rem;
 }

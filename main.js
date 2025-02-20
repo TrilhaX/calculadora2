@@ -60,6 +60,12 @@ function mostrarCalculo(calculoId) {
     calculoDiv.style.display = 'flex';
     calculoDiv.style.gap = '.5rem';
 
+    const container = document.querySelector(".container");
+    if (container) {
+        container.style.alignItems = '';
+        container.style.justifyContent = '';
+    }
+
     if (calculoId === 'raiz-div') {
         const raizDiv = document.getElementById('raiz');
         if (raizDiv) {
@@ -77,6 +83,14 @@ function mostrarCalculo(calculoId) {
         calculoDiv.style.justifyContent = 'center';
     } else {
         calculoDiv.style.flexDirection = 'column';
+    }
+
+    if (calculoId === 'porcentagem-div' || calculoId === 'bhaskara-div') {
+        if (container) {
+            container.style.display = 'flex';
+            container.style.alignItems = 'center';
+            container.style.justifyContent = 'center';
+        }
     }
 }
 
