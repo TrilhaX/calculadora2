@@ -70,7 +70,7 @@ export class Outros{
     
         resposta.innerHTML = result !== undefined ? `Resultado: ${result}` : "";
         
-        if (result !== undefined && !isNaN(result)) {
+        if (result !== undefined && (typeof result === "string" || !isNaN(result))) {
             const savedHistory = JSON.parse(localStorage.getItem('history')) || [];
             savedHistory.push({ result, conta });
             localStorage.setItem('history', JSON.stringify(savedHistory));
@@ -82,14 +82,27 @@ export class Outros{
         const { conta } = Outros.calcular();
         const conta1 = document.querySelector("#conta1");
         const conta2 = document.querySelector(".contas");
-        conta1.innerHTML = conta !== undefined ? `${conta}` : "";
-        conta2.style.display = "flex";
-    }
+        if (conta !== undefined && conta !== null && conta !== "") {
+            conta1.innerHTML = conta;
+            conta2.style.display = "flex";
+        } else {
+            conta1.innerHTML = "Nenhuma conta definida.";
+            conta2.style.display = "none";
+        }
+    }    
 
     static updateConta() {
         const { conta } = Outros.calcular();
         const conta1 = document.querySelector("#conta1");
-        conta1.innerHTML = conta !== undefined ? `${conta}` : "";
+        const conta2 = document.querySelector(".contas");
+        if (conta !== undefined && conta !== null && conta !== "") {
+            const { conta } = Outros.calcular();
+            const conta1 = document.querySelector("#conta1");
+            conta1.innerHTML = conta !== undefined ? `${conta}` : "";
+        } else {
+            conta1.innerHTML = "Nenhuma conta definida.";
+            conta2.style.display = "none";
+        }
     }
     
     static deleteCalculo() {
@@ -117,7 +130,7 @@ export class Outros{
             return {};
         }
 
-        const { result, conta, resultado1 = '', resultado2 = '' } = calcularFunc();
+        const { result, conta, resultado1, resultado2 } = calcularFunc();
         return { result, conta, resultado1, resultado2 };
     }
 
