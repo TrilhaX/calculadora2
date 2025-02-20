@@ -1,27 +1,29 @@
 export class RazaoeProporcao{
     static calcularRazaoEProporcao() {
-        const valorA = parseFloat(document.getElementById("valorAR").value) || 0;
-        const valorB = parseFloat(document.getElementById("valorBR").value) || 0;
-        const valorC = parseFloat(document.getElementById("valorCR").value) || 0;
-        const valorD = parseFloat(document.getElementById("valorDR").value) || 0;
+        const valorA = document.getElementById("valorAR").value;
+        const valorB = document.getElementById("valorBR").value;
+        const valorC = document.getElementById("valorCR").value;
+        const valorD = document.getElementById("valorDR").value;        
         const selected = document.getElementById("razaoeproporção-select").value;
 
-        let resultado, conta
+        let resultado, conta;
     
-        const values = [valorA, valorB, valorC, valorD].filter(value => !isNaN(value) && value !== 0);
+        const values = [valorA, valorB, valorC, valorD]
+        .filter(value => value !== "" )
+        .map(value => parseFloat(value));    
     
         if (selected === "razao" && values.length === 3) {
             const ratio = (values[0] * values[2]);
             const teuPai = ratio / values[1];
             resultado = teuPai.toFixed(2);
-            conta = `Razão = ${values[0]} x ${values[2]}:${values[1]}<br> Razão = ${ratio}/ ${values[1]}<br> Razão = ${teuPai.toFixed(2)}`;
+            conta = `<br>Razão = ${values[0]} x ${values[2]}:${values[1]}<br> Razão = ${ratio}/ ${values[1]}<br> Razão = ${teuPai.toFixed(2)}`;
         } else if (selected === "proporção" && values.length === 2) {
             const proportion = values[0] / values[1];
             resultado = proportion.toFixed(2);
-            conta = `Proporção = ${values[0]}:${values[1]}<br> Proporção = ${resultado}`;
+            conta = `<br>Proporção = ${values[0]}:${values[1]}<br> Proporção = ${resultado}`;
         }
     
-        return { result: parseFloat(resultado).toFixed(2), conta, resultado2: '' };
+        return { result: parseFloat(resultado).toFixed(2), conta };
     }
 
     static getInputFaltandoRazao() {

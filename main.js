@@ -87,6 +87,7 @@ document.getElementById("razaoeproporção-select").addEventListener("change", f
 
 document.querySelector("#calcularButton").addEventListener("click", Outros.mostrarResultado);
 document.getElementById("mostrarCalculo").addEventListener("click", Outros.mostrarConta);
+document.getElementById("calcularButton").addEventListener("click", Outros.mostrarConta);
 document.getElementById("calcularButton").addEventListener("click", Outros.updateConta);
 document.querySelector("#deletarResult").addEventListener("click", Outros.deleteResultado);
 document.getElementById("buttonDeleteCal").addEventListener("click", Outros.deleteCalculo);

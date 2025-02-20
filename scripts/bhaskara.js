@@ -14,20 +14,19 @@ export class Bhaskara{
             const root2 = (-b - Math.sqrt(discriminant)) / (2 * a);
     
             resultado = `x1 = ${root1}, x2 = ${root2}`;
-            conta = `
+            conta = `<br>
                 Δ = (${b})² - 4 * ${a} * ${c} <br>
                 Δ = ${b ** 2} - (${-4 * a * c}) <br>
                 Δ = ${discriminant} <br>
                 <br>
                 x1, x2 = (-${b} ± √${discriminant}) / (2 * ${a}) <br>
-                <br>x1 = (-${b} + √${discriminant}) / ${2 * a} <br>
+                x1 = (-${b} + √${discriminant}) / ${2 * a} <br>
                 x1 = ${root1} <br>
-                <br>
                 x2 = (-${b} - √${discriminant}) / ${2 * a} <br>
                 x2 = ${root2}
             `;
         }
     
-        return { result: parseFloat(resultado).toFixed(2), conta };
+        return { result: resultado, conta };
     }
 }
