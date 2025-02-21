@@ -15,7 +15,7 @@ export class Fatorial {
                 conta += (i > 1) ? `${i} * ` : `${i}`;
             }
             conta += ` = ${factorial}`;
-            return { result: `${parseFloat(factorial).toFixed(2)}`, conta, resultado2: '' };
+            return { result: `${factorial}`, conta, resultado2: '' };
         }
     }
 }

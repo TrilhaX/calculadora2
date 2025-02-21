@@ -6,7 +6,7 @@ export class Matriz {
         let bb = parseFloat(document.querySelector("#bb").value);
         let r1 = parseFloat(document.querySelector("#r1").value);
         let r2 = parseFloat(document.querySelector("#r2").value);
-        let resultado, conta;
+        let result, conta;
     
         let determinante = (aa * bb) - (ab * ba);
         let Dx = r1 * bb - r2 * ab;
@@ -21,14 +21,14 @@ export class Matriz {
                 `Y = ${Dy} / ${determinante} = ${DyD}`;
     
         if (determinante !== 0) {
-            resultado = `O Determinante é: ${determinante.toFixed(2).replace('.', ',')}<br>Dx é: ${Dx.toFixed(2).replace('.', ',')}<br>Dy é: ${Dy.toFixed(2).replace('.', ',')}<br>X é: ${DxD.toFixed(2).replace('.', ',')}<br>Y é: ${DyD.toFixed(2).replace('.', ',')}<br>Classificação: SPD`;
+            result = `O Determinante é: ${determinante.toFixed(2).replace('.', ',')}<br>Dx é: ${Dx.toFixed(2).replace('.', ',')}<br>Dy é: ${Dy.toFixed(2).replace('.', ',')}<br>X é: ${DxD.toFixed(2).replace('.', ',')}<br>Y é: ${DyD.toFixed(2).replace('.', ',')}<br>Classificação: SPD`;
         } else if (determinante === 0 && Dx === 0 && Dy === 0) {
-            resultado = `O Determinante é: ${determinante.toFixed(2).replace('.', ',')}, Dx é ${Dx.toFixed(2).replace('.', ',')} e Dy é ${Dy.toFixed(2).replace('.', ',')}. X é : ${DxD.toFixed(2).replace('.', ',')}, Y é : ${DyD.toFixed(2).replace('.', ',')}. Classificação: SPI`;
+            result = `O Determinante é: ${determinante.toFixed(2).replace('.', ',')}, Dx é ${Dx.toFixed(2).replace('.', ',')} e Dy é ${Dy.toFixed(2).replace('.', ',')}. X é : ${DxD.toFixed(2).replace('.', ',')}, Y é : ${DyD.toFixed(2).replace('.', ',')}. Classificação: SPI`;
         } else {
-            resultado = `O Determinante é: ${determinante.toFixed(2).replace('.', ',')}, Dx é ${Dx.toFixed(2).replace('.', ',')} e Dy é ${Dy.toFixed(2).replace('.', ',')}. X é : ${DxD.toFixed(2).replace('.', ',')}, Y é : ${DyD.toFixed(2).replace('.', ',')}. Classificação: SI`;
+            result = `O Determinante é: ${determinante.toFixed(2).replace('.', ',')}, Dx é ${Dx.toFixed(2).replace('.', ',')} e Dy é ${Dy.toFixed(2).replace('.', ',')}. X é : ${DxD.toFixed(2).replace('.', ',')}, Y é : ${DyD.toFixed(2).replace('.', ',')}. Classificação: SI`;
         }
         
-        return { result: resultado, conta };
+        return { result, conta };
     }
     static matriz3x3() {
         let a1 = parseFloat(document.querySelector("#aa2").value) || 0;
@@ -43,7 +43,7 @@ export class Matriz {
         let r1 = parseFloat(document.querySelector("#r12").value) || 0;
         let r2 = parseFloat(document.querySelector("#r22").value) || 0;
         let r3 = parseFloat(document.querySelector("#r32").value) || 0;
-        let resultado, conta;
+        let result, conta;
     
         let determinante = (a1 * a5 * a9) + (a2 * a6 * a7) + (a3 * a4 * a8) - (a3 * a5 * a7) - (a1 * a6 * a8) - (a2 * a4 * a9);
         
@@ -63,7 +63,7 @@ export class Matriz {
             let X = Dx / determinante;
             let Y = Dy / determinante;
             let Z = Dz / determinante;
-            resultado = `<br>O Determinante é: ${determinante.toFixed(2).replace('.', ',')}<br> 
+            result = `<br>O Determinante é: ${determinante.toFixed(2).replace('.', ',')}<br> 
                       X é: ${X.toFixed(2).replace('.', ',')}<br> 
                       Y é: ${Y.toFixed(2).replace('.', ',')}<br> 
                       Z é: ${Z.toFixed(2).replace('.', ',')}`;
@@ -72,9 +72,9 @@ export class Matriz {
             conta += `Y = Dy / Det(A) = ${Dy} / ${determinante} = ${Y.toFixed(2).replace('.', ',')}<br>`;
             conta += `Z = Dz / Det(A) = ${Dz} / ${determinante} = ${Z.toFixed(2).replace('.', ',')}<br>`;
         } else {
-            resultado = "O sistema não tem uma solução única.";
+            result = "O sistema não tem uma solução única.";
         }
     
-        return { result: resultado, conta };
+        return { result, conta };
     }        
 }
