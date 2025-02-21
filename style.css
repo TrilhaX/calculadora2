@@ -7,13 +7,12 @@
 }
 
 body {
-    background-color: #F4F7F6;
+    background: linear-gradient(#F7C6D9, #FAD4A2);
     display: flex;
     flex-direction: column;
     width: 100vw;
     background-size: cover;
-    overflow: hidden;
-    font-family: 'Roboto', sans-serif;
+    overflow-x: hidden;
 }
 
 main {
@@ -28,7 +27,7 @@ main {
 
 h1 {
     font-size: 3rem;
-    color: #2E4053;
+    color: #4A4A4A;
     font-family: "Oswald", sans-serif;
 }
 
@@ -47,27 +46,26 @@ input{
     text-align: left;
     justify-content: center;
     align-items: center;
-    font-family: 'Montserrat', sans-serif;
 }
 
 button {
-    background-color: #3498DB;
+    background-color: #4CAF50;
     color: white;
     border: none;
     padding: 1rem 2rem;
     text-align: center;
     text-decoration: none;
     font-size: 1rem;
-    margin: 0.5rem 0.125rem;
+    margin: 0.25rem 0.125rem;
     cursor: pointer;
     border-radius: 0.5rem;
-    transition: background-color 0.3s ease, transform 0.3s ease;
+    transition: background-color 0.3s;
 }
 
 button:hover {
-    background-color: #2d83bd;
-    transform: scale(1.05);
+    background-color: #3c8b40;
 }
+
 
 .sectionContainer {
     display: flex;
@@ -79,7 +77,7 @@ button:hover {
 .container {
     display: flex;
     flex-direction: column;
-    border: solid .3rem #BDC3C7;
+    border: solid .3rem white;
     border-radius: 2rem;
     background: linear-gradient(#F8F8FF, #EAEAEA);
     padding: 1rem 5rem;
@@ -104,7 +102,7 @@ button:hover {
     top: 1rem;
     left: 4.2rem;
     background-color: white;
-    border: solid 0.2rem #BDC3C7;
+    border: solid 0.2rem #EAEAEA;
     border-radius: 0.5rem;
     width: 15rem;
     padding: 1rem;
@@ -143,13 +141,12 @@ button:hover {
 }
 
 .historico {
-    border: .3rem solid #BDC3C7;
+    border: 1px solid white;
     background: linear-gradient(#F8F8FF, #EAEAEA);
     border-radius: 10px;
     justify-content: center;
     text-align: center;
     padding: 1rem;
-    margin-left: 1rem;
 }
 
 .clearHistory {
@@ -173,18 +170,18 @@ button:hover {
     text-align: center;
     color: black;
     max-height: 20vh;
+    overflow-x: hidden;
 }
 
 .contas{
     display: flex;
     flex-direction: column;
     text-align: center;
-    border: .3rem solid #BDC3C7;
+    border: .5rem solid white;
     background: linear-gradient(#F8F8FF, #EAEAEA);
     border-radius: 10px;
     padding: 10px;
     gap: 10px;
-    margin-right: 1rem;
 }
 
 .bottomButtons{
@@ -206,6 +203,7 @@ button:hover {
     display: flex;
     justify-content: center;
     flex-direction: column;
+    gap: .5rem;
 }
 
 select{
@@ -213,6 +211,12 @@ select{
     border: black solid .1rem;
     border-radius: .5rem;
     justify-content: center;
+}
+
+#calcularButton{
+    display: flex;
+    justify-content: center;
+    margin-top: .5rem;
 }
 
 #tipoPA-select{
@@ -458,7 +462,7 @@ input:disabled {
     font-family: "Kanit", sans-serif;
     font-size: 1rem;
     font-weight: bold;
-    color: #E74C3C;
+    color: red;
 }
 
 #fatorial-div{
@@ -511,6 +515,52 @@ input:disabled {
     width: 2.5rem;
 }
 
+.TG {
+    background-image: url(imagens/termoGeralPG.jpg);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position-x: center;
+    background-position: center;
+    height: 150px;
+    position: relative;
+    margin-top: 30px;
+}
+
+.TG > #valorAn2 { 
+    position: absolute;
+    top: 35%;
+    left: 15%;
+    width: 3rem;
+}
+
+.TG > #valorA12 {
+    position: absolute;
+    top: 35%;
+    left: 40%;
+    width: 3rem;
+}
+
+.TG > #valorN2 {
+    position: absolute;
+    top: 35%;
+    left: 56%;
+    width: 3rem;
+}
+
+.TG > #valorQ2 {
+    position: absolute;
+    top: 10%;
+    left: 65%;
+    width: 3rem;
+}
+
+.TG > #valorAk {
+    position: absolute;
+    top: 15%;
+    left: 76.5%;
+    width: 2.5rem;
+}
+
 #somaGeral {
     background-image: url(imagens/paS.png);
     background-size: contain;
@@ -547,6 +597,53 @@ input:disabled {
     position: absolute;
     top: 10%;
     left: 82%;
+    width: 4rem;
+}
+
+.somaGeral {
+    background-image: url(imagens/somaGeralPG.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position-x: center;
+    background-position: center;
+    height: 100px;
+    position: relative;
+    margin-top: 50px;
+}
+
+
+.somaGeral > #valorSn { 
+    position: absolute;
+    top: 35%;
+    left: 8%;
+    width: 4rem;
+}
+
+.somaGeral > #valorA13 { 
+    position: absolute;
+    top: 5%;
+    left: 35%;
+    width: 3rem;
+}
+
+.somaGeral > #valorqN {
+    position: absolute;
+    top: 5%;
+    left: 52%;
+    width: 3rem;
+}
+
+.somaGeral > #valorN3 {
+    position: absolute;
+    bottom: 100%;
+    left: 60%;
+    width: 3rem;
+}
+
+.somaGeral > #valorQ {
+    position: absolute;
+    top: 60%;
+    left: 37%;
     width: 4rem;
 }
 
@@ -884,7 +981,7 @@ input:disabled {
 @media (max-width: 794px) {
     body, main, .AVIADEI {
         flex-direction: column-reverse ;
-        height: 150vh;
+        height: 200vh;
         width: 100%;
         overflow-x: hidden;
         align-items: center;
@@ -900,7 +997,6 @@ input:disabled {
     h1 {
         font-size: 1rem;
         text-align: center;
-        font-family: 'Oswald', sans-serif;
     }
 
     .container {
@@ -938,6 +1034,10 @@ input:disabled {
         padding: 0.5rem 1rem;
         font-size: 0.5rem;
         width: 100%;
+    }
+
+    #conta1{
+        font-size: .5rem;
     }
 
     .sectionCalculos {
@@ -1017,7 +1117,7 @@ input:disabled {
     }
 
     #resultado, #resultadoModificador {
-        font-size: 1.2rem;
+        font-size: .5rem;
         text-align: center;
         width: 100%;
     }
@@ -1095,6 +1195,52 @@ input:disabled {
         left: 77%;
         width: 1.5rem;
     }
+
+    .TG {
+        background-image: url(imagens/termoGeralPG.jpg);
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position-x: center;
+        background-position: center;
+        height: 150px;
+        position: relative;
+        margin-top: 30px;
+    }
+    
+    .TG > #valorAn2 { 
+        position: absolute;
+        top: 35%;
+        left: 10%;
+        width: 2rem;
+    }
+    
+    .TG > #valorA12 {
+        position: absolute;
+        top: 35%;
+        left: 40%;
+        width: 2rem;
+    }
+    
+    .TG > #valorN2 {
+        position: absolute;
+        top: 35%;
+        left: 57%;
+        width: 2rem;
+    }
+    
+    .TG > #valorQ2 {
+        position: absolute;
+        top: 10%;
+        left: 65%;
+        width: 3rem;
+    }
+    
+    .TG > #valorAk {
+        position: absolute;
+        top: 15%;
+        left: 76.5%;
+        width: 2.5rem;
+    }
     
     #somaGeral > #valorS1 { 
         position: absolute;
@@ -1122,7 +1268,54 @@ input:disabled {
         top: 10%;
         left: 88%;
         width: 2rem;
-    } 
+    }
+    
+    .somaGeral {
+        background-image: url(imagens/somaGeralPG.png);
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position-x: center;
+        background-position: center;
+        height: 100px;
+        position: relative;
+        margin-top: 50px;
+    }
+    
+    
+    .somaGeral > #valorSn { 
+        position: absolute;
+        top: 35%;
+        left: 0;
+        width: 2rem;
+    }
+    
+    .somaGeral > #valorA13 { 
+        position: absolute;
+        top: 5%;
+        left: 35%;
+        width: 2rem;
+    }
+    
+    .somaGeral > #valorqN {
+        position: absolute;
+        top: 5%;
+        left: 53%;
+        width: 2rem;
+    }
+    
+    .somaGeral > #valorN3 {
+        position: absolute;
+        bottom: 100%;
+        left: 60%;
+        width: 3rem;
+    }
+    
+    .somaGeral > #valorQ {
+        position: absolute;
+        top: 60%;
+        left: 37%;
+        width: 2.5rem;
+    }
     
     #quadratica {
         background-image: url(imagens/funcaoquadratica.png);

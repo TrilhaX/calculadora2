@@ -34,21 +34,21 @@ export class Expressao {
     }
     
     static calcularExpressao() {
-        let result;
+        let resultado;
         let conta;
         
         const input = document.querySelector("#eval").value;
         const correctedInput = Expressao.substituicao(input);
     
         try {
-            result = Expressao.evaluateExpression(correctedInput);
-            conta = `${input} = ${result}`;
+            resultado = Expressao.evaluateExpression(correctedInput);
+            conta = `${input} = ${resultado}`;
         } catch (error) {
             input.value = "Error";
-            result = undefined;
+            resultado = undefined;
             conta = "Erro na expressão!";
         }
     
-        return { result, conta, resultado2: '' };
+        return { result: parseFloat(resultado).toFixed(2), conta, resultado2: '' };
     }
 }
