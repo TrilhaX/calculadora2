@@ -1195,6 +1195,52 @@ input:disabled {
         left: 77%;
         width: 1.5rem;
     }
+
+    .TG {
+        background-image: url(imagens/termoGeralPG.jpg);
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position-x: center;
+        background-position: center;
+        height: 150px;
+        position: relative;
+        margin-top: 30px;
+    }
+    
+    .TG > #valorAn2 { 
+        position: absolute;
+        top: 35%;
+        left: 0;
+        width: 3rem;
+    }
+    
+    .TG > #valorA12 {
+        position: absolute;
+        top: 35%;
+        left: 35%;
+        width: 2.5rem;
+    }
+    
+    .TG > #valorN2 {
+        position: absolute;
+        top: 35%;
+        left: 58%;
+        width: 2.5rem;
+    }
+    
+    .TG > #valorQ2 {
+        position: absolute;
+        top: 10%;
+        left: 65%;
+        width: 3rem;
+    }
+    
+    .TG > #valorAk {
+        position: absolute;
+        top: 15%;
+        left: 76.5%;
+        width: 2.5rem;
+    }
     
     #somaGeral > #valorS1 { 
         position: absolute;
@@ -1223,6 +1269,53 @@ input:disabled {
         left: 88%;
         width: 2rem;
     } 
+
+    .somaGeral {
+        background-image: url(imagens/somaGeralPG.png);
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position-x: center;
+        background-position: center;
+        height: 100px;
+        position: relative;
+        margin-top: 50px;
+    }
+    
+    
+    .somaGeral > #valorSn { 
+        position: absolute;
+        top: 35%;
+        left: 0;
+        width: 3em;
+    }
+    
+    .somaGeral > #valorA13 { 
+        position: absolute;
+        top: 5%;
+        left: 27%;
+        width: 3rem;
+    }
+    
+    .somaGeral > #valorqN {
+        position: absolute;
+        top: 5%;
+        left: 53%;
+        width: 2.5rem;
+    }
+    
+    .somaGeral > #valorN3 {
+        position: absolute;
+        bottom: 100%;
+        left: 62%;
+        width: 3rem;
+    }
+    
+    .somaGeral > #valorQ {
+        position: absolute;
+        top: 60%;
+        left: 37%;
+        width: 3rem;
+    }
     
     #quadratica {
         background-image: url(imagens/funcaoquadratica.png);

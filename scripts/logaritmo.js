@@ -19,9 +19,6 @@ export class Logaritmo {
             const logaritmandoCalculado = Math.pow(base, logaritmo);
             resultado = logaritmandoCalculado.toFixed(2);
             conta = `Logaritmando = ${base}^${logaritmo}<br> Logaritmando = ${resultado}`;
-        }else{
-            let errorMensagge = document.getElementById("erroMensagem");
-            errorMensagge.innerHTML = "Selecione uma conta valida ou coloque os numeros nos inputs necessarios"
         }
     
         return { result: parseFloat(resultado).toFixed(2), conta, resultado2: '' };
