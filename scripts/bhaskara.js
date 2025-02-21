@@ -4,7 +4,7 @@ export class Bhaskara{
         const b = parseFloat(document.querySelector('#viado2').value);
         const c = parseFloat(document.querySelector('#viado3').value);
         const discriminant = b ** 2 - 4 * a * c;
-        let result, conta, resultado2,resultado1;
+        let result, conta;
     
         if (discriminant < 0) {
             result = "Sem raízes reais";
@@ -28,6 +28,6 @@ export class Bhaskara{
             `;
         }
     
-        return { result, conta, resultado2: '' };
+        return { result, conta };
     }
 }

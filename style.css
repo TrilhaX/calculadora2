@@ -7,12 +7,13 @@
 }
 
 body {
-    background: linear-gradient(#F7C6D9, #FAD4A2);
+    background-color: #F4F7F6;
     display: flex;
     flex-direction: column;
     width: 100vw;
     background-size: cover;
-    overflow-x: hidden;
+    overflow: hidden;
+    font-family: 'Roboto', sans-serif;
 }
 
 main {
@@ -27,7 +28,7 @@ main {
 
 h1 {
     font-size: 3rem;
-    color: #4A4A4A;
+    color: #2E4053;
     font-family: "Oswald", sans-serif;
 }
 
@@ -46,26 +47,27 @@ input{
     text-align: left;
     justify-content: center;
     align-items: center;
+    font-family: 'Montserrat', sans-serif;
 }
 
 button {
-    background-color: #4CAF50;
+    background-color: #3498DB;
     color: white;
     border: none;
     padding: 1rem 2rem;
     text-align: center;
     text-decoration: none;
     font-size: 1rem;
-    margin: 0.25rem 0.125rem;
+    margin: 0.5rem 0.125rem;
     cursor: pointer;
     border-radius: 0.5rem;
-    transition: background-color 0.3s;
+    transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
 button:hover {
-    background-color: #3c8b40;
+    background-color: #2d83bd;
+    transform: scale(1.05);
 }
-
 
 .sectionContainer {
     display: flex;
@@ -77,7 +79,7 @@ button:hover {
 .container {
     display: flex;
     flex-direction: column;
-    border: solid .3rem white;
+    border: solid .3rem #BDC3C7;
     border-radius: 2rem;
     background: linear-gradient(#F8F8FF, #EAEAEA);
     padding: 1rem 5rem;
@@ -102,7 +104,7 @@ button:hover {
     top: 1rem;
     left: 4.2rem;
     background-color: white;
-    border: solid 0.2rem #EAEAEA;
+    border: solid 0.2rem #BDC3C7;
     border-radius: 0.5rem;
     width: 15rem;
     padding: 1rem;
@@ -141,12 +143,13 @@ button:hover {
 }
 
 .historico {
-    border: 1px solid white;
+    border: .3rem solid #BDC3C7;
     background: linear-gradient(#F8F8FF, #EAEAEA);
     border-radius: 10px;
     justify-content: center;
     text-align: center;
     padding: 1rem;
+    margin-left: 1rem;
 }
 
 .clearHistory {
@@ -176,11 +179,12 @@ button:hover {
     display: flex;
     flex-direction: column;
     text-align: center;
-    border: .5rem solid white;
+    border: .3rem solid #BDC3C7;
     background: linear-gradient(#F8F8FF, #EAEAEA);
     border-radius: 10px;
     padding: 10px;
     gap: 10px;
+    margin-right: 1rem;
 }
 
 .bottomButtons{
@@ -454,7 +458,7 @@ input:disabled {
     font-family: "Kanit", sans-serif;
     font-size: 1rem;
     font-weight: bold;
-    color: red;
+    color: #E74C3C;
 }
 
 #fatorial-div{
@@ -896,6 +900,7 @@ input:disabled {
     h1 {
         font-size: 1rem;
         text-align: center;
+        font-family: 'Oswald', sans-serif;
     }
 
     .container {

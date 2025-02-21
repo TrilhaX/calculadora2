@@ -70,7 +70,6 @@ export class Progressao{
             } else {
                 return { result: "Preencha dois valores.", conta: "" };
             }
-        } else if (TPselected === 'PH') {
         }
     
         return { result: resultado.toFixed(2), conta, resultado2: '' };

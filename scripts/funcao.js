@@ -1,5 +1,4 @@
 export class Funcao {
-
     static calcularFuncao() {
         const valoresX = [-2, -1, 0, 1, 2];
         const inputEquacao = document.querySelector("#equação");
