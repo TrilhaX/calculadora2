@@ -170,7 +170,6 @@ button:hover {
     text-align: center;
     color: black;
     max-height: 20vh;
-    overflow-x: hidden;
 }
 
 .contas{
@@ -210,12 +209,6 @@ select{
     border: black solid .1rem;
     border-radius: .5rem;
     justify-content: center;
-}
-
-#calcularButton{
-    display: flex;
-    justify-content: center;
-    margin-top: .5rem;
 }
 
 #tipoPA-select{
@@ -887,7 +880,7 @@ input:disabled {
 @media (max-width: 794px) {
     body, main, .AVIADEI {
         flex-direction: column-reverse ;
-        height: 200vh;
+        height: 150vh;
         width: 100%;
         overflow-x: hidden;
         align-items: center;
@@ -940,10 +933,6 @@ input:disabled {
         padding: 0.5rem 1rem;
         font-size: 0.5rem;
         width: 100%;
-    }
-
-    #conta1{
-        font-size: .5rem;
     }
 
     .sectionCalculos {
@@ -1023,7 +1012,7 @@ input:disabled {
     }
 
     #resultado, #resultadoModificador {
-        font-size: .5rem;
+        font-size: 1.2rem;
         text-align: center;
         width: 100%;
     }

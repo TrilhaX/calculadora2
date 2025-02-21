@@ -60,12 +60,6 @@ function mostrarCalculo(calculoId) {
     calculoDiv.style.display = 'flex';
     calculoDiv.style.gap = '.5rem';
 
-    const container = document.querySelector(".container");
-    if (container) {
-        container.style.alignItems = '';
-        container.style.justifyContent = '';
-    }
-
     if (calculoId === 'raiz-div') {
         const raizDiv = document.getElementById('raiz');
         if (raizDiv) {
@@ -84,14 +78,6 @@ function mostrarCalculo(calculoId) {
     } else {
         calculoDiv.style.flexDirection = 'column';
     }
-
-    if (calculoId === 'porcentagem-div' || calculoId === 'bhaskara-div') {
-        if (container) {
-            container.style.display = 'flex';
-            container.style.alignItems = 'center';
-            container.style.justifyContent = 'center';
-        }
-    }
 }
 
 function configurarBotoes() {
@@ -107,37 +93,21 @@ function configurarBotoes() {
 function updateHistory() {
     const historyDiv = document.querySelector('.history');
     historyDiv.innerHTML = '<h3>Histórico</h3>';
-    
+
     const savedHistory = JSON.parse(localStorage.getItem('history')) || [];
+
     if (savedHistory.length === 0) {
         const p = document.createElement('p');
         p.innerHTML = "Sem registros no histórico.";
         historyDiv.appendChild(p);
         return;
     }
-    
-    savedHistory.forEach(entry => {
-        const entryDiv = document.createElement('div');
-        entryDiv.className = 'history-entry';
 
-        if (entry.conta) {
-            const contaP = document.createElement('p');
-            contaP.innerHTML = `Conta: ${entry.conta}`;
-            entryDiv.appendChild(contaP);
-        }
-        
-        const resultP = document.createElement('p');
-        resultP.innerHTML = `Resultado: ${entry.result}`;
-        entryDiv.appendChild(resultP);
-        
-        historyDiv.appendChild(entryDiv);
-        
-        const hr = document.createElement('hr');
-        historyDiv.appendChild(hr);
-        hr.style.width = '100%';
-        hr.style.border = '1px solid black';
-        hr.style.display = 'flex';
-        hr.style.margin = '.5rem';
+    savedHistory.forEach(entry => {
+        const p = document.createElement('p');
+        p.style.color = "black";
+        p.innerHTML = entry;
+        historyDiv.appendChild(p);
     });
 }
 
@@ -148,7 +118,7 @@ function clearHistory() {
 }
 
 function mostrarResultado() {
-    const { result, conta, resultado1, resultado2 } = calcular();
+    const { result, resultado1, resultado2 } = calcular();
     const resposta = document.querySelector("#resultado");
     const calculoSelecionado = document.querySelector('.calculo-div[style*="display: flex"]').id;
     const razaoOuProporcao = document.querySelector("#razaoeproporção-select");
@@ -192,10 +162,10 @@ function mostrarResultado() {
     }
 
     resposta.innerHTML = result !== undefined ? `Resultado: ${result}` : "";
-    
+
     if (result !== undefined && !isNaN(result)) {
         const savedHistory = JSON.parse(localStorage.getItem('history')) || [];
-        savedHistory.push({ result, conta });
+        savedHistory.push(result);
         localStorage.setItem('history', JSON.stringify(savedHistory));
         updateHistory();
     }
