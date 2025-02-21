@@ -1210,22 +1210,22 @@ input:disabled {
     .TG > #valorAn2 { 
         position: absolute;
         top: 35%;
-        left: 10%;
-        width: 2rem;
+        left: 0;
+        width: 3rem;
     }
     
     .TG > #valorA12 {
         position: absolute;
         top: 35%;
-        left: 40%;
-        width: 2rem;
+        left: 35%;
+        width: 2.5rem;
     }
     
     .TG > #valorN2 {
         position: absolute;
         top: 35%;
-        left: 57%;
-        width: 2rem;
+        left: 58%;
+        width: 2.5rem;
     }
     
     .TG > #valorQ2 {
@@ -1268,8 +1268,7 @@ input:disabled {
         top: 10%;
         left: 88%;
         width: 2rem;
-    }
-    
+    } 
     .somaGeral {
         background-image: url(imagens/somaGeralPG.png);
         background-size: contain;
@@ -1286,35 +1285,34 @@ input:disabled {
         position: absolute;
         top: 35%;
         left: 0;
-        width: 2rem;
+        width: 3em;
     }
     
     .somaGeral > #valorA13 { 
         position: absolute;
         top: 5%;
-        left: 35%;
-        width: 2rem;
+        left: 27%;
+        width: 3rem;
     }
     
     .somaGeral > #valorqN {
         position: absolute;
         top: 5%;
         left: 53%;
-        width: 2rem;
+        width: 2.5rem;
     }
     
     .somaGeral > #valorN3 {
         position: absolute;
         bottom: 100%;
-        left: 60%;
-        width: 3rem;
+        left: 62%;
     }
     
     .somaGeral > #valorQ {
         position: absolute;
         top: 60%;
         left: 37%;
-        width: 2.5rem;
+        width: 3rem;
     }
     
     #quadratica {

@@ -109,9 +109,6 @@ export class Pitagoras {
             resultado2 = catetoB.toFixed(2);
             result = `<br>Cateto A: ${resultado}<br> Cateto B: ${resultado2}`;
             conta = `<br>${valorC} * cos(${angulo})<br>${valorC} * sin(${angulo})<br>${resultado}, ${resultado2}<br><br>`;
-        }else{
-            let errorMensagge = document.getElementById("erroMensagem");
-            errorMensagge.innerHTML = "Selecione uma conta valida ou coloque os numeros nos inputs necessarios"
         }
 
         return { result, resultado2, conta, resultado1: resultado };

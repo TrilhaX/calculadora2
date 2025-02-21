@@ -21,9 +21,6 @@ export class RazaoeProporcao{
             const proportion = values[0] / values[1];
             resultado = proportion.toFixed(2);
             conta = `<br>Razão = ${values[0]}:${values[1]}<br> Razão = ${resultado}`;
-        }else{
-            let errorMensagge = document.getElementById("erroMensagem");
-            errorMensagge.innerHTML = "Selecione uma conta valida ou coloque os numeros nos inputs necessarios"
         }
     
         return { result: parseFloat(resultado).toFixed(2), conta };
