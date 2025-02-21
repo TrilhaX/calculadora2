@@ -13,7 +13,7 @@
 <body>
     <main>
         <section class="sectionCalculos" id="calculoContainer">
-            <h1>Calculos</h1>
+            <h1>Cálculos</h1>
             <div class="dropdownDentro">
                 <ul id="calculoLista">
                     <li><button value="eval">Expressão</button></li>
@@ -40,7 +40,6 @@
                 <div class="contas" style="display: none;">
                     <h1>Conta</h1>
                     <span id="conta1"></span>
-                    <button id="buttonDeleteCal">Fechar Calculo</button>
                 </div>
                 <div class="container">
                     <div class="inputs">
@@ -240,12 +239,13 @@
                             <div class="buttonsResult">
                                 <button id="deletarResult">Fechar Resultado</button>
                                 <button id="mostrarCalculo">Mostrar Calculo</button>
+                                <button id="mostrarHistorico">Mostrar Historico</button>
                             </div>
                         </div>
                     </div>
                     <h1 id="erroMensagem"></h1>
                 </div>
-                <div class="historico">
+                <div class="historico" style="display: none;">
                     <div class="history"><h3>Histórico</h3></div>
                     <button class="clearHistory">Limpar Historico</button>
                 </div>
@@ -256,5 +256,3 @@
     <script type="module" src="main.js" defer></script>
 </body>
 </html>
-
---Beta Release

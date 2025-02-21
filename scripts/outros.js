@@ -82,14 +82,31 @@ export class Outros{
         const { conta } = Outros.calcular();
         const conta1 = document.querySelector("#conta1");
         const conta2 = document.querySelector(".contas");
-        if (conta !== undefined && conta !== null && conta !== "") {
+        const contaButton = document.querySelector("#mostrarCalculo")
+        conta1.innerHTML = "Nenhuma Conta Definida"
+        if (conta !== undefined && conta !== null && conta !== "" && conta2.style.display == "none") {
             conta1.innerHTML = conta;
             conta2.style.display = "flex";
-        } else {
-            conta1.innerHTML = "Nenhuma conta definida.";
+            contaButton.innerHTML = "Fechar Conta"
+        } else if (conta2.style.display == "flex") {
             conta2.style.display = "none";
+            contaButton.innerHTML = "Mostrar Conta"
+        }else{
+            conta1.innerHTML = "Nenhuma conta definida.";
         }
     }    
+    
+    static mostrarHistorico() {
+        const historicoDiv = document.querySelector(".historico");
+        const historicoButton = document.querySelector("#mostrarHistorico")
+        if (historicoDiv.style.display === "none" || historicoDiv.style.display === "") {
+            historicoDiv.style.display = "block";
+            historicoButton.innerHTML = "Fechar Historico"
+        } else {
+            historicoDiv.style.display = "none";
+            historicoButton.innerHTML = "Mostrar Historico"
+        }
+    }      
 
     static updateConta() {
         const { conta } = Outros.calcular();
@@ -103,11 +120,6 @@ export class Outros{
             conta1.innerHTML = "Nenhuma conta definida.";
             conta2.style.display = "none";
         }
-    }
-    
-    static deleteCalculo() {
-        const conta2 = document.querySelector(".contas");
-        conta2.style.display = "none";
     }
     
     static deleteResultado() {
