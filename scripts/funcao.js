@@ -37,6 +37,6 @@ export class Funcao {
             document.querySelector(`#y${index + 1}`).value = resultados[index].toFixed(2);
         });
         
-        return { result: resultados, conta: contas.join('<br>') };
+        return { result: parseFloat(resultados).toFixed(2), conta: contas.join('<br>') };
     }          
 }

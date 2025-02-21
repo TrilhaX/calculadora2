@@ -17,7 +17,7 @@ export class DuploFatorial{
                 firstTerm = false;
             }
             conta += ` = ${factorial}`;
-            return { result: `${factorial}`, conta, resultado2: '' };
+            return { result: `${parseFloat(factorial).toFixed(2)}`, conta };
         }
     }
 }
