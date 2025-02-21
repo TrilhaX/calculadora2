@@ -127,9 +127,21 @@ export class Progressao{
                             resultado = NaN;
                             conta = `Não é possível isolar q com os valores fornecidos.`;
                         }
+                    }else{
+                        let errorMensagge = document.getElementById("erroMensagem");
+                        errorMensagge.innerHTML = "Selecione uma conta valida ou coloque os numeros nos inputs necessarios"
                     }
+                }else{
+                    let errorMensagge = document.getElementById("erroMensagem");
+                    errorMensagge.innerHTML = "Selecione uma conta valida ou coloque os numeros nos inputs necessarios"
                 }
+            }else{
+                let errorMensagge = document.getElementById("erroMensagem");
+                errorMensagge.innerHTML = "Selecione uma conta valida ou coloque os numeros nos inputs necessarios"
             }
+        }else{
+            let errorMensagge = document.getElementById("erroMensagem");
+            errorMensagge.innerHTML = "Selecione uma conta valida ou coloque os numeros nos inputs necessarios"
         }
         return { result: parseFloat(resultado).toFixed(2), conta };
     }

@@ -12,15 +12,18 @@ export class RazaoeProporcao{
         .filter(value => value !== "" )
         .map(value => parseFloat(value));    
     
-        if (selected === "razao" && values.length === 3) {
+        if (selected === "proporção" && values.length === 3) {
             const ratio = (values[0] * values[2]);
             const teuPai = ratio / values[1];
             resultado = teuPai.toFixed(2);
-            conta = `<br>Razão = ${values[0]} x ${values[2]}:${values[1]}<br> Razão = ${ratio}/ ${values[1]}<br> Razão = ${teuPai.toFixed(2)}`;
-        } else if (selected === "proporção" && values.length === 2) {
+            conta = `<br>Proporção = ${values[0]} x ${values[2]}:${values[1]}<br> Proporção = ${ratio}/ ${values[1]}<br> Proporção = ${teuPai.toFixed(2)}`;
+        } else if (selected === "razao" && values.length === 3) {
             const proportion = values[0] / values[1];
             resultado = proportion.toFixed(2);
-            conta = `<br>Proporção = ${values[0]}:${values[1]}<br> Proporção = ${resultado}`;
+            conta = `<br>Razão = ${values[0]}:${values[1]}<br> Razão = ${resultado}`;
+        }else{
+            let errorMensagge = document.getElementById("erroMensagem");
+            errorMensagge.innerHTML = "Selecione uma conta valida ou coloque os numeros nos inputs necessarios"
         }
     
         return { result: parseFloat(resultado).toFixed(2), conta };
@@ -37,7 +40,7 @@ export class RazaoeProporcao{
             return [valorA, valorB, valorC, valorD].find(input => input.value === "")?.id;
         } else if (razaoOuProporcao === 'proporção') {
             const filledInputs = [valorA, valorB, valorC, valorD].filter(input => input.value !== "").length;
-            if (filledInputs === 2) {
+            if (filledInputs === 3) {
                 return [valorA, valorB, valorC, valorD].find(input => input.value === "")?.id;
             }
         }
@@ -66,7 +69,7 @@ export class RazaoeProporcao{
                 valorD.disabled = valorD.value === "";
             }
         } else if (selected === 'proporção') {
-            if (filledInputs === 2) {
+            if (filledInputs === 4) {
                 valorA.disabled = valorA.value === "";
                 valorB.disabled = valorB.value === "";
                 valorC.disabled = valorC.value === "";

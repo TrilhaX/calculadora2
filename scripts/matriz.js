@@ -28,7 +28,7 @@ export class Matriz {
             resultado = `O Determinante é: ${determinante.toFixed(2).replace('.', ',')}, Dx é ${Dx.toFixed(2).replace('.', ',')} e Dy é ${Dy.toFixed(2).replace('.', ',')}. X é : ${DxD.toFixed(2).replace('.', ',')}, Y é : ${DyD.toFixed(2).replace('.', ',')}. Classificação: SI`;
         }
         
-        return { result: parseFloat(resultado).toFixed(2), conta };
+        return { result: resultado, conta };
     }
     static matriz3x3() {
         let a1 = parseFloat(document.querySelector("#aa2").value) || 0;
@@ -75,6 +75,6 @@ export class Matriz {
             resultado = "O sistema não tem uma solução única.";
         }
     
-        return { result: parseFloat(resultado).toFixed(2), conta };
+        return { result: resultado, conta };
     }        
 }
