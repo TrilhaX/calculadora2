@@ -888,7 +888,7 @@ input:disabled {
 #matriz3x3 > #aa2{
     position: absolute;
     top: 10%;
-    left: 29%;
+    left: 36%;
     width: 3rem;
     height: 2rem;
 }
@@ -896,7 +896,7 @@ input:disabled {
 #matriz3x3 > #ab2{
     position: absolute;
     top: 10%;
-    left: 44%;
+    left: 46%;
     width: 3rem;
     height: 2rem;
 }
@@ -904,7 +904,7 @@ input:disabled {
 #matriz3x3 > #ac2{
     position: absolute;
     top: 10%;
-    left: 59%;
+    left: 56%;
     width: 3rem;
     height: 2rem;
 }
@@ -912,7 +912,7 @@ input:disabled {
 #matriz3x3 > #ba2{
     position: absolute;
     top: 45%;
-    left: 29%;
+    left: 36%;
     width: 3rem;
     height: 2rem;
 }
@@ -920,7 +920,7 @@ input:disabled {
 #matriz3x3 > #bb2{
     position: absolute;
     top: 45%;
-    left: 44%;
+    left: 46%;
     width: 3rem;
     height: 2rem;
 }
@@ -928,7 +928,7 @@ input:disabled {
 #matriz3x3 > #bc2{
     position: absolute;
     top: 45%;
-    left: 59%;
+    left: 56%;
     width: 3rem;
     height: 2rem;
 }
@@ -936,7 +936,7 @@ input:disabled {
 #matriz3x3 > #ca2{
     position: absolute;
     top: 75%;
-    left: 29%;
+    left: 36%;
     width: 3rem;
     height: 2rem;
 }
@@ -944,7 +944,7 @@ input:disabled {
 #matriz3x3 > #cb2{
     position: absolute;
     top: 75%;
-    left: 44%;
+    left: 46%;
     width: 3rem;
     height: 2rem;
 }
@@ -952,7 +952,7 @@ input:disabled {
 #matriz3x3 > #cc2{
     position: absolute;
     top: 75%;
-    left: 59%;
+    left: 56%;
     width: 3rem;
     height: 2rem;
 }
@@ -960,7 +960,7 @@ input:disabled {
 #matriz3x3 > #r12{
     position: absolute;
     top: 10%;
-    left: 80%;
+    left: 70%;
     width: 3rem;
     height: 2rem;
 }
@@ -968,7 +968,7 @@ input:disabled {
 #matriz3x3 > #r22{
     position: absolute;
     top: 45%;
-    left: 80%;
+    left: 70%;
     width: 3rem;
     height: 2rem;
 }
@@ -976,7 +976,7 @@ input:disabled {
 #matriz3x3 > #r32{
     position: absolute;
     top: 75%;
-    left: 80%;
+    left: 70%;
     width: 3rem;
     height: 2rem;
 }
