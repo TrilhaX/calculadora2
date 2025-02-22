@@ -4,57 +4,83 @@ export class Progressao {
         const valorA1 = parseFloat((document.getElementById('valorA1') as HTMLInputElement).value);
         const valorR = parseFloat((document.getElementById('valorR') as HTMLInputElement).value);
         const valorN = parseFloat((document.getElementById('valorN') as HTMLInputElement).value);
-        const valorAn = parseFloat((document.getElementById('valorAn') as HTMLInputElement).value);
-        const valorAk = parseFloat((document.getElementById('valorAk') as HTMLInputElement).value);
+        const valorAn = document.getElementById('valorAn') as HTMLInputElement;
+        const valorAk = document.getElementById('valorAk') as HTMLInputElement;
         const valorA11 = parseFloat((document.getElementById('valorA11') as HTMLInputElement).value);
         const valorN1 = parseFloat((document.getElementById('valorN1') as HTMLInputElement).value);
         const valorAn1 = parseFloat((document.getElementById('valorAn1') as HTMLInputElement).value);
-        const valorS = parseFloat((document.getElementById('valorS1') as HTMLInputElement).value);
-    
-        if (isNaN(valorA1) || isNaN(valorR) || isNaN(valorN) || isNaN(valorAn) || isNaN(valorAk) ||
-            isNaN(valorA11) || isNaN(valorN1) || isNaN(valorAn1) || isNaN(valorS)) {
-            return { result: "NaN", conta: "Entrada inválida: todos os campos devem ser preenchidos." };
-        }
-    
+        const valorS = document.getElementById('valorS1') as HTMLInputElement;
+        const valorAn2 = document.getElementById('valorAn2') as HTMLInputElement;
+        const valorA12 = parseFloat((document.getElementById('valorA12') as HTMLInputElement).value);
+        const valorN2 = parseFloat((document.getElementById('valorN2') as HTMLInputElement).value);
+        const valorQ2 = parseFloat((document.getElementById('valorQ2') as HTMLInputElement).value);
+        const valorSn = document.getElementById('valorSn') as HTMLInputElement;
+        const valorA13 = parseFloat((document.getElementById('valorA13') as HTMLInputElement).value);
+        const valorqN = parseFloat((document.getElementById('valorqN') as HTMLInputElement).value);
+        const valorN3 = parseFloat((document.getElementById('valorN3') as HTMLInputElement).value);
+        const valorQ = parseFloat((document.getElementById('valorQ') as HTMLInputElement).value);
+
         let resultado: number | null = null;
         let conta: string = '';
-    
+
         if (TPselected === 'PA') {
             const selectedPA = (document.getElementById('tipoPA-select') as HTMLSelectElement).value;
-    
+
             if (selectedPA === 'TG') {
-                if (!isNaN(valorA1) && !isNaN(valorR) && !isNaN(valorN)) {
-                    resultado = valorA1 + (valorN - 1) * valorR;
-                    conta = `Termo Geral: Aₙ = A₁ + (n - 1) * R`;
+                if (isNaN(valorA1) || isNaN(valorR) || isNaN(valorN)) {
+                    return { result: "NaN", conta: "Entrada inválida" };
+                }
+                resultado = valorA1 + (valorN - 1) * valorR;
+                conta = `Termo Geral: Aₙ = ${valorA1} + (${valorN} - 1) * ${valorR}`;
+                if (valorAn.value === "") {
+                    valorAn.value = resultado.toFixed(2);
+                    valorAn.disabled = false;
+                } else if (valorAk.value === "") {
+                    valorAk.value = resultado.toFixed(2);
+                    valorAk.disabled = false;
                 }
             } else if (selectedPA === 'somaGeral') {
-                if (!isNaN(valorA11) && !isNaN(valorAn1) && !isNaN(valorN1)) {
-                    resultado = (valorN1 / 2) * (valorA11 + valorAn1);
-                    conta = `Soma dos termos: Sₙ = (n / 2) * (A₁ + Aₙ)`;
+                if (isNaN(valorA11) || isNaN(valorAn1) || isNaN(valorN1)) {
+                    return { result: "NaN", conta: "Entrada inválida" };
+                }
+                resultado = (valorN1 / 2) * (valorA11 + valorAn1);
+                conta = `Soma dos termos: Sₙ = (${valorN1} / 2) * (${valorA11} + ${valorAn1})`;
+                if (valorS.value === "") {
+                    valorS.value = resultado.toFixed(2);
+                    valorS.disabled = false;
                 }
             }
         } else if (TPselected === 'PG') {
             const selectedPG = (document.getElementById('tipoPG-select') as HTMLSelectElement).value;
-    
+
             if (selectedPG === 'TG') {
-                const valorQ = parseFloat((document.getElementById('valorQ') as HTMLInputElement).value);
-                if (!isNaN(valorA1) && !isNaN(valorQ) && !isNaN(valorN)) {
-                    resultado = valorA1 * Math.pow(valorQ, valorN - 1);
-                    conta = `Termo Geral: Aₙ = A₁ * q^(n - 1)`;
+                if (isNaN(valorA12) || isNaN(valorQ2) || isNaN(valorN2)) {
+                    return { result: "NaN", conta: "Entrada inválida" };
+                }
+                resultado = valorA12 * Math.pow(valorQ2, valorN2 - 1);
+                conta = `Termo Geral: Aₙ = ${valorA12} * ${valorQ2}^(${valorN2} - 1)`;
+                if (valorAn2.value === "") {
+                    valorAn2.value = resultado.toFixed(2);
+                    valorAn2.disabled = false;
                 }
             } else if (selectedPG === 'somaGeral') {
-                const valorQ = parseFloat((document.getElementById('valorQ') as HTMLInputElement).value);
-                if (!isNaN(valorA1) && !isNaN(valorQ) && !isNaN(valorN)) {
-                    if (valorQ === 1) {
-                        resultado = valorA1 * valorN;
-                        conta = `Soma dos termos: Sₙ = A₁ * n`;
-                    } else {
-                        resultado = valorA1 * (Math.pow(valorQ, valorN) - 1) / (valorQ - 1);
-                        conta = `Soma dos termos: Sₙ = A₁ * (qⁿ - 1) / (q - 1)`;
-                    }
+                if (isNaN(valorA13) || isNaN(valorQ) || isNaN(valorN3)) {
+                    return { result: "NaN", conta: "Entrada inválida" };
+                }
+                if (valorQ === 1) {
+                    resultado = valorA13 * valorN3;
+                    conta = `Soma dos termos: Sₙ = ${valorA13} * ${valorN3}`;
+                } else {
+                    resultado = valorA13 * (Math.pow(valorQ, valorN3) - 1) / (valorQ - 1);
+                    conta = `Soma dos termos: Sₙ = ${valorA13} * (${valorQ}^${valorN3} - 1) / (${valorQ} - 1)`;
+                }
+                if (valorSn.value === "") {
+                    valorSn.value = resultado.toFixed(2);
+                    valorSn.disabled = false;
                 }
             }
         }
+
         const result = resultado !== null && !isNaN(resultado) ? resultado.toFixed(2) : "NaN";
         return { result, conta };
     }
@@ -175,7 +201,6 @@ export class Progressao {
 
         const filledInputsPG2 = inputs.filter(input => input.value !== "").length;
 
-        console.log(filledInputsPG2)
         inputs.forEach(input => {
             input.disabled = false;
         });

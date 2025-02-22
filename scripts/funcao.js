@@ -25,7 +25,7 @@ export class Funcao {
             return termos.reduce((acc, term) => acc + term.coef * Math.pow(x, term.exp), constante);
         });
         const contas = valoresX.map((x, index) => {
-            let expressao = termos.map(term => `(${x})^${term.exp}`).join(" + ");
+            let expressao = termos.map(term => `(${term.coef} * ${x}^${term.exp})`).join(" + ");
             return `f(${x}) = ${expressao} + ${constante} = ${resultados[index].toFixed(2)}`;
         });
         valoresX.forEach((x, index) => {
@@ -38,6 +38,10 @@ export class Funcao {
                 yElement.value = resultados[index].toFixed(2);
             }
         });
-        return { result: resultados[0].toFixed(2), conta: contas.join('<br>') };
+        const resultadosFormatados = resultados.map((resultado, index) => `f(${valoresX[index]}) = ${resultado.toFixed(2)}`).join('<br>');
+        return {
+            result: `<br> ${resultadosFormatados}`,
+            conta: `<br>${contas.join('<br>')}`
+        };
     }
 }

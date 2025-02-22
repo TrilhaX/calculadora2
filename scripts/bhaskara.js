@@ -1,4 +1,10 @@
 export class Bhaskara {
+    static substituicao(input) {
+        return input
+            .replace(/x/g, "*")
+            .replace(/÷/g, "/")
+            .replace(/%/g, "/100");
+    }
     static calcularBhaskara() {
         const a = parseFloat(document.querySelector('#viado1').value);
         const b = parseFloat(document.querySelector('#viado2').value);
@@ -13,7 +19,7 @@ export class Bhaskara {
             const root1 = (-b + Math.sqrt(discriminant)) / (2 * a);
             const root2 = (-b - Math.sqrt(discriminant)) / (2 * a);
             resultado = `x1 = ${root1}, x2 = ${root2}`;
-            conta = `<br>
+            conta = `
                 Δ = (${b})² - 4 * ${a} * ${c} <br>
                 Δ = ${Math.pow(b, 2)} - (${-4 * a * c}) <br>
                 Δ = ${discriminant} <br>
@@ -24,6 +30,7 @@ export class Bhaskara {
                 x2 = (-${b} - √${discriminant}) / ${2 * a} <br>
                 x2 = ${root2}
             `;
+            conta = Bhaskara.substituicao(conta);
         }
         return { result: resultado, conta };
     }

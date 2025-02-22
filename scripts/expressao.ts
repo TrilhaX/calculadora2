@@ -49,6 +49,7 @@ export class Expressao {
         try {
             resultado = Expressao.evaluateExpression(correctedInput);
             conta = `${correctedInput} = ${resultado}`;
+            conta = Expressao.substituicao(conta)
         } catch (error) {
             input.value = "Error";
             resultado = undefined;

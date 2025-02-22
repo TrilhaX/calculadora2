@@ -104,40 +104,20 @@ export class Outros {
         const conta1 = document.querySelector("#conta1") as HTMLElement | null;
         const conta2 = document.querySelector(".contas") as HTMLElement | null;
         const contaButton = document.querySelector("#mostrarCalculo") as HTMLElement | null;
-
+    
         if (!conta1 || !conta2 || !contaButton) {
             console.error("Elementos não encontrados!");
             return;
         }
-
+    
         if (conta2.style.display === "none" || conta2.style.display === "") {
-            conta1.textContent = conta || "Nenhuma Conta Definida";
+            conta1.innerHTML = conta || "Nenhuma Conta Definida";
             conta2.style.display = "flex";
             contaButton.textContent = "Fechar Conta";
         } else {
             conta2.style.display = "none";
             contaButton.textContent = "Mostrar Conta";
-            conta1.textContent = "Nenhuma Conta Definida";
-        }
-    }
-
-    static mostrarContaA() {
-        const { conta } = Outros.calcular();
-        const conta1 = document.querySelector("#conta1") as HTMLElement | null;
-        const conta2 = document.querySelector(".contas") as HTMLDivElement | null;
-        const contaButton = document.querySelector("#mostrarCalculo") as HTMLElement | null;
-    
-        if (!conta1 || !conta2 || !contaButton) {
-            console.error("Elementos não encontrados!");
-            return;
-        }
-    
-        if (conta2.style.display === "none" || conta2.style.display === "") {
-            conta1.textContent = conta || "Nenhuma Conta Definida";
-            conta2.style.display = "flex";
-            contaButton.textContent = "Fechar Conta";
-        } else if (conta2.style.display === "flex" || conta2.style.display === "block") {
-            return
+            conta1.innerHTML = "Nenhuma Conta Definida";
         }
     }
 
@@ -158,13 +138,9 @@ export class Outros {
     static updateConta() {
         const { conta } = Outros.calcular();
         const conta1 = document.querySelector("#conta1") as HTMLElement | null;
-        const conta2 = document.querySelector(".contas") as HTMLElement | null;
 
         if (conta1) {
             conta1.innerHTML = conta !== undefined && conta !== null ? `${conta}` : "Nenhuma conta definida.";
-        }
-        if (conta2) {
-            conta2.style.setProperty("display", "none");
         }
     }
 
@@ -247,7 +223,7 @@ export class Outros {
                 return { result, conta, resultado1: undefined, resultado2: undefined };
             },
             'razaoeproporção-div': () => {
-                const { result, conta } = RazaoeProporcao.calcularRazaoEProporcao("razao");
+                const { result, conta } = RazaoeProporcao.calcularRazaoEProporcao();
                 return { result, conta, resultado1: undefined, resultado2: undefined };
             },
             'progressão-div': () => {
