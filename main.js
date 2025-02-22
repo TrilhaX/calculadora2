@@ -1,4 +1,4 @@
-var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k, _l, _m;
+var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k, _l;
 import { Outros } from './scripts/outros.js';
 import { Historico } from './scripts/historico.js';
 import { Pitagoras } from "./scripts/pitagoras.js";
@@ -82,13 +82,15 @@ inputEventListeners.forEach(({ ids, event, handler }) => {
     });
     RazaoeProporcao.blockRazaoEProporcao();
 });
-(_b = document.querySelector("#calcularButton")) === null || _b === void 0 ? void 0 : _b.addEventListener("click", Outros.mostrarResultado);
-(_c = document.getElementById("mostrarCalculo")) === null || _c === void 0 ? void 0 : _c.addEventListener("click", Outros.mostrarConta);
-(_d = document.getElementById("mostrarHistorico")) === null || _d === void 0 ? void 0 : _d.addEventListener("click", Outros.mostrarHistorico);
-(_e = document.getElementById("calcularButton")) === null || _e === void 0 ? void 0 : _e.addEventListener("click", Outros.updateConta);
-(_f = document.querySelector("#deletarResult")) === null || _f === void 0 ? void 0 : _f.addEventListener("click", Outros.deleteResultado);
-(_g = document.querySelector(".clearHistory")) === null || _g === void 0 ? void 0 : _g.addEventListener("click", Historico.clearHistory);
-(_h = document.getElementById('dropdownCalculos')) === null || _h === void 0 ? void 0 : _h.addEventListener('click', function () {
+(_b = document.getElementById("mostrarCalculo")) === null || _b === void 0 ? void 0 : _b.addEventListener("click", Outros.mostrarConta);
+(_c = document.getElementById("mostrarHistorico")) === null || _c === void 0 ? void 0 : _c.addEventListener("click", Outros.mostrarHistorico);
+(_d = document.querySelector("#deletarResult")) === null || _d === void 0 ? void 0 : _d.addEventListener("click", Outros.deleteResultado);
+(_e = document.querySelector(".clearHistory")) === null || _e === void 0 ? void 0 : _e.addEventListener("click", Historico.clearHistory);
+(_f = document.querySelector("#calcularButton")) === null || _f === void 0 ? void 0 : _f.addEventListener("click", () => {
+    Outros.mostrarResultado();
+    Outros.updateConta();
+});
+(_g = document.getElementById('dropdownCalculos')) === null || _g === void 0 ? void 0 : _g.addEventListener('click', function () {
     const calculoSection = document.getElementById('calculoContainer');
     if (calculoSection) {
         if (!calculoSection.style.display || calculoSection.style.display === 'none') {
@@ -100,7 +102,7 @@ inputEventListeners.forEach(({ ids, event, handler }) => {
         }
     }
 });
-(_j = document.getElementById("tipoProgressão-select")) === null || _j === void 0 ? void 0 : _j.addEventListener("change", function () {
+(_h = document.getElementById("tipoProgressão-select")) === null || _h === void 0 ? void 0 : _h.addEventListener("change", function () {
     const PAD = document.getElementById("PAD");
     const PGD = document.getElementById("PGD");
     const PHD = document.getElementById("PHD");
@@ -137,7 +139,7 @@ inputEventListeners.forEach(({ ids, event, handler }) => {
             erroMensagem.innerHTML = 'Selecione um cálculo válido';
     }
 });
-(_k = document.getElementById("tipoPA-select")) === null || _k === void 0 ? void 0 : _k.addEventListener("change", function () {
+(_j = document.getElementById("tipoPA-select")) === null || _j === void 0 ? void 0 : _j.addEventListener("change", function () {
     const termoGeralPA = document.getElementById("TG");
     const somaGeralPA = document.getElementById("somaGeral");
     if (termoGeralPA)
@@ -154,7 +156,7 @@ inputEventListeners.forEach(({ ids, event, handler }) => {
             somaGeralPA.style.display = "block";
     }
 });
-(_l = document.getElementById("tipoPG-select")) === null || _l === void 0 ? void 0 : _l.addEventListener("change", function () {
+(_k = document.getElementById("tipoPG-select")) === null || _k === void 0 ? void 0 : _k.addEventListener("change", function () {
     const termoGeralPG = document.querySelector(".TG");
     const somaGeralPG = document.querySelector(".somaGeral");
     if (termoGeralPG)
@@ -171,7 +173,7 @@ inputEventListeners.forEach(({ ids, event, handler }) => {
             somaGeralPG.style.display = "block";
     }
 });
-(_m = document.getElementById("matriz-select")) === null || _m === void 0 ? void 0 : _m.addEventListener("change", () => {
+(_l = document.getElementById("matriz-select")) === null || _l === void 0 ? void 0 : _l.addEventListener("change", () => {
     const matriz2x2 = document.getElementById("matriz2x2");
     const matriz3x3 = document.getElementById("matriz3x3");
     const matrizSelected = document.getElementById("matriz-select");

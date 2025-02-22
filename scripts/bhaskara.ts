@@ -1,4 +1,11 @@
 export class Bhaskara {
+    static substituicao(input: string): string {
+        return input
+            .replace(/x/g, "*")
+            .replace(/÷/g, "/")
+            .replace(/%/g, "/100");
+    }
+
     static calcularBhaskara(): { result: string, conta: string } {
         const a: number = parseFloat((document.querySelector('#viado1') as HTMLInputElement).value);
         const b: number = parseFloat((document.querySelector('#viado2') as HTMLInputElement).value);
@@ -25,6 +32,7 @@ export class Bhaskara {
                 x2 = (-${b} - √${discriminant}) / ${2 * a} <br>
                 x2 = ${root2}
             `;
+            conta = Bhaskara.substituicao(conta)
         }
 
         return { result: resultado, conta };

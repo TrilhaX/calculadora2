@@ -1,4 +1,10 @@
 export class Fatorial {
+    static substituicao(input) {
+        return input
+            .replace(/x/g, "*")
+            .replace(/÷/g, "/")
+            .replace(/%/g, "/100");
+    }
     static calcularFatorial() {
         const n = parseInt(document.querySelector('#fatorial1').value, 10);
         let factorial = 1;
@@ -15,6 +21,7 @@ export class Fatorial {
                 conta += (i > 1) ? `${i} * ` : `${i}`;
             }
             conta += ` = ${factorial}`;
+            conta = Fatorial.substituicao(conta);
             return { result: `${factorial.toFixed(2)}`, conta };
         }
     }
