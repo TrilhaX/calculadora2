@@ -1,10 +1,12 @@
 export class Pitagoras {
-    static getInputFaltandoTrigonometria() {
-        const valorA = parseFloat(document.getElementById("valorA").value);
-        const valorB = parseFloat(document.getElementById("valorB").value);
-        const valorC = parseFloat(document.getElementById("valorC").value);
-        const angulo = parseFloat(document.getElementById("angulo").value);
-        const inputsFaltando = [];
+    static getInputFaltandoTrigonometria(): string[] | null {
+        const valorA = parseFloat((document.getElementById("valorA") as HTMLInputElement).value);
+        const valorB = parseFloat((document.getElementById("valorB") as HTMLInputElement).value);
+        const valorC = parseFloat((document.getElementById("valorC") as HTMLInputElement).value);
+        const angulo = parseFloat((document.getElementById("angulo") as HTMLInputElement).value);
+    
+        const inputsFaltando: string[] = [];
+    
         if (!valorA && valorB && angulo && valorC) {
             inputsFaltando.push("valorA");
         }
@@ -17,13 +19,15 @@ export class Pitagoras {
         if (!valorC && valorA && valorB && angulo) {
             inputsFaltando.push("valorC");
         }
+    
         return inputsFaltando.length > 0 ? inputsFaltando : null;
     }
-    static blockTrigonometria() {
-        const valorAInput = document.getElementById("valorA");
-        const valorBInput = document.getElementById("valorB");
-        const valorCInput = document.getElementById("valorC");
-        const anguloInput = document.getElementById("angulo");
+
+    static blockTrigonometria(): void {
+        const valorAInput = document.getElementById("valorA") as HTMLInputElement;
+        const valorBInput = document.getElementById("valorB") as HTMLInputElement;
+        const valorCInput = document.getElementById("valorC") as HTMLInputElement;
+        const anguloInput = document.getElementById("angulo") as HTMLInputElement;
         if (!valorAInput || !valorBInput || !valorCInput || !anguloInput) {
             console.error("Um ou mais elementos não foram encontrados.");
             return;
@@ -34,62 +38,60 @@ export class Pitagoras {
         const angulo = parseFloat(anguloInput.value);
         const inputs = [valorAInput, valorBInput, valorCInput, anguloInput];
         const filledInputs = inputs.filter(input => input.value.trim() !== "").length;
+    
         if (filledInputs >= 2 && filledInputs <= 3) {
             inputs.forEach(input => {
                 input.disabled = input.value.trim() === "";
             });
-        }
-        else {
+        } else {
             inputs.forEach(input => {
                 input.disabled = false;
             });
         }
     }
-    static calcularTrigonometria() {
-        const valorA = parseFloat(document.getElementById("valorA").value);
-        const valorB = parseFloat(document.getElementById("valorB").value);
-        const valorC = parseFloat(document.getElementById("valorC").value);
-        const angulo = parseFloat(document.getElementById("angulo").value);
-        let result = '';
-        let conta = '';
+
+    static calcularTrigonometria(): { result: string; conta: string } {
+        const valorA = parseFloat((document.getElementById("valorA") as HTMLInputElement).value);
+        const valorB = parseFloat((document.getElementById("valorB") as HTMLInputElement).value);
+        const valorC = parseFloat((document.getElementById("valorC") as HTMLInputElement).value);
+        const angulo = parseFloat((document.getElementById("angulo") as HTMLInputElement).value);
+    
+        let result: string = '';
+        let conta: string = '';
+    
         if (valorA && angulo) {
             const catetoB = valorA * Math.tan(angulo * Math.PI / 180);
             const hipotenusa = valorA / Math.cos(angulo * Math.PI / 180);
             result = `<br>Cateto B: ${catetoB.toFixed(2)}<br> Hipotenusa: ${hipotenusa.toFixed(2)}`;
             conta = `<br>${valorA} * tan(${angulo})<br>${valorA} / cos(${angulo})<br>${catetoB.toFixed(2)}, ${hipotenusa.toFixed(2)}<br><br>`;
-        }
-        else if (valorB && angulo) {
+        } else if (valorB && angulo) {
             const catetoA = valorB / Math.tan(angulo * Math.PI / 180);
             const hipotenusa = valorB / Math.sin(angulo * Math.PI / 180);
             result = `<br>Cateto A: ${catetoA.toFixed(2)}<br> Hipotenusa: ${hipotenusa.toFixed(2)}`;
             conta = `<br>${valorB} / tan(${angulo})<br>${valorB} / sin(${angulo})<br>${catetoA.toFixed(2)}, ${hipotenusa.toFixed(2)}<br><br>`;
-        }
-        else if (valorA && valorB) {
+        } else if (valorA && valorB) {
             const anguloCalculado = Math.atan(valorB / valorA) * (180 / Math.PI);
-            const hipotenusa = Math.sqrt(Math.pow(valorA, 2) + Math.pow(valorB, 2));
+            const hipotenusa = Math.sqrt(valorA ** 2 + valorB ** 2);
             result = `<br>Angulo: ${anguloCalculado.toFixed(2)}<br> Hipotenusa: ${hipotenusa.toFixed(2)}`;
             conta = `<br>atan(${valorB} / ${valorA})<br>√(${valorA}² + ${valorB}²)<br>${anguloCalculado.toFixed(2)}, ${hipotenusa.toFixed(2)}<br><br>`;
-        }
-        else if (valorA && valorC) {
-            const catetoB = Math.sqrt(Math.pow(valorC, 2) - Math.pow(valorA, 2));
+        } else if (valorA && valorC) {
+            const catetoB = Math.sqrt(valorC ** 2 - valorA ** 2);
             result = `<br>Cateto B: ${catetoB.toFixed(2)}`;
             conta = `<br>√(${valorC}² - ${valorA}²)<br>${catetoB.toFixed(2)}<br><br>`;
-        }
-        else if (valorB && valorC) {
-            const catetoA = Math.sqrt(Math.pow(valorC, 2) - Math.pow(valorB, 2));
+        } else if (valorB && valorC) {
+            const catetoA = Math.sqrt(valorC ** 2 - valorB ** 2);
             result = `<br>Cateto A: ${catetoA.toFixed(2)}`;
             conta = `<br>√(${valorC}² - ${valorB}²)<br>${catetoA.toFixed(2)}<br><br>`;
-        }
-        else if (angulo && valorC) {
+        } else if (angulo && valorC) {
             const catetoA = valorC * Math.cos(angulo * Math.PI / 180);
             const catetoB = valorC * Math.sin(angulo * Math.PI / 180);
             result = `<br>Cateto A: ${catetoA.toFixed(2)}<br> Cateto B: ${catetoB.toFixed(2)}`;
             conta = `<br>${valorC} * cos(${angulo})<br>${valorC} * sin(${angulo})<br>${catetoA.toFixed(2)}, ${catetoB.toFixed(2)}<br><br>`;
-        }
-        else {
+        } else {
             result = 'Invalid input combination';
             conta = 'Invalid input combination';
         }
+    
         return { result, conta };
     }
 }
