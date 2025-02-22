@@ -13,7 +13,7 @@ export class Bhaskara {
             const root1 = (-b + Math.sqrt(discriminant)) / (2 * a);
             const root2 = (-b - Math.sqrt(discriminant)) / (2 * a);
             resultado = `x1 = ${root1}, x2 = ${root2}`;
-            conta = `<br>
+            conta = `
                 Δ = (${b})² - 4 * ${a} * ${c} <br>
                 Δ = ${Math.pow(b, 2)} - (${-4 * a * c}) <br>
                 Δ = ${discriminant} <br>

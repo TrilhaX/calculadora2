@@ -104,20 +104,20 @@ export class Outros {
         const conta1 = document.querySelector("#conta1") as HTMLElement | null;
         const conta2 = document.querySelector(".contas") as HTMLElement | null;
         const contaButton = document.querySelector("#mostrarCalculo") as HTMLElement | null;
-
+    
         if (!conta1 || !conta2 || !contaButton) {
             console.error("Elementos não encontrados!");
             return;
         }
-
+    
         if (conta2.style.display === "none" || conta2.style.display === "") {
-            conta1.textContent = conta || "Nenhuma Conta Definida";
+            conta1.innerHTML = conta || "Nenhuma Conta Definida";
             conta2.style.display = "flex";
             contaButton.textContent = "Fechar Conta";
         } else {
             conta2.style.display = "none";
             contaButton.textContent = "Mostrar Conta";
-            conta1.textContent = "Nenhuma Conta Definida";
+            conta1.innerHTML = "Nenhuma Conta Definida";
         }
     }
 

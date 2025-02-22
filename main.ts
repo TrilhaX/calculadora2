@@ -89,7 +89,6 @@ document.getElementById("razaoeproporção-select")?.addEventListener("change", 
 document.querySelector("#calcularButton")?.addEventListener("click", Outros.mostrarResultado);
 document.getElementById("mostrarCalculo")?.addEventListener("click", Outros.mostrarConta);
 document.getElementById("mostrarHistorico")?.addEventListener("click", Outros.mostrarHistorico);
-document.getElementById("calcularButton")?.addEventListener("click", Outros.mostrarConta);
 document.getElementById("calcularButton")?.addEventListener("click", Outros.updateConta);
 document.querySelector("#deletarResult")?.addEventListener("click", Outros.deleteResultado);
 document.querySelector(".clearHistory")?.addEventListener("click", Historico.clearHistory);

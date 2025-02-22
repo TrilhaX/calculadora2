@@ -23,7 +23,7 @@ export class Historico {
     
             if (entry.conta) {
                 const contaP = document.createElement('p');
-                contaP.innerHTML = `Conta: ${entry.conta}`;
+                contaP.innerHTML = `Conta: <br>${entry.conta}`;
                 entryDiv.appendChild(contaP);
             }
             

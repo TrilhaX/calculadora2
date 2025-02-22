@@ -100,14 +100,14 @@ export class Outros {
             return;
         }
         if (conta2.style.display === "none" || conta2.style.display === "") {
-            conta1.textContent = conta || "Nenhuma Conta Definida";
+            conta1.innerHTML = conta || "Nenhuma Conta Definida";
             conta2.style.display = "flex";
             contaButton.textContent = "Fechar Conta";
         }
         else {
             conta2.style.display = "none";
             contaButton.textContent = "Mostrar Conta";
-            conta1.textContent = "Nenhuma Conta Definida";
+            conta1.innerHTML = "Nenhuma Conta Definida";
         }
     }
     static mostrarContaA() {

@@ -31,7 +31,7 @@ export class Funcao {
         });
     
         const contas: string[] = valoresX.map((x: number, index: number) => {
-            let expressao: string = termos.map(term => `(${x})^${term.exp}`).join(" + ");
+            let expressao: string = termos.map(term => `(${term.coef} * ${x}^${term.exp})`).join(" + ");
             return `f(${x}) = ${expressao} + ${constante} = ${resultados[index].toFixed(2)}`;
         });
         
@@ -47,6 +47,11 @@ export class Funcao {
             }
         });
         
-        return { result: resultados[0].toFixed(2), conta: contas.join('<br>') };
+        const resultadosFormatados: string = resultados.map((resultado, index) => `f(${valoresX[index]}) = ${resultado.toFixed(2)}`).join('<br>');
+        
+        return { 
+            result: `<br> ${resultadosFormatados}`, 
+            conta: `<br>${contas.join('<br>')}` 
+        };
     }          
 }
