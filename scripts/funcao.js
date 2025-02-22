@@ -33,9 +33,9 @@ export class Funcao {
             const finalElement = document.querySelector(`#final${index + 1}`);
             const yElement = document.querySelector(`#y${index + 1}`);
             if (resultadoElement && finalElement && yElement) {
-                resultadoElement.value = contas[index]; // Já é uma string
-                finalElement.value = resultados[index].toFixed(2); // Convertendo para string
-                yElement.value = resultados[index].toFixed(2); // Convertendo para string
+                resultadoElement.value = contas[index];
+                finalElement.value = resultados[index].toFixed(2);
+                yElement.value = resultados[index].toFixed(2);
             }
         });
         return { result: resultados[0].toFixed(2), conta: contas.join('<br>') };

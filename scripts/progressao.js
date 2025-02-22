@@ -1,6 +1,5 @@
 export class Progressao {
     static calcularProgressao() {
-        // Obtém os valores dos inputs
         const TPselected = document.getElementById('tipoProgressão-select').value;
         const valorA1 = parseFloat(document.getElementById('valorA1').value);
         const valorR = parseFloat(document.getElementById('valorR').value);
@@ -11,7 +10,6 @@ export class Progressao {
         const valorN1 = parseFloat(document.getElementById('valorN1').value);
         const valorAn1 = parseFloat(document.getElementById('valorAn1').value);
         const valorS = parseFloat(document.getElementById('valorS1').value);
-        // Verifica se todos os valores necessários estão presentes
         if (isNaN(valorA1) || isNaN(valorR) || isNaN(valorN) || isNaN(valorAn) || isNaN(valorAk) ||
             isNaN(valorA11) || isNaN(valorN1) || isNaN(valorAn1) || isNaN(valorS)) {
             return { result: "NaN", conta: "Entrada inválida: todos os campos devem ser preenchidos." };
@@ -21,14 +19,12 @@ export class Progressao {
         if (TPselected === 'PA') {
             const selectedPA = document.getElementById('tipoPA-select').value;
             if (selectedPA === 'TG') {
-                // Cálculo do termo geral da PA
                 if (!isNaN(valorA1) && !isNaN(valorR) && !isNaN(valorN)) {
                     resultado = valorA1 + (valorN - 1) * valorR;
                     conta = `Termo Geral: Aₙ = A₁ + (n - 1) * R`;
                 }
             }
             else if (selectedPA === 'somaGeral') {
-                // Cálculo da soma dos termos da PA
                 if (!isNaN(valorA11) && !isNaN(valorAn1) && !isNaN(valorN1)) {
                     resultado = (valorN1 / 2) * (valorA11 + valorAn1);
                     conta = `Soma dos termos: Sₙ = (n / 2) * (A₁ + Aₙ)`;
@@ -38,7 +34,6 @@ export class Progressao {
         else if (TPselected === 'PG') {
             const selectedPG = document.getElementById('tipoPG-select').value;
             if (selectedPG === 'TG') {
-                // Cálculo do termo geral da PG
                 const valorQ = parseFloat(document.getElementById('valorQ').value);
                 if (!isNaN(valorA1) && !isNaN(valorQ) && !isNaN(valorN)) {
                     resultado = valorA1 * Math.pow(valorQ, valorN - 1);
@@ -46,7 +41,6 @@ export class Progressao {
                 }
             }
             else if (selectedPG === 'somaGeral') {
-                // Cálculo da soma dos termos da PG
                 const valorQ = parseFloat(document.getElementById('valorQ').value);
                 if (!isNaN(valorA1) && !isNaN(valorQ) && !isNaN(valorN)) {
                     if (valorQ === 1) {
@@ -60,7 +54,6 @@ export class Progressao {
                 }
             }
         }
-        // Formata o resultado ou retorna "NaN" se o cálculo não for possível
         const result = resultado !== null && !isNaN(resultado) ? resultado.toFixed(2) : "NaN";
         return { result, conta };
     }

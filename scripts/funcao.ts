@@ -41,9 +41,9 @@ export class Funcao {
             const yElement: HTMLInputElement | null = document.querySelector(`#y${index + 1}`);
             
             if (resultadoElement && finalElement && yElement) {
-                resultadoElement.value = contas[index]; // Já é uma string
-                finalElement.value = resultados[index].toFixed(2); // Convertendo para string
-                yElement.value = resultados[index].toFixed(2); // Convertendo para string
+                resultadoElement.value = contas[index];
+                finalElement.value = resultados[index].toFixed(2);
+                yElement.value = resultados[index].toFixed(2);
             }
         });
         
