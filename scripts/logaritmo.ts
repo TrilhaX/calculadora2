@@ -1,10 +1,12 @@
 export class Logaritmo {
-    static calcularLog() {
-        const logaritmo = parseFloat(document.getElementById("logaritmo").value) || 0;
-        const logaritmando = parseFloat(document.getElementById("logaritmando").value) || 0;
-        const base = parseFloat(document.getElementById("base").value) || 0;
-        let resultado;
-        let conta = "Invalid input";
+    static calcularLog(): { result: string; conta: string } {
+        const logaritmo = parseFloat((document.getElementById("logaritmo") as HTMLInputElement).value) || 0;
+        const logaritmando = parseFloat((document.getElementById("logaritmando") as HTMLInputElement).value) || 0;
+        const base = parseFloat((document.getElementById("base") as HTMLInputElement).value) || 0;
+    
+        let resultado: number | undefined;
+        let conta: string = "Invalid input";
+    
         if (logaritmo && logaritmando) {
             const baseCalculada = Math.pow(logaritmando, 1 / logaritmo);
             resultado = baseCalculada;
@@ -23,36 +25,40 @@ export class Logaritmo {
         const formattedResult = resultado !== undefined ? resultado.toFixed(2) : "NaN";
         return { result: formattedResult, conta };
     }
+
     static blockLogaritmo() {
-        const logaritmo = document.getElementById("logaritmo");
-        const logaritmando = document.getElementById("logaritmando");
-        const base = document.getElementById("base");
+        const logaritmo = document.getElementById("logaritmo") as HTMLInputElement | null;
+        const logaritmando = document.getElementById("logaritmando") as HTMLInputElement | null;
+        const base = document.getElementById("base") as HTMLInputElement | null;
+    
         if (!logaritmo || !logaritmando || !base) {
             return;
         }
+    
         const inputs = [logaritmo, logaritmando, base];
         const filledInputs = inputs.filter(input => input.value.trim() !== "").length;
+    
         if (filledInputs === 2) {
             inputs.forEach(input => {
                 if (input.value.trim() === "") {
                     input.disabled = true;
                 }
             });
-        }
-        else {
+        } else {
             inputs.forEach(input => {
                 input.disabled = false;
             });
         }
     }
+
     static getInputFaltandoLog() {
-        var _a;
-        const logaritmo = document.getElementById("logaritmo");
-        const logaritmando = document.getElementById("logaritmando");
-        const base = document.getElementById("base");
+        const logaritmo = document.getElementById("logaritmo") as HTMLInputElement | null;
+        const logaritmando = document.getElementById("logaritmando") as HTMLInputElement | null;
+        const base = document.getElementById("base") as HTMLInputElement | null;
+    
         if (!logaritmo || !logaritmando || !base) {
             return;
         }
-        return ((_a = [logaritmo, logaritmando, base].find(input => input.value.trim() === "")) === null || _a === void 0 ? void 0 : _a.id) || null;
+        return [logaritmo, logaritmando, base].find(input => input.value.trim() === "")?.id || null;
     }
 }
