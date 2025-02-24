@@ -1,16 +1,16 @@
-import { Historico } from './historico.js';
-import { Pitagoras } from './pitagoras.js';
-import { Logaritmo } from './logaritmo.js';
-import { Porcentagem } from './porcentagem.js';
-import { Raiz } from './raiz.js';
-import { Bhaskara } from './bhaskara.js';
-import { Fatorial } from './fatorial.js';
-import { DuploFatorial } from './duplofatorial.js';
-import { RazaoeProporcao } from './razaoeproporcao.js';
-import { Progressao } from './progressao.js';
-import { Expressao } from './expressao.js';
-import { Funcao } from './funcao.js';
-import { Matriz } from './matriz.js';
+import { Historico } from '../../scripts/historico.js';
+import { Pitagoras } from '../../scripts/pitagoras.js';
+import { Logaritmo } from '../../scripts/logaritmo.js';
+import { Porcentagem } from '../../scripts/porcentagem.js';
+import { Raiz } from '../../scripts/raiz.js';
+import { Bhaskara } from '../../scripts/bhaskara.js';
+import { Fatorial } from '../../scripts/fatorial.js';
+import { DuploFatorial } from '../../scripts/duplofatorial.js';
+import { RazaoeProporcao } from '../../scripts/razaoeproporcao.js';
+import { Progressao } from '../../scripts/progressao.js';
+import { Expressao } from '../../scripts/expressao.js';
+import { Funcao } from '../../scripts/funcao.js';
+import { Matriz } from '../../scripts/matriz.js';
 export class Outros {
     static mostrarResultado() {
         var _a, _b, _c, _d, _e, _f, _g;

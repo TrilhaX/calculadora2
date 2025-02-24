@@ -1,10 +1,10 @@
 var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k, _l;
-import { Outros } from './scripts/outros.js';
-import { Historico } from './scripts/historico.js';
-import { Pitagoras } from "./scripts/pitagoras.js";
-import { Logaritmo } from "./scripts/logaritmo.js";
-import { RazaoeProporcao } from "./scripts/razaoeproporcao.js";
-import { Progressao } from "./scripts/progressao.js";
+import { Outros } from '../scripts/outros.js';
+import { Historico } from '../scripts/historico.js';
+import { Pitagoras } from "../scripts/pitagoras.js";
+import { Logaritmo } from "../scripts/logaritmo.js";
+import { RazaoeProporcao } from "../scripts/razaoeproporcao.js";
+import { Progressao } from "../scripts/progressao.js";
 function configurarBotoes() {
     const botoes = document.querySelectorAll('#calculoLista button');
     botoes.forEach((botao) => {
