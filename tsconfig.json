@@ -1,0 +1,19 @@
+{
+  "compilerOptions": {
+    "target": "ES6", // Define o JavaScript de saída como ES6
+    "module": "ES6", // Usa módulos ES6
+    "moduleResolution": "Node", // Resolve módulos como Node.js
+    "outDir": "./out", // Pasta de saída dos arquivos compilados
+    "rootDir": "./", // Pasta raiz dos arquivos TypeScript
+    "strict": true, // Habilita verificações rigorosas
+    "esModuleInterop": true, // Permite interoperabilidade com CommonJS
+    "skipLibCheck": true, // Ignora verificações de bibliotecas
+    "forceConsistentCasingInFileNames": true, // Força consistência no casing dos nomes de arquivos
+    "baseUrl": "./", // Define a base para caminhos absolutos
+    "paths": {
+      "*": ["scripts/*"] // Mapeia imports para a pasta scripts
+    }
+  },
+  "include": ["**/*.ts"], // Inclui todos os arquivos .ts no projeto
+  "exclude": ["node_modules"] // Exclui a pasta node_modules
+}
