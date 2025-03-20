@@ -66,14 +66,19 @@ export class RazaoeProporcao {
             .filter(value => value !== "").length;
         if (selected === 'razao') {
             if (filledInputsCount === 2) {
-                valorA.disabled = valorA.value !== "";
-                valorB.disabled = valorB.value !== "";
+                [valorA, valorB, valorC, valorD].forEach(input => {
+                    if (input.value === "") {
+                        input.disabled = true;
+                    }
+                });
             }
         }
         else if (selected === 'proporção') {
             if (filledInputsCount === 3) {
                 [valorA, valorB, valorC, valorD].forEach(input => {
-                    input.disabled = input.value !== "";
+                    if (input.value === "") {
+                        input.disabled = true;
+                    }
                 });
             }
         }
