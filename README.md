@@ -11,7 +11,7 @@ Seja para cálculos simples ou avançados, esta calculadora foi projetada para a
 
 ## Tecnologias Utilizadas
 
-- **Linguagem**: [HTML/CSS/JavaScript/]
+- **Linguagem**: [HTML/CSS/TypeScript/]
 
 ## Como usar?
 Acesse o link: https://trilhax.github.io/calculadora2/
