@@ -1,0 +1,1771 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    scrollbar-width: thin;
+    scrollbar-color: #888 #f1f1f100;
+}
+
+body {
+    background-color: #e6eae1;
+    display: flex;
+    flex-direction: column;
+    width: 100vw;
+    background-size: cover;
+    overflow-x: hidden;
+    font-family: 'Roboto', sans-serif;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    width: 100vw;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+h1 {
+    font-size: 3rem;
+    color: #2E4053;
+    font-family: "Oswald", sans-serif;
+}
+
+hr {
+    width: .2rem;
+    border: none;
+    background-color: #BDC3C7;
+    display: none;
+}
+
+input{
+    display: flex;
+    padding: .5rem;
+    border: .1rem solid #BDC3C7;
+    border-radius: .5rem;
+    text-align: left;
+    justify-content: center;
+    align-items: center;
+}
+
+button {
+    background-color: #3498DB;
+    color: white;
+    border: none;
+    padding: 1rem 2rem;
+    text-align: center;
+    text-decoration: none;
+    font-size: 1rem;
+    margin: 0.25rem 0.125rem;
+    cursor: pointer;
+    border-radius: 0.5rem;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+button:hover {
+    background-color: #2d83bd;
+    transform: scale(1.05);
+}
+
+.sectionContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    border: solid .3rem #BDC3C7;
+    border-radius: 2rem;
+    background: linear-gradient(#F8F8FF, #EAEAEA);
+    padding: 1rem 5rem;
+    text-align: center;
+    justify-content: center;
+}
+
+.AVIADEI{
+    display: flex;
+    flex-direction: row;
+}
+
+.inputs{
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+}
+
+.sectionCalculos {
+    display: none;
+    position: absolute;
+    top: 1rem;
+    left: 4.2rem;
+    background-color: white;
+    border: solid .3rem #BDC3C7;
+    border-radius: 0.5rem;
+    width: 15rem;
+    padding: 1rem;
+    z-index: 1;
+}
+
+.sectionCalculos ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.sectionCalculos li {
+    background-color: #7F8C8D;
+    margin: 0.5rem 0;
+    border-radius: 0.5rem;
+    cursor: pointer;
+}
+
+.sectionCalculos li button {
+    background-color: transparent;
+    color: white;
+    border: none;
+    width: 100%;
+    height: 100%;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    text-align: left;
+}
+
+.dropdownDentro {
+    display: flex;
+    flex-direction: column;
+    max-height: 15rem;
+    padding-right: .4rem;
+    overflow-y: auto;
+}
+
+.historico {
+    border: .3rem solid #BDC3C7;
+    background: linear-gradient(#F8F8FF, #EAEAEA);
+    border-radius: 10px;
+    justify-content: center;
+    text-align: center;
+    padding: 1rem;
+    margin-left: 1rem;
+}
+
+.clearHistory {
+    cursor: pointer;
+    background-color: red;
+    color: #fff;
+    border: 1px solid red;
+    }
+
+.clearHistory:hover {
+    cursor: pointer;
+    background-color: rgb(194, 2, 2);
+    color: #fff;
+    border: 1px solid rgb(194, 2, 2);
+}
+
+.history {
+    padding-top: 10px;
+    overflow-y: scroll;
+    background-color: #f2f2f200;
+    text-align: center;
+    color: black;
+    max-height: 20vh;
+    overflow-x: hidden;
+}
+
+.contas{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    border: .3rem solid #BDC3C7;
+    background: linear-gradient(#F8F8FF, #EAEAEA);
+    border-radius: 10px;
+    padding: 10px;
+    gap: 10px;
+    margin-right: 1rem;
+}
+
+.bottomButtons{
+    display: flex;
+    flex-direction: column;
+    width: max-content;
+}
+
+.resultados{
+    display: flex;
+    flex-direction: column;
+    padding-top: .5rem;
+    gap: 1rem;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.selectTipoProgressão{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    gap: .5rem;
+}
+
+select{
+    padding: .5rem;
+    border: black solid .1rem;
+    border-radius: .5rem;
+    justify-content: center;
+}
+
+#calcularButton{
+    display: flex;
+    justify-content: center;
+    margin-top: .5rem;
+}
+
+#tipoPA-select{
+    margin-bottom: .5rem;
+}
+
+#tipoMatriz-select{
+    margin-bottom: .5rem;
+}
+
+input:disabled {
+    background-color: #ece0e0;
+    cursor: not-allowed;
+}
+
+#dropdownCalculos {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    height: 3rem;
+    width: 3rem;
+    align-items: center;
+    text-align: center;
+    border: none;
+    border-radius: .3rem;
+    cursor: pointer;
+}
+
+#resultado{
+    font-size: 1.5rem;
+}
+
+#resultadoModificador{
+    font-size: 1.5rem;
+}
+
+#raiz {
+    background-image: url(imagens/raiz.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position-x: center;
+    height: 200px;
+    position: relative;
+}
+
+#raiz > #raiz-input {
+    position: absolute;
+    top: 20%;
+    left: 25%;
+    width: 4rem;
+}
+
+#raiz > #numero-raiz {
+    position: absolute;
+    top: 58%;
+    left: 50%;
+    height: 5rem;
+    width: 8rem;
+}
+
+#hipotenusa {
+    background-image: url(imagens/triangulopitagoras.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position-x: center;
+    height: 200px;
+    position: relative;
+}
+
+#hipotenusa > #catetoA {
+    position: absolute;
+    top: 32%;
+    right: 70%;
+    width: 4rem;
+}
+
+#hipotenusa > #catetoB {
+    position: absolute;
+    top: 85%;
+    left: 40%;
+    width: 4rem;
+}
+
+#hipotenusa > #Hipotenusa {
+    position: absolute;
+    top: 35%;
+    left: 60%;
+    width: 4rem;
+}
+
+#trigonometria {
+    background-image: url(imagens/triangulopitagoras.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position-x: center;
+    height: 200px;
+    position: relative;
+}
+
+#trigonometria > #valorA { 
+    position: absolute;
+    top: 35%;
+    left: 25%;
+    width: 4rem;
+}
+
+#trigonometria > #valorB {
+    position: absolute;
+    top: 90%;
+    left: 42%;
+    width: 4rem;
+}
+
+#trigonometria > #valorC {
+    position: absolute;
+    top: 35%;
+    left: 55%;
+    width: 4rem;
+}
+
+#trigonometria > div {
+    position: absolute;
+    top: 70%;
+    left: 55%;
+    display: inline-flex;
+    align-items: center;
+}
+
+#trigonometria > div > #angulo {
+    width: 3rem;
+}
+
+#trigonometria > div > span {
+    margin-left: 5px;
+    font-size: 1rem;
+}
+
+#logaritmod {
+    background-image: url(imagens/log.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position-x: center;
+    height: 50px;
+    position: relative;
+}
+
+#logaritmod > #logaritmo {
+    position: absolute;
+    bottom: 28%;
+    left: 70%;
+    height: 1.5rem;
+    width: 4rem;
+}
+
+#logaritmod > #logaritmando {
+    position: absolute;
+    bottom: 28%;
+    left: 49%;
+    height: 1.5rem;
+    width: 4rem;
+}
+
+#logaritmod > #base {
+    position: absolute;
+    top: 100%;
+    left: 43%;
+    height: 1.5rem;
+    width: 4rem;
+}
+
+#creditos{
+    margin-bottom: 1rem;
+}
+
+#buttonDeleteCal{
+    color: white;
+    background-color: rgb(177, 176, 176);
+}
+
+#buttonDeleteCal:hover{
+    color: white;
+    background-color: rgb(138, 138, 138);
+}
+
+#mostrarCalculo{
+    color: white;
+    background-color: #3c8b40;
+}
+
+#mostrarCalculo:hover{
+    color: white;
+    background-color: #2d6930;
+}
+
+#mostrarHistorico{
+    color: white;
+    background-color: #007BFF;
+}
+
+#mostrarHistorico:hover{
+    color: white;
+    background-color: #016ada;
+}
+
+#deletarResult{
+    color: white;
+    background-color: rgb(177, 176, 176);
+}
+
+#deletarResult:hover{
+    color: white;
+    background-color: rgb(138, 138, 138);
+}
+
+#razaoeproporção {
+    background-image: url(imagens/razaoeproporação.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position-x: center;
+    height: 200px;
+    position: relative;
+}
+
+#razaoeproporção > #valorAR { 
+    position: absolute;
+    top: 30%;
+    left: 24.5%;
+    width: 4rem;
+}
+
+#razaoeproporção > #valorBR {
+    position: absolute;
+    top: 30%;
+    left: 60.5%;
+    width: 4rem;
+}
+
+#razaoeproporção > #valorCR {
+    position: absolute;
+    top: 60%;
+    left: 24.5%;
+    width: 4rem;
+}
+
+#razaoeproporção > #valorDR {
+    position: absolute;
+    top: 60%;
+    left: 60.5%;
+    width: 4rem;
+}
+
+#erroMensagem{
+    font-family: "Kanit", sans-serif;
+    font-size: 1rem;
+    font-weight: bold;
+    color: red;
+}
+
+#fatorial-div{
+    display: flex;
+    flex-direction: row;
+}
+
+#TG {
+    background-image: url(imagens/paTG.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position-x: center;
+    background-position: center;
+    height: 60px;
+    position: relative;
+}
+
+#TG > #valorAn { 
+    position: absolute;
+    top: 15%;
+    left: 10%;
+    width: 4rem;
+}
+
+#TG > #valorA1 {
+    position: absolute;
+    top: 15%;
+    left: 31%;
+    width: 4rem;
+}
+
+#TG > #valorN {
+    position: absolute;
+    top: 15%;
+    left: 54.5%;
+    width: 3rem;
+}
+
+#TG > #valorR {
+    position: absolute;
+    top: 15%;
+    left: 85%;
+    width: 4rem;
+}
+
+#TG > #valorAk {
+    position: absolute;
+    top: 15%;
+    left: 70.3%;
+    width: 3rem;
+}
+
+.TG {
+    background-image: url(imagens/termoGeralPG.jpg);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position-x: center;
+    background-position: center;
+    height: 150px;
+    position: relative;
+    margin-top: 30px;
+}
+
+.TG > #valorAn2 { 
+    position: absolute;
+    top: 33.5%;
+    left: 23%;
+    width: 4rem;
+}
+
+.TG > #valorA12 {
+    position: absolute;
+    top: 33.5%;
+    left: 41%;
+    width: 3.8rem;
+}
+
+.TG > #valorN2 {
+    position: absolute;
+    top: 33.5%;
+    left: 54%;
+    width: 4rem;
+}
+
+.TG > #valorQ2 {
+    position: absolute;
+    top: 10%;
+    left: 60%;
+    width: 3rem;
+}
+
+.TG > #valorAk {
+    position: absolute;
+    top: 15%;
+    left: 76.5%;
+    width: 2.5rem;
+}
+
+#somaGeral {
+    background-image: url(imagens/paS.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position-x: center;
+    background-position: center;
+    height: 100px;
+    position: relative;
+}
+
+
+#somaGeral > #valorS1 { 
+    position: absolute;
+    top: 40%;
+    left: 18%;
+    width: 4rem;
+}
+
+#somaGeral > #valorAn1 { 
+    position: absolute;
+    top: 4%;
+    left: 58%;
+    width: 3rem;
+}
+
+#somaGeral > #valorA11 {
+    position: absolute;
+    top: 4%;
+    left: 42%;
+    width: 3rem;
+}
+
+#somaGeral > #valorN1 {
+    position: absolute;
+    top: 10%;
+    left: 72%;
+    width: 4rem;
+}
+
+.somaGeral {
+    background-image: url(imagens/somaGeralPG.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position-x: center;
+    background-position: center;
+    height: 100px;
+    position: relative;
+    margin-top: 50px;
+}
+
+
+.somaGeral > #valorSn { 
+    position: absolute;
+    top: 35%;
+    left: 20%;
+    width: 4rem;
+}
+
+.somaGeral > #valorA13 { 
+    position: absolute;
+    top: 5%;
+    left: 37%;
+    width: 4rem;
+}
+
+.somaGeral > #valorqN {
+    position: absolute;
+    top: 5%;
+    left: 51.5%;
+    width: 3rem;
+}
+
+.somaGeral > #valorN3 {
+    position: absolute;
+    bottom: 100%;
+    left: 57%;
+    width: 3rem;
+}
+
+.somaGeral > #valorQ {
+    position: absolute;
+    top: 60%;
+    left: 42%;
+    width: 4rem;
+}
+
+#funcao {
+    background-image: url(imagens/paS.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position-x: center;
+    background-position: center;
+    height: 100px;
+    position: relative;
+}
+
+#quadratica {
+    background-image: url(imagens/funcaoquadratica.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position-x: center;
+    background-position: center;
+    height: 200px;
+    position: relative;
+}
+
+#quadratica > #equação {
+    position: absolute;
+    top: 10%;
+    left: 23%;
+    width: 8rem;
+    height: 1.3rem;
+}
+
+#quadratica > #resultado1 {
+    position: absolute;
+    top: 23%;
+    left: 23%;
+    width: 8rem;
+    height: 1rem;
+}
+
+#quadratica > #resultado2 {
+    position: absolute;
+    top: 35%;
+    left: 23%;
+    width: 8rem;
+    height: 1rem;
+}
+
+#quadratica > #resultado3 {
+    position: absolute;
+    top: 48%;
+    left: 23%;
+    width: 8rem;
+    height: 1rem;
+}
+
+#quadratica > #resultado4 {
+    position: absolute;
+    top: 60%;
+    left: 23%;
+    width: 8rem;
+    height: 1rem;
+}
+
+#quadratica > #resultado5 {
+    position: absolute;
+    top: 73%;
+    left: 23%;
+    width: 8rem;
+    height: 1rem;
+}
+
+#quadratica > #final1 {
+    position: absolute;
+    top: 23%;
+    left: 53%;
+    width: 4rem;
+    height: 1rem;
+    text-align: center;
+}
+
+#quadratica > #final2 {
+    position: absolute;
+    top: 35%;
+    left: 53%;
+    width: 4rem;
+    height: 1rem;
+}
+
+#quadratica > #final3 {
+    position: absolute;
+    top: 48%;
+    left: 53%;
+    width: 4rem;
+    height: 1rem;
+}
+
+#quadratica > #final4 {
+    position: absolute;
+    top: 60%;
+    left: 53%;
+    width: 4rem;
+    height: 1rem;
+}
+
+#quadratica > #final5 {
+    position: absolute;
+    top: 73%;
+    left: 53%;
+    width: 4rem;
+    height: 1rem;
+}
+
+#quadratica > #y1 {
+    position: absolute;
+    top: 21%;
+    left: 84%;
+    width: 4rem;
+    height: .3rem;
+}
+
+#quadratica > #y2 {
+    position: absolute;
+    top: 31%;
+    left: 84%;
+    width: 4rem;
+    height: .3rem;
+}
+
+#quadratica > #y3 {
+    position: absolute;
+    top: 42%;
+    left: 84%;
+    width: 4rem;
+    height: .3rem;
+}
+
+#quadratica > #y4 {
+    position: absolute;
+    top: 53%;
+    left: 84%;
+    width: 4rem;
+    height: .3rem;
+}
+
+#quadratica > #y5 {
+    position: absolute;
+    top: 64%;
+    left: 84%;
+    width: 4rem;
+    height: .3rem;
+}
+
+#matriz2x2 {
+    background-image: url(imagens/matriz.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position-x: center;
+    background-position: center;
+    height: 200px;
+    position: relative;
+}
+
+#matriz2x2 > #aa{
+    position: absolute;
+    top: 20%;
+    left: 37%;
+    width: 4rem;
+    height: 3rem;
+}
+
+#matriz2x2 > #ab{
+    position: absolute;
+    top: 20%;
+    left: 52%;
+    width: 4rem;
+    height: 3rem;
+}
+
+#matriz2x2 > #ba{
+    position: absolute;
+    top: 60%;
+    left: 37%;
+    width: 4rem;
+    height: 3rem;
+}
+
+#matriz2x2 > #bb{
+    position: absolute;
+    top: 60%;
+    left: 52%;
+    width: 4rem;
+    height: 3rem;
+}
+
+#matriz2x2 > #r1{
+    position: absolute;
+    top: 60%;
+    left: 70%;
+    width: 4rem;
+    height: 3rem;
+}
+
+#matriz2x2 > #r2{
+    position: absolute;
+    top: 20%;
+    left: 70%;
+    width: 4rem;
+    height: 3rem;
+}
+
+#matriz3x3 {
+    background-image: url(imagens/matriz.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position-x: center;
+    background-position: center;
+    height: 200px;
+    position: relative;
+}
+
+#matriz3x3 > #aa2{
+    position: absolute;
+    top: 10%;
+    left: 36%;
+    width: 3rem;
+    height: 2rem;
+}
+
+#matriz3x3 > #ab2{
+    position: absolute;
+    top: 10%;
+    left: 46%;
+    width: 3rem;
+    height: 2rem;
+}
+
+#matriz3x3 > #ac2{
+    position: absolute;
+    top: 10%;
+    left: 56%;
+    width: 3rem;
+    height: 2rem;
+}
+
+#matriz3x3 > #ba2{
+    position: absolute;
+    top: 45%;
+    left: 36%;
+    width: 3rem;
+    height: 2rem;
+}
+
+#matriz3x3 > #bb2{
+    position: absolute;
+    top: 45%;
+    left: 46%;
+    width: 3rem;
+    height: 2rem;
+}
+
+#matriz3x3 > #bc2{
+    position: absolute;
+    top: 45%;
+    left: 56%;
+    width: 3rem;
+    height: 2rem;
+}
+
+#matriz3x3 > #ca2{
+    position: absolute;
+    top: 75%;
+    left: 36%;
+    width: 3rem;
+    height: 2rem;
+}
+
+#matriz3x3 > #cb2{
+    position: absolute;
+    top: 75%;
+    left: 46%;
+    width: 3rem;
+    height: 2rem;
+}
+
+#matriz3x3 > #cc2{
+    position: absolute;
+    top: 75%;
+    left: 56%;
+    width: 3rem;
+    height: 2rem;
+}
+
+#matriz3x3 > #r12{
+    position: absolute;
+    top: 10%;
+    left: 70%;
+    width: 3rem;
+    height: 2rem;
+}
+
+#matriz3x3 > #r22{
+    position: absolute;
+    top: 45%;
+    left: 70%;
+    width: 3rem;
+    height: 2rem;
+}
+
+#matriz3x3 > #r32{
+    position: absolute;
+    top: 75%;
+    left: 70%;
+    width: 3rem;
+    height: 2rem;
+}
+
+.formula-inputs input {
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    box-sizing: border-box;
+}
+
+#circulo-inputs {
+    background-color: #e3f2fd;
+    padding: 15px;
+}
+
+#retangulo-inputs {
+    background-color: #e3f2fd;
+    padding: 15px;
+}
+
+#triangulo-inputs {
+    background-color: #e3f2fd;
+    padding: 15px;
+}
+
+#trapezio-inputs {
+    background-color: #e3f2fd;
+    padding: 15px;
+}
+
+#paralelogramo-inputs {
+    background-color: #e3f2fd;
+    padding: 15px;
+}
+
+#losango-inputs {
+    background-color: #e3f2fd;
+    padding: 15px;
+}
+
+#quadrado-inputs {
+    background-color: #e3f2fd;
+    padding: 15px;
+}
+
+#cubo-inputs {
+    background-color: #e3f2fd;
+    padding: 15px;
+}
+
+#paralelepipedo-inputs {
+    background-color: #e3f2fd;
+    padding: 15px;
+}
+
+#esfera-inputs {
+    background-color: #e3f2fd;
+    padding: 15px;
+}
+
+#cilindro-inputs {
+    background-color: #e3f2fd;
+    padding: 15px;
+}
+
+#cone-inputs {
+    background-color: #e3f2fd;
+    padding: 15px;
+}
+
+::-webkit-scrollbar {
+    width: 12px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f100;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #88888800;
+    border-radius: 10px;
+    border: 3px solid #f1f1f100;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background-color: #55555500;
+}
+
+@media (max-width: 794px) {
+    body, main, .AVIADEI {
+        flex-direction: column-reverse ;
+        height: 200vh;
+        width: 100%;
+        overflow-x: hidden;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .bottomButtons{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    h1 {
+        font-size: 1rem;
+        text-align: center;
+    }
+
+    .container {
+        width: 90%;
+        padding: .5rem;
+        margin: .5rem 0;
+        border-radius: 1rem;
+        align-items: center;
+    }
+
+    .sectionContainer {
+        gap: .5rem;
+        width: 100%;
+        align-items: center;
+    }
+
+    .inputs {
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+    }
+
+    .buttonsResult{
+        display: flex;
+        flex-direction: row;
+    }
+
+    #percentual, #valorPorcento {
+        flex-direction: column;
+        align-items: center;
+        width: 50%;
+    }
+
+    button {
+        padding: 0.5rem 1rem;
+        font-size: 0.5rem;
+        width: 100%;
+    }
+
+    #conta1{
+        font-size: 1rem;
+    }
+
+    .sectionCalculos {
+        top: unset;
+        left: unset;
+        position: static;
+        width: 90%;
+        top: 20%;
+        padding: .5rem;
+        margin: .5rem 0;
+        position: fixed;
+        z-index: 1;
+    }
+
+    .sectionCalculos li {
+        padding: .5rem;
+        font-size: .5rem;
+        width: 100%;
+        z-index: 1;
+    }
+
+    #dropdownCalculos {
+        height: 2.5rem;
+        width: 2.5rem;
+        align-self: center;
+    }
+
+    #raiz {
+        height: 150px;
+        width: 90%;
+        margin: 1rem 0;
+    }
+
+    #raiz > #raiz-input {
+        width: 3em;
+        height: 3rem;
+        top: 0;
+        left: 20%;
+    }
+
+    #raiz > #numero-raiz {
+        width: 4em;
+        height: 4rem;
+    }
+
+    #trigonometria {
+        background-image: url(imagens/triangulopitagoras.png);
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position-x: center;
+        height: 200px;
+        width: 200px;
+        position: relative;
+    }
+    #trigonometria > #valorA { 
+        position: absolute;
+        top: 35%;
+        left: 50%;
+        width: 2.5rem;
+    }
+    
+    #trigonometria > #valorB {
+        position: absolute;
+        top: 90%;
+        left: 15%;
+        width: 2.5rem;
+    }
+    
+    #trigonometria > #valorC {
+        position: absolute;
+        top: 35%;
+        left: 60%;
+        width: 2.5rem;
+    }    
+    #viado1, #viado2, #viado3{
+        width: 10vw;
+    }
+
+    #resultado, #resultadoModificador {
+        font-size: 1rem;
+        text-align: center;
+        width: 100%;
+    }
+
+    #razaoeproporção {
+        background-image: url(imagens/razaoeproporação.png);
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position-x: center;
+        height: 120px;
+        position: relative;
+    }
+    #razaoeproporção > #valorAR { 
+        position: absolute;
+        top: 5%;
+        left: 0%;
+        width: 2.5rem;
+        height: 2.5rem;
+    }
+    
+    #razaoeproporção > #valorBR {
+        position: absolute;
+        top: 5%;
+        left: 70%;
+        width: 2.5rem;
+        height: 2.5rem;
+    }
+    
+    #razaoeproporção > #valorCR {
+        position: absolute;
+        top: 50%;
+        left: 0%;
+        width: 2.5rem;
+        height: 2.5rem;
+    }
+    
+    #razaoeproporção > #valorDR {
+        position: absolute;
+        top: 50%;
+        left: 70% ;
+        width: 2.5rem;
+        height: 2.5rem;
+    }
+    #TG > #valorAn { 
+        position: absolute;
+        top: 15%;
+        left: 0;
+        width: 2rem;
+    }
+    
+    #TG > #valorA1 {
+        position: absolute;
+        top: 15%;
+        left: 27%;
+        width: 2rem;
+    }
+    
+    #TG > #valorN {
+        position: absolute;
+        top: 15%;
+        left: 57%;
+        width: 1.5rem;
+    }
+    
+    #TG > #valorR {
+        position: absolute;
+        top: 15%;
+        left: 95%;
+        width: 2rem;
+    }
+    
+    #TG > #valorAk {
+        position: absolute;
+        top: 15%;
+        left: 77%;
+        width: 1.5rem;
+    }
+
+    .TG {
+        background-image: url(imagens/termoGeralPG.jpg);
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position-x: center;
+        background-position: center;
+        height: 150px;
+        position: relative;
+        margin-top: 30px;
+    }
+    
+    .TG > #valorAn2 { 
+        position: absolute;
+        top: 35%;
+        left: 0;
+        width: 3rem;
+    }
+    
+    .TG > #valorA12 {
+        position: absolute;
+        top: 35%;
+        left: 35%;
+        width: 2.5rem;
+    }
+    
+    .TG > #valorN2 {
+        position: absolute;
+        top: 35%;
+        left: 58%;
+        width: 2.5rem;
+    }
+    
+    .TG > #valorQ2 {
+        position: absolute;
+        top: 10%;
+        left: 65%;
+        width: 3rem;
+    }
+    
+    .TG > #valorAk {
+        position: absolute;
+        top: 15%;
+        left: 76.5%;
+        width: 2.5rem;
+    }
+    
+    #somaGeral > #valorS1 { 
+        position: absolute;
+        top: 40%;
+        left: 3%;
+        width: 2rem;
+    }
+    
+    #somaGeral > #valorAn1 { 
+        position: absolute;
+        top: 10%;
+        left: 63%;
+        width: 2rem;
+    }
+    
+    #somaGeral > #valorA11 {
+        position: absolute;
+        top: 10%;
+        left: 39%;
+        width: 2rem;
+    }
+    
+    #somaGeral > #valorN1 {
+        position: absolute;
+        top: 10%;
+        left: 88%;
+        width: 2rem;
+    } 
+    .somaGeral {
+        background-image: url(imagens/somaGeralPG.png);
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position-x: center;
+        background-position: center;
+        height: 100px;
+        position: relative;
+        margin-top: 50px;
+    }
+    
+    
+    .somaGeral > #valorSn { 
+        position: absolute;
+        top: 35%;
+        left: 0;
+        width: 3em;
+    }
+    
+    .somaGeral > #valorA13 { 
+        position: absolute;
+        top: 5%;
+        left: 27%;
+        width: 3rem;
+    }
+    
+    .somaGeral > #valorqN {
+        position: absolute;
+        top: 5%;
+        left: 53%;
+        width: 2.5rem;
+    }
+    
+    .somaGeral > #valorN3 {
+        position: absolute;
+        bottom: 100%;
+        left: 62%;
+    }
+    
+    .somaGeral > #valorQ {
+        position: absolute;
+        top: 60%;
+        left: 37%;
+        width: 3rem;
+    }
+    
+    #quadratica {
+        background-image: url(imagens/funcaoquadratica.png);
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position-x: center;
+        background-position: center;
+        height: 200px;
+        width: 300px;
+        position: relative;
+    }
+    
+    #equação {
+        position: absolute;
+        top: 22%;
+        left: 30%;
+        width: 5rem;
+        height: .3rem;
+    }
+    
+    #quadratica > #resultado1 {
+        position: absolute;
+        top: 33%;
+        left: 20%;
+        width: 5rem;
+        height: .3rem;
+        padding: .35rem;
+        font-size: 6px;
+    }
+    
+    #quadratica > #resultado2 {
+        position: absolute;
+        top: 41%;
+        left: 20%;
+        width: 5rem;
+        height: .3rem;
+        padding: .35rem;
+        font-size: 6px;
+    }
+    
+    #quadratica > #resultado3 {
+        position: absolute;
+        top: 48.5%;
+        left: 20%;
+        width: 5rem;
+        height: .3rem;
+        padding: .35rem;
+        font-size: 6px;
+    }
+    
+    #quadratica > #resultado4 {
+        position: absolute;
+        top: 56%;
+        left: 20%;
+        width: 5rem;
+        height: .3rem;
+        padding: .35rem;
+        font-size: 6px;
+    }
+    
+    #quadratica > #resultado5 {
+        position: absolute;
+        top: 64%;
+        left: 20%;
+        width: 5rem;
+        height: .3rem;
+        padding: .35rem;
+        font-size: 6px;
+    }
+    
+    #quadratica > #final1 {
+        position: absolute;
+        top: 33%;
+        left: 53%;
+        width: 2rem;
+        height: .3rem;
+        padding: .35rem;
+        font-size: 6px;
+    }
+    
+    #quadratica > #final2 {
+        position: absolute;
+        top: 40.5%;
+        left: 53%;
+        width: 2rem;
+        height: .3rem;
+        padding: .35rem;
+        font-size: 6px;
+    }
+    
+    #quadratica > #final3 {
+        position: absolute;
+        top: 48%;
+        left: 53%;
+        width: 2rem;
+        height: .3rem;
+        padding: .35rem;
+        font-size: 6px;
+    }
+    
+    #quadratica > #final4 {
+        position: absolute;
+        top: 56%;
+        left: 53%;
+        width: 2rem;
+        height: .3rem;
+        padding: .35rem;
+        font-size: 6px;
+    }
+    
+    #quadratica > #final5 {
+        position: absolute;
+        top: 64%;
+        left: 53%;
+        width: 2rem;
+        height: .3rem;
+        padding: .35rem;
+        font-size: 6px;
+    }
+    
+    #quadratica > #y1 {
+        position: absolute;
+        top: 32%;
+        left: 88.5%;
+        width: 2rem;
+        height: .3rem;
+        padding: .35rem;
+        font-size: 6px;
+    }
+    
+    #quadratica > #y2 {
+        position: absolute;
+        top: 38%;
+        left: 88.5%;
+        width: 2rem;
+        height: .3rem;
+        padding: .35rem;
+        font-size: 6px;
+    }
+    
+    #quadratica > #y3 {
+        position: absolute;
+        top: 44%;
+        left: 88.5%;
+        width: 2rem;
+        height: .3rem;
+        padding: .35rem;
+        font-size: 6px;
+    }
+    
+    #quadratica > #y4 {
+        position: absolute;
+        top: 51%;
+        left: 88.5%;
+        width: 2rem;
+        height: .3rem;
+        padding: .35rem;
+        font-size: 6px;
+    }
+    
+    #quadratica > #y5 {
+        position: absolute;
+        top: 59%;
+        left: 88.5%;
+        width: 2rem;
+        height: .3rem;
+        padding: .35rem;
+        font-size: 6px;
+    }   
+
+    #logaritmod {
+        background-image: url(imagens/log.png);
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position-x: center;
+        height: 50px;
+        width: 150px;
+        position: relative;
+    }
+    
+    #logaritmod > #logaritmo {
+        position: absolute;
+        bottom: 30%;
+        left: 105%;
+        height: 1.5rem;
+        width: 3rem;
+    }
+    
+    #logaritmod > #logaritmando {
+        position: absolute;
+        bottom: 28%;
+        left: 49%;
+        height: 1.5rem;
+        width: 3rem;
+    }
+    
+    #logaritmod > #base {
+        position: absolute;
+        top: 100%;
+        left: 40%;
+        height: 1.5rem;
+        width: 4rem;
+    }
+
+    #matriz2x2 {
+        background-image: url(imagens/matriz.png);
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position-x: center;
+        background-position: center;
+        height: 200px;
+        width: 200px;
+        position: relative;
+    }
+    
+    #matriz2x2 > #aa{
+        position: absolute;
+        top: 20%;
+        left: 15%;
+        width: 4rem;
+        height: 3rem;
+    }
+    
+    #matriz2x2 > #ab{
+        position: absolute;
+        top: 20%;
+        left: 55%;
+        width: 4rem;
+        height: 3rem;
+    }
+    
+    #matriz2x2 > #ba{
+        position: absolute;
+        top: 60%;
+        left: 15%;
+        width: 4rem;
+        height: 3rem;
+    }
+    
+    #matriz2x2 > #bb{
+        position: absolute;
+        top: 60%;
+        left: 55%;
+        width: 4rem;
+        height: 3rem;
+    }
+    
+    #matriz2x2 > #r1{
+        position: absolute;
+        top: 60%;
+        left: 100%;
+        width: 4rem;
+        height: 3rem;
+    }
+    
+    #matriz2x2 > #r2{
+        position: absolute;
+        top: 20%;
+        left: 100%;
+        width: 4rem;
+        height: 3rem;
+    }
+    
+    #matriz3x3 {
+        background-image: url(imagens/matriz.png);
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position-x: center;
+        background-position: center;
+        height: 200px;
+        width: 200px;
+        position: relative;
+    }
+    
+    #matriz3x3 > #aa2{
+        position: absolute;
+        top: 10%;
+        left: 12%;
+        width: 3rem;
+        height: 2rem;
+    }
+    
+    #matriz3x3 > #ab2{
+        position: absolute;
+        top: 10%;
+        left: 38%;
+        width: 3rem;
+        height: 2rem;
+    }
+    
+    #matriz3x3 > #ac2{
+        position: absolute;
+        top: 10%;
+        left: 65%;
+        width: 3rem;
+        height: 2rem;
+    }
+    
+    #matriz3x3 > #ba2{
+        position: absolute;
+        top: 45%;
+        left: 12%;
+        width: 3rem;
+        height: 2rem;
+    }
+    
+    #matriz3x3 > #bb2{
+        position: absolute;
+        top: 45%;
+        left: 38%;
+        width: 3rem;
+        height: 2rem;
+    }
+    
+    #matriz3x3 > #bc2{
+        position: absolute;
+        top: 45%;
+        left: 65%;
+        width: 3rem;
+        height: 2rem;
+    }
+    
+    #matriz3x3 > #ca2{
+        position: absolute;
+        top: 75%;
+        left: 12%;
+        width: 3rem;
+        height: 2rem;
+    }
+    
+    #matriz3x3 > #cb2{
+        position: absolute;
+        top: 75%;
+        left: 38%;
+        width: 3rem;
+        height: 2rem;
+    }
+    
+    #matriz3x3 > #cc2{
+        position: absolute;
+        top: 75%;
+        left: 65%;
+        width: 3rem;
+        height: 2rem;
+    }
+    
+    #matriz3x3 > #r12{
+        position: absolute;
+        top: 10%;
+        left: 100%;
+        width: 3rem;
+        height: 2rem;
+    }
+    
+    #matriz3x3 > #r22{
+        position: absolute;
+        top: 45%;
+        left: 100%;
+        width: 3rem;
+        height: 2rem;
+    }
+    
+    #matriz3x3 > #r32{
+        position: absolute;
+        top: 75%;
+        left: 100%;
+        width: 3rem;
+        height: 2rem;
+    }
+}
