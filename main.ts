@@ -67,6 +67,19 @@ function mostrarCalculo(calculoId: string): void {
     }
 }
 
+function mostrarGrafico(){
+    const canvas = document.getElementById('graficoCanvas') as HTMLCanvasElement;
+    const displayCanvas = canvas.style.display
+    const button = document.getElementById('mostrarGrafico') as HTMLButtonElement;
+    if (displayCanvas == 'none') {
+        canvas.style.display = 'flex';
+        button.innerHTML = "Fechar Grafico";
+    }else{
+        canvas.style.display = 'none';
+        button.innerHTML = "Mostrar Grafico";
+    }
+}
+
 const inputEventListeners: InputEventListener[] = [
     { ids: ['valorA', 'valorB', 'valorC', 'angulo'], event: 'input', handler: Pitagoras.blockTrigonometria },
     { ids: ['logaritmo', 'logaritmando', 'base'], event: 'input', handler: Logaritmo.blockLogaritmo },
@@ -93,6 +106,7 @@ document.getElementById("razaoeproporção-select")?.addEventListener("change", 
 });
 
 document.getElementById("mostrarCalculo")?.addEventListener("click", Outros.mostrarConta);
+document.getElementById("mostrarGrafico")?.addEventListener("click", mostrarGrafico);
 document.getElementById("mostrarHistorico")?.addEventListener("click", Outros.mostrarHistorico);
 document.querySelector("#deletarResult")?.addEventListener("click", Outros.deleteResultado);
 document.querySelector(".clearHistory")?.addEventListener("click", Historico.clearHistory);
@@ -112,8 +126,6 @@ document.getElementById('dropdownCalculos')?.addEventListener('click', function 
             calculoSection.style.display = 'none';
         }
     }
-    Outros.deleteResultado();
-    Outros.deleteConta();
 });
 
 document.getElementById("tipoProgressão-select")?.addEventListener("change", function () {
