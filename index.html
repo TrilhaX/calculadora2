@@ -12,6 +12,7 @@
 </head>
 <body>
     <main>
+
         <section class="sectionCalculos" id="calculoContainer">
             <h1>Cálculos</h1>
             <div class="dropdownDentro">
@@ -37,6 +38,7 @@
         <section class="sectionContainer">
             <h1>Seja bem-vindo!</h1>
             <section class="AVIADEI">
+                <canvas id="graficoCanvas" style="display:none; width: 500px; height: 400px;" width="1000" height="1000"></canvas>
                 <div class="contas" style="display: none;">
                     <h1>Conta</h1>
                     <span id="conta1"></span>
@@ -178,7 +180,6 @@
                             </div>
 
                             <div class="calculo-div" id="funcao-div">
-                                <canvas id="graficoCanvas" style="height: 200px;"></canvas>
                                 <div id="quadratica">
                                     <input type="text" placeholder="" id="equação" style="text-align: center;">
                                     <input type="text" placeholder="" id="resultado1" style="text-align: center;" disabled>
@@ -329,6 +330,7 @@
                                 <span id="resultadoModificador"></span>
                             </h1>
                             <div class="buttonsResult">
+                                <button id="mostrarGrafico">Mostrar Grafico</button>
                                 <button id="deletarResult">Fechar Resultado</button>
                                 <button id="mostrarCalculo">Mostrar Calculo</button>
                                 <button id="mostrarHistorico">Mostrar Historico</button>

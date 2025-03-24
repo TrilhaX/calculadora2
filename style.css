@@ -275,7 +275,7 @@ input:disabled {
 #raiz > #raiz-input {
     position: absolute;
     top: 20%;
-    left: 25%;
+    left: 32%;
     width: 4rem;
 }
 
@@ -329,14 +329,14 @@ input:disabled {
 #trigonometria > #valorA { 
     position: absolute;
     top: 35%;
-    left: 25%;
+    left: 30%;
     width: 4rem;
 }
 
 #trigonometria > #valorB {
     position: absolute;
     top: 90%;
-    left: 42%;
+    left: 45%;
     width: 4rem;
 }
 
@@ -376,7 +376,7 @@ input:disabled {
 #logaritmod > #logaritmo {
     position: absolute;
     bottom: 28%;
-    left: 70%;
+    left: 65%;
     height: 1.5rem;
     width: 4rem;
 }
@@ -384,7 +384,7 @@ input:disabled {
 #logaritmod > #logaritmando {
     position: absolute;
     bottom: 28%;
-    left: 49%;
+    left: 49.5%;
     height: 1.5rem;
     width: 4rem;
 }
@@ -392,7 +392,7 @@ input:disabled {
 #logaritmod > #base {
     position: absolute;
     top: 100%;
-    left: 43%;
+    left: 45%;
     height: 1.5rem;
     width: 4rem;
 }
@@ -453,28 +453,28 @@ input:disabled {
 #razaoeproporção > #valorAR { 
     position: absolute;
     top: 30%;
-    left: 24.5%;
+    left: 30.5%;
     width: 4rem;
 }
 
 #razaoeproporção > #valorBR {
     position: absolute;
     top: 30%;
-    left: 60.5%;
+    left: 58%;
     width: 4rem;
 }
 
 #razaoeproporção > #valorCR {
     position: absolute;
     top: 60%;
-    left: 24.5%;
+    left: 30.5%;
     width: 4rem;
 }
 
 #razaoeproporção > #valorDR {
     position: absolute;
     top: 60%;
-    left: 60.5%;
+    left: 58%;
     width: 4rem;
 }
 
@@ -503,35 +503,35 @@ input:disabled {
 #TG > #valorAn { 
     position: absolute;
     top: 15%;
-    left: 10%;
+    left: 20%;
     width: 4rem;
 }
 
 #TG > #valorA1 {
     position: absolute;
     top: 15%;
-    left: 31%;
+    left: 36%;
     width: 4rem;
 }
 
 #TG > #valorN {
     position: absolute;
     top: 15%;
-    left: 54.5%;
+    left: 53.5%;
     width: 3rem;
 }
 
 #TG > #valorR {
     position: absolute;
     top: 15%;
-    left: 85%;
+    left: 75%;
     width: 4rem;
 }
 
 #TG > #valorAk {
     position: absolute;
     top: 15%;
-    left: 70.3%;
+    left: 65%;
     width: 3rem;
 }
 
@@ -549,28 +549,28 @@ input:disabled {
 .TG > #valorAn2 { 
     position: absolute;
     top: 33.5%;
-    left: 23%;
+    left: 30%;
     width: 4rem;
 }
 
 .TG > #valorA12 {
     position: absolute;
     top: 33.5%;
-    left: 41%;
+    left: 43%;
     width: 3.8rem;
 }
 
 .TG > #valorN2 {
     position: absolute;
     top: 33.5%;
-    left: 54%;
+    left: 53%;
     width: 4rem;
 }
 
 .TG > #valorQ2 {
     position: absolute;
     top: 10%;
-    left: 60%;
+    left: 58%;
     width: 3rem;
 }
 
@@ -595,28 +595,28 @@ input:disabled {
 #somaGeral > #valorS1 { 
     position: absolute;
     top: 40%;
-    left: 18%;
+    left: 25%;
     width: 4rem;
 }
 
 #somaGeral > #valorAn1 { 
     position: absolute;
     top: 4%;
-    left: 58%;
+    left: 56%;
     width: 3rem;
 }
 
 #somaGeral > #valorA11 {
     position: absolute;
     top: 4%;
-    left: 42%;
+    left: 44%;
     width: 3rem;
 }
 
 #somaGeral > #valorN1 {
     position: absolute;
     top: 10%;
-    left: 72%;
+    left: 66%;
     width: 4rem;
 }
 
@@ -635,35 +635,35 @@ input:disabled {
 .somaGeral > #valorSn { 
     position: absolute;
     top: 35%;
-    left: 20%;
+    left: 30%;
     width: 4rem;
 }
 
 .somaGeral > #valorA13 { 
     position: absolute;
     top: 5%;
-    left: 37%;
+    left: 40%;
     width: 4rem;
 }
 
 .somaGeral > #valorqN {
     position: absolute;
     top: 5%;
-    left: 51.5%;
+    left: 51%;
     width: 3rem;
 }
 
 .somaGeral > #valorN3 {
     position: absolute;
     bottom: 100%;
-    left: 57%;
+    left: 55%;
     width: 3rem;
 }
 
 .somaGeral > #valorQ {
     position: absolute;
     top: 60%;
-    left: 42%;
+    left: 44%;
     width: 4rem;
 }
 
@@ -690,7 +690,7 @@ input:disabled {
 #quadratica > #equação {
     position: absolute;
     top: 10%;
-    left: 23%;
+    left: 30%;
     width: 8rem;
     height: 1.3rem;
 }
@@ -698,7 +698,7 @@ input:disabled {
 #quadratica > #resultado1 {
     position: absolute;
     top: 23%;
-    left: 23%;
+    left: 30%;
     width: 8rem;
     height: 1rem;
 }
@@ -706,7 +706,7 @@ input:disabled {
 #quadratica > #resultado2 {
     position: absolute;
     top: 35%;
-    left: 23%;
+    left: 30%;
     width: 8rem;
     height: 1rem;
 }
@@ -714,7 +714,7 @@ input:disabled {
 #quadratica > #resultado3 {
     position: absolute;
     top: 48%;
-    left: 23%;
+    left: 30%;
     width: 8rem;
     height: 1rem;
 }
@@ -722,7 +722,7 @@ input:disabled {
 #quadratica > #resultado4 {
     position: absolute;
     top: 60%;
-    left: 23%;
+    left: 30%;
     width: 8rem;
     height: 1rem;
 }
@@ -730,7 +730,7 @@ input:disabled {
 #quadratica > #resultado5 {
     position: absolute;
     top: 73%;
-    left: 23%;
+    left: 30%;
     width: 8rem;
     height: 1rem;
 }
@@ -738,7 +738,7 @@ input:disabled {
 #quadratica > #final1 {
     position: absolute;
     top: 23%;
-    left: 53%;
+    left: 52%;
     width: 4rem;
     height: 1rem;
     text-align: center;
@@ -747,7 +747,7 @@ input:disabled {
 #quadratica > #final2 {
     position: absolute;
     top: 35%;
-    left: 53%;
+    left: 52%;
     width: 4rem;
     height: 1rem;
 }
@@ -755,7 +755,7 @@ input:disabled {
 #quadratica > #final3 {
     position: absolute;
     top: 48%;
-    left: 53%;
+    left: 52%;
     width: 4rem;
     height: 1rem;
 }
@@ -763,7 +763,7 @@ input:disabled {
 #quadratica > #final4 {
     position: absolute;
     top: 60%;
-    left: 53%;
+    left: 52%;
     width: 4rem;
     height: 1rem;
 }
@@ -771,7 +771,7 @@ input:disabled {
 #quadratica > #final5 {
     position: absolute;
     top: 73%;
-    left: 53%;
+    left: 52%;
     width: 4rem;
     height: 1rem;
 }
@@ -779,7 +779,7 @@ input:disabled {
 #quadratica > #y1 {
     position: absolute;
     top: 21%;
-    left: 84%;
+    left: 75%;
     width: 4rem;
     height: .3rem;
 }
@@ -787,7 +787,7 @@ input:disabled {
 #quadratica > #y2 {
     position: absolute;
     top: 31%;
-    left: 84%;
+    left: 75%;
     width: 4rem;
     height: .3rem;
 }
@@ -795,7 +795,7 @@ input:disabled {
 #quadratica > #y3 {
     position: absolute;
     top: 42%;
-    left: 84%;
+    left: 75%;
     width: 4rem;
     height: .3rem;
 }
@@ -803,7 +803,7 @@ input:disabled {
 #quadratica > #y4 {
     position: absolute;
     top: 53%;
-    left: 84%;
+    left: 75%;
     width: 4rem;
     height: .3rem;
 }
@@ -811,7 +811,7 @@ input:disabled {
 #quadratica > #y5 {
     position: absolute;
     top: 64%;
-    left: 84%;
+    left: 75%;
     width: 4rem;
     height: .3rem;
 }
@@ -829,7 +829,7 @@ input:disabled {
 #matriz2x2 > #aa{
     position: absolute;
     top: 20%;
-    left: 37%;
+    left: 40%;
     width: 4rem;
     height: 3rem;
 }
@@ -837,7 +837,7 @@ input:disabled {
 #matriz2x2 > #ab{
     position: absolute;
     top: 20%;
-    left: 52%;
+    left: 51%;
     width: 4rem;
     height: 3rem;
 }
@@ -845,7 +845,7 @@ input:disabled {
 #matriz2x2 > #ba{
     position: absolute;
     top: 60%;
-    left: 37%;
+    left: 40%;
     width: 4rem;
     height: 3rem;
 }
@@ -853,7 +853,7 @@ input:disabled {
 #matriz2x2 > #bb{
     position: absolute;
     top: 60%;
-    left: 52%;
+    left: 51%;
     width: 4rem;
     height: 3rem;
 }
@@ -861,7 +861,7 @@ input:disabled {
 #matriz2x2 > #r1{
     position: absolute;
     top: 60%;
-    left: 70%;
+    left: 65%;
     width: 4rem;
     height: 3rem;
 }
@@ -869,7 +869,7 @@ input:disabled {
 #matriz2x2 > #r2{
     position: absolute;
     top: 20%;
-    left: 70%;
+    left: 65%;
     width: 4rem;
     height: 3rem;
 }
@@ -887,7 +887,7 @@ input:disabled {
 #matriz3x3 > #aa2{
     position: absolute;
     top: 10%;
-    left: 36%;
+    left: 40%;
     width: 3rem;
     height: 2rem;
 }
@@ -895,7 +895,7 @@ input:disabled {
 #matriz3x3 > #ab2{
     position: absolute;
     top: 10%;
-    left: 46%;
+    left: 47%;
     width: 3rem;
     height: 2rem;
 }
@@ -903,7 +903,7 @@ input:disabled {
 #matriz3x3 > #ac2{
     position: absolute;
     top: 10%;
-    left: 56%;
+    left: 54%;
     width: 3rem;
     height: 2rem;
 }
@@ -911,7 +911,7 @@ input:disabled {
 #matriz3x3 > #ba2{
     position: absolute;
     top: 45%;
-    left: 36%;
+    left: 40%;
     width: 3rem;
     height: 2rem;
 }
@@ -919,7 +919,7 @@ input:disabled {
 #matriz3x3 > #bb2{
     position: absolute;
     top: 45%;
-    left: 46%;
+    left: 47%;
     width: 3rem;
     height: 2rem;
 }
@@ -927,7 +927,7 @@ input:disabled {
 #matriz3x3 > #bc2{
     position: absolute;
     top: 45%;
-    left: 56%;
+    left: 54%;
     width: 3rem;
     height: 2rem;
 }
@@ -935,7 +935,7 @@ input:disabled {
 #matriz3x3 > #ca2{
     position: absolute;
     top: 75%;
-    left: 36%;
+    left: 40%;
     width: 3rem;
     height: 2rem;
 }
@@ -943,7 +943,7 @@ input:disabled {
 #matriz3x3 > #cb2{
     position: absolute;
     top: 75%;
-    left: 46%;
+    left: 47%;
     width: 3rem;
     height: 2rem;
 }
@@ -951,7 +951,7 @@ input:disabled {
 #matriz3x3 > #cc2{
     position: absolute;
     top: 75%;
-    left: 56%;
+    left: 54%;
     width: 3rem;
     height: 2rem;
 }
@@ -959,7 +959,7 @@ input:disabled {
 #matriz3x3 > #r12{
     position: absolute;
     top: 10%;
-    left: 70%;
+    left: 65%;
     width: 3rem;
     height: 2rem;
 }
@@ -967,7 +967,7 @@ input:disabled {
 #matriz3x3 > #r22{
     position: absolute;
     top: 45%;
-    left: 70%;
+    left: 65%;
     width: 3rem;
     height: 2rem;
 }
@@ -975,7 +975,7 @@ input:disabled {
 #matriz3x3 > #r32{
     position: absolute;
     top: 75%;
-    left: 70%;
+    left: 65%;
     width: 3rem;
     height: 2rem;
 }
@@ -991,7 +991,6 @@ input:disabled {
 }
 
 #circulo-inputs {
-    background-color: #e3f2fd;
     padding: 15px;
 }
 
@@ -1048,6 +1047,10 @@ input:disabled {
 #cone-inputs {
     background-color: #e3f2fd;
     padding: 15px;
+}
+
+#mostrarGrafico{
+    background-color: red;
 }
 
 ::-webkit-scrollbar {
