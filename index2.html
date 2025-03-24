@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gráfico Matemático</title>
+    <style>
+        canvas {
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+    <label for="a">Coeficiente angular (a):</label>
+    <input type="number" id="a" value="1">
+    <label for="b">Coeficiente linear (b):</label>
+    <input type="number" id="b" value="0">
+    <button onclick="atualizarGrafico()">Desenhar</button>
+    <canvas id="graficoCanvas" width="500" height="500"></canvas>
+    <script>
+        const canvas = document.getElementById("graficoCanvas");
+        const ctx = canvas.getContext("2d");
+
+        function desenharEixos() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            ctx.beginPath();
+            ctx.strokeStyle = "black";
+            
+            // Eixo Y
+            ctx.moveTo(250, 0);
+            ctx.lineTo(250, 500);
+            ctx.fillText("Y", 260, 10);
+            
+            // Eixo X
+            ctx.moveTo(0, 250);
+            ctx.lineTo(500, 250);
+            ctx.fillText("X", 490, 240);
+            
+            ctx.stroke();
+
+            // Escala
+            for (let i = -5; i <= 5; i++) {
+                let pos = 250 + i * 50;
+                if (i !== 0) {
+                    ctx.fillText(i, pos, 245); // Marcação eixo X
+                    ctx.fillText(-i, 255, pos); // Marcação eixo Y
+                }
+            }
+        }
+
+        function desenharFuncaoAfim(a, b, cor) {
+            ctx.beginPath();
+            ctx.strokeStyle = cor;
+            
+            for (let x = -250; x < 250; x++) {
+                let y = a * x + b;
+                ctx.lineTo(250 + x, 250 - y);
+            }
+            ctx.stroke();
+        }
+
+        function atualizarGrafico() {
+            let a = parseFloat(document.getElementById("a").value);
+            let b = parseFloat(document.getElementById("b").value);
+            desenharEixos();
+            desenharFuncaoAfim(a, b, "red");
+        }
+        
+        desenharEixos();
+        desenharFuncaoAfim(1, 0, "red"); // Exemplo inicial
+    </script>
+</body>
+</html>
