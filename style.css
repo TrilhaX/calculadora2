@@ -992,62 +992,138 @@ input:disabled {
     box-sizing: border-box;
 }
 
-#circulo-inputs {
-    padding: 15px;
+#circulo-inputs{
+    background-image: url(imagens/circuloimg.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position-x: center;
+    background-position: center;
+    height: 200px;
+    position: relative;
+}
+
+#raioCirculo{
+    width: 5vw;
+    position: absolute;
+    top: 25%;
+    left: 50%;
 }
 
 #retangulo-inputs {
-    background-color: #e3f2fd;
-    padding: 15px;
+    background-image: url(imagens/retanguloimg.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position-x: center;
+    background-position: center;
+    height: 200px;
+    position: relative;
+}
+
+#larguraRetangulo {
+    width: 5vw;
+    position: absolute;
+    top: 0;
+    left: 45%;
+}
+
+#alturaRetangulo {
+    width: 5vw;
+    position: absolute;
+    top: 35%;
+    left: 30%;
 }
 
 #triangulo-inputs {
-    background-color: #e3f2fd;
-    padding: 15px;
+    background-image: url(imagens/trianguloimg.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position-x: center;
+    background-position: center;
+    height: 200px;
+    position: relative;
+}
+
+#ladoATriangulo{
+    width: 5vw;
+    position: absolute;
+    top: 0;
+    left: 45%;
+}
+
+#ladoBTriangulo{
+    width: 5vw;
+    position: absolute;
+    top: 72%;
+    left: 30%;
+}
+
+#ladoCTriangulo{
+    width: 5vw;
+    position: absolute;
+    top: 72%;
+    left: 60%;
+}
+
+#baseTriangulo {
+    width: 5vw;
+    position: absolute;
+    top: 72%;
+    left: 45%;
+}
+
+#alturaTriangulo {
+    width: 5vw;
+    position: absolute;
+    top: 40%;
+    left: 45%;
 }
 
 #trapezio-inputs {
-    background-color: #e3f2fd;
     padding: 15px;
 }
 
 #paralelogramo-inputs {
-    background-color: #e3f2fd;
     padding: 15px;
 }
 
 #losango-inputs {
-    background-color: #e3f2fd;
     padding: 15px;
 }
 
 #quadrado-inputs {
-    background-color: #e3f2fd;
     padding: 15px;
 }
 
 #cubo-inputs {
-    background-color: #e3f2fd;
     padding: 15px;
 }
 
 #paralelepipedo-inputs {
-    background-color: #e3f2fd;
     padding: 15px;
 }
 
 #esfera-inputs {
-    background-color: #e3f2fd;
-    padding: 15px;
+    background-image: url(imagens/esfera.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position-x: center;
+    background-position: center;
+    height: 200px;
+    position: relative;
+}
+
+#raioEsfera{
+    width: 5vw;
+    position: absolute;
+    top: 20%;
+    left: 50%;
 }
 
 #cilindro-inputs {
-    background-color: #e3f2fd;
     padding: 15px;
 }
 
 #cone-inputs {
-    background-color: #e3f2fd;
     padding: 15px;
 }
 
