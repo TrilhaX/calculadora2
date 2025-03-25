@@ -24,7 +24,9 @@ canvas{
 main {
     display: flex;
     flex-direction: column;
-    height: 100vh;
+    align-items: center;
+    justify-content: center;
+    height: 150vh;
     width: 100vw;
     justify-content: center;
     align-items: center;
@@ -86,7 +88,7 @@ button:hover {
     border: solid .3rem #BDC3C7;
     border-radius: 2rem;
     background: linear-gradient(#F8F8FF, #EAEAEA);
-    padding: 1rem 5rem;
+    padding: 1rem 2rem;
     text-align: center;
     justify-content: center;
 }
