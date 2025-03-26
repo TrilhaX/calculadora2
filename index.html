@@ -11,32 +11,32 @@
     <link rel="icon" type="image/x-icon" href="imagens/logo.png">
 </head>
 <body>
+    <section class="sectionCalculos" id="calculoContainer">
+        <h1>Cálculos</h1>
+        <div class="dropdownDentro">
+            <ul id="calculoLista">
+                <li><button value="eval">Expressão</button></li>
+                <li><button value="raiz">Raiz</button></li>
+                <li><button value="porcentagem">Porcentagem</button></li>
+                <li><button value="fatorial">Fatorial</button></li>
+                <li><button value="duplofatorial">Duplo Fatorial</button></li>
+                <li><button value="razaoeproporção">Razão e Proporção</button></li>
+                <li><button value="progressão">Progressão</button></li>
+                <li><button value="pitagoras-trigonometria">Pitagoras e Trigonometria</button></li>
+                <li><button value="bhaskara">Bhaskara</button></li>
+                <li><button value="funcao">Função</button></li>
+                <li><button value="logaritmo">Logaritmo</button></li>
+                <li><button value="matriz">Matriz</button></li>
+                <li><button value="geometria">Geometria</button></li>
+            </ul>            
+        </div>
+    </section>
     <main>
-        <section class="sectionCalculos" id="calculoContainer">
-            <h1>Cálculos</h1>
-            <div class="dropdownDentro">
-                <ul id="calculoLista">
-                    <li><button value="eval">Expressão</button></li>
-                    <li><button value="raiz">Raiz</button></li>
-                    <li><button value="porcentagem">Porcentagem</button></li>
-                    <li><button value="fatorial">Fatorial</button></li>
-                    <li><button value="duplofatorial">Duplo Fatorial</button></li>
-                    <li><button value="razaoeproporção">Razão e Proporção</button></li>
-                    <li><button value="progressão">Progressão</button></li>
-                    <li><button value="pitagoras-trigonometria">Pitagoras e Trigonometria</button></li>
-                    <li><button value="bhaskara">Bhaskara</button></li>
-                    <li><button value="funcao">Função</button></li>
-                    <li><button value="logaritmo">Logaritmo</button></li>
-                    <li><button value="matriz">Matriz</button></li>
-                    <li><button value="geometria">Geometria</button></li>
-                </ul>            
-            </div>
-        </section>
         <hr>
         <input type="image" src="imagens/dropdownImage.jpg" id="dropdownCalculos" alt="Dropdown" title="Abrir cálculos">
         <section class="sectionContainer">
-            <h1>Seja bem-vindo!</h1>
             <section class="AVIADEI">
+                <canvas id="graficoCanvas"  width="1000" height="1000"></canvas>
                 <div class="contas" style="display: none;">
                     <h1>Conta</h1>
                     <span id="conta1"></span>
@@ -328,6 +328,7 @@
                                 <span id="resultadoModificador"></span>
                             </h1>
                             <div class="buttonsResult">
+                                <button id="mostrarGrafico">Mostrar Grafico</button>
                                 <button id="deletarResult">Fechar Resultado</button>
                                 <button id="mostrarCalculo">Mostrar Calculo</button>
                                 <button id="mostrarHistorico">Mostrar Historico</button>

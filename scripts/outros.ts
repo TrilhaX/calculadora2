@@ -233,6 +233,7 @@ export class Outros {
                 return { result, conta };
             },
             'funcao-div': () => {
+                Funcao.atualizarGrafico();
                 const { result, conta } = Funcao.calcularFuncao();
                 return { result, conta };
             },
