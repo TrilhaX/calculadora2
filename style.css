@@ -992,28 +992,27 @@ input:disabled {
     box-sizing: border-box;
 }
 
-#circulo-inputs{
+#circulo-inputs {
     background-image: url(imagens/circuloimg.png);
     background-size: contain;
     background-repeat: no-repeat;
-    background-position-x: center;
     background-position: center;
     height: 200px;
     position: relative;
 }
 
-#raioCirculo{
+#raioCirculo {
     width: 5vw;
     position: absolute;
     top: 25%;
-    left: 50%;
+    left: 55%;
+    transform: translateX(-50%);
 }
 
 #retangulo-inputs {
     background-image: url(imagens/retanguloimg.png);
     background-size: contain;
     background-repeat: no-repeat;
-    background-position-x: center;
     background-position: center;
     height: 200px;
     position: relative;
@@ -1037,27 +1036,26 @@ input:disabled {
     background-image: url(imagens/trianguloimg.png);
     background-size: contain;
     background-repeat: no-repeat;
-    background-position-x: center;
     background-position: center;
     height: 200px;
     position: relative;
 }
 
-#ladoATriangulo{
+#ladoATriangulo {
     width: 5vw;
     position: absolute;
     top: 0;
     left: 45%;
 }
 
-#ladoBTriangulo{
+#ladoBTriangulo {
     width: 5vw;
     position: absolute;
     top: 72%;
     left: 30%;
 }
 
-#ladoCTriangulo{
+#ladoCTriangulo {
     width: 5vw;
     position: absolute;
     top: 72%;
@@ -1079,27 +1077,147 @@ input:disabled {
 }
 
 #trapezio-inputs {
-    padding: 15px;
+    background-image: url(imagens/trapezioimg.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position-x: center;
+    background-position: center;
+    height: 200px;
+    position: relative;
+}
+
+#baseMaiorTrapezio {
+    width: 5vw;
+    position: absolute;
+    top: 70%;
+    left: 45%;
+}
+
+#baseMenorTrapezio {
+    width: 5vw;
+    position: absolute;
+    top: 0;
+    left: 45%;
+}
+
+#alturaTrapezio {
+    width: 5vw;
+    position: absolute;
+    top: 35%;
+    left: 45%;
 }
 
 #paralelogramo-inputs {
-    padding: 15px;
+    background-image: url(imagens/paraleloramaimg.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position-x: center;
+    background-position: center;
+    height: 200px;
+    position: relative;
+}
+
+#baseParalelogramo {
+    width: 5vw;
+    position: absolute;
+    top: 75%;
+    left: 45%;
+}
+
+#alturaParalelogramo {
+    width: 5vw;
+    position: absolute;
+    top: 35%;
+    left: 68%;
 }
 
 #losango-inputs {
-    padding: 15px;
+    background-image: url(imagens/losangoimg.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position-x: center;
+    background-position: center;
+    height: 200px;
+    position: relative;
+}
+
+#diagonalMenorLosango {
+    width: 5vw;
+    position: absolute;
+    top: 75%;
+    left: 45%;
+}
+
+#diagonalMaiorLosango {
+    width: 5vw;
+    position: absolute;
+    top: 35%;
+    left: 58%;
 }
 
 #quadrado-inputs {
-    padding: 15px;
+    background-image: url(imagens/quadradoimg.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position-x: center;
+    background-position: center;
+    height: 200px;
+    position: relative;
+}
+
+#ladoQuadrado {
+    width: 5vw;
+    position: absolute;
+    top: 35%;
+    left: 63%;
 }
 
 #cubo-inputs {
-    padding: 15px;
+    background-image: url(imagens/cubo.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position-x: center;
+    background-position: center;
+    height: 200px;
+    position: relative;
+}
+
+#ladoCubo {
+    width: 5vw;
+    position: absolute;
+    top: 35%;
+    left: 58%;
 }
 
 #paralelepipedo-inputs {
-    padding: 15px;
+    background-image: url(imagens/paralelepipedoimg.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position-x: center;
+    background-position: center;
+    height: 200px;
+    position: relative;
+}
+
+#comprimentoParalelepipedo {
+    width: 5vw;
+    position: absolute;
+    top: 50%;
+    left: 60%;
+}
+
+#larguraParalelepipedo {
+    width: 5vw;
+    position: absolute;
+    top: 70%;
+    left: 44%;
+}
+
+#alturaParalelepipedo {
+    width: 5vw;
+    position: absolute;
+    top: 45%;
+    left: 31%;
 }
 
 #esfera-inputs {
@@ -1120,11 +1238,51 @@ input:disabled {
 }
 
 #cilindro-inputs {
-    padding: 15px;
+    background-image: url(imagens/cilindro.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position-x: center;
+    background-position: center;
+    height: 200px;
+    position: relative;
+}
+
+#raioCilindro {
+    width: 5vw;
+    position: absolute;
+    top: 60%;
+    left: 51%;
+}
+
+#alturaCilindro {
+    width: 5vw;
+    position: absolute;
+    top: 40%;
+    left: 30%;
 }
 
 #cone-inputs {
-    padding: 15px;
+    background-image: url(imagens/coneimg.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position-x: center;
+    background-position: center;
+    height: 200px;
+    position: relative;
+}
+
+#raioCone {
+    width: 5vw;
+    position: absolute;
+    top: 60%;
+    left: 51%;
+}
+
+#alturaCone {
+    width: 5vw;
+    position: absolute;
+    top: 40%;
+    left: 41%;
 }
 
 #mostrarGrafico{
@@ -1853,5 +2011,30 @@ input:disabled {
         left: 100%;
         width: 3rem;
         height: 2rem;
+    }
+
+    .formula-inputs input {
+        font-size: 12px;
+        padding: 6px;
+    }
+
+    #circulo-inputs,
+    #retangulo-inputs,
+    #triangulo-inputs,
+    #trapezio-inputs,
+    #paralelogramo-inputs,
+    #losango-inputs,
+    #quadrado-inputs,
+    #cubo-inputs,
+    #paralelepipedo-inputs,
+    #esfera-inputs,
+    #cilindro-inputs,
+    #cone-inputs {
+        height: 120px;
+    }
+
+    #raioCirculo {
+        width: 15vw;
+        top: 30%;
     }
 }
