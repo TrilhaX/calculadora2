@@ -57,6 +57,11 @@ input{
     text-align: left;
     justify-content: center;
     align-items: center;
+    transition: transform 0.3s ease;
+}
+
+input:hover{
+    transform: scale(1.05);
 }
 
 button {
@@ -2047,6 +2052,138 @@ input:disabled {
 
     #raioCirculo {
         width: 15vw;
+        top: 20%;
+    }
+
+    #raioEsfera {
+        width: 10vw;
+    }
+
+    #larguraRetangulo{
+        width: 10vw;
+        height: 5vw;
+        text-align: center;
+        left: 42%;
+    }
+    #alturaRetangulo {
+        width: 10vw;
+        height: 5vw;
+        text-align: center;
+        left: 15%;
+    }
+
+    #ladoATriangulo{
+        width: 10vw;
+        height: 5vw;
+        text-align: center;
+        left: 42%;
+    }
+    #ladoBTriangulo{
+        width: 10vw;
+        height: 5vw;
+        text-align: center;
+        left: 20%;
+    }
+    #ladoCTriangulo{
+        width: 10vw;
+        height: 5vw;
+        text-align: center;
+        left: 65%;
+    } 
+    #baseTriangulo{
+        width: 10vw;
+        height: 5vw;
+        text-align: center;
+        left: 42%;
+    }
+    #alturaTriangulo {
+        width: 10vw;
+        height: 5vw;
+        text-align: center;
+        left: 42%;
+    }
+
+    #baseMaiorTrapezio,
+    #baseMenorTrapezio,
+    #alturaTrapezio {
+        width: 10vw;
+        height: 5vw;
+        left: 42%;
+    }
+
+    #baseParalelogramo{
+        width: 12vw;
+        height: 6vw;
+        left: 35%;
+    }
+    #alturaParalelogramo {
+        width: 12vw;
+        height: 6vw;
+        left: 77%;
+    }
+
+    #diagonalMenorLosango{
+        width: 10vw;
+        height: 10vw;
+        top: 65%;
+        left: 40%;
+    }
+    #diagonalMaiorLosango {
+        width: 10vw;
+        height: 10vw;
+    }
+
+    #ladoQuadrado {
+        width: 8vw;
+        height: 10vw;
+        left: 72%;
+    }
+
+    #ladoCubo {
+        width: 10vw;
+        height: 10vw;
+        left: 65%;
+    }
+
+    #comprimentoParalelepipedo{
+        width: 12vw;
+        height: 6vw;
+        left: 38%;
+        top: 70%;
+    }
+    #larguraParalelepipedo{
+        width: 10vw;
+        height: 5vw;
+        left: 65%;
+        top: 55%;
+    }
+    #alturaParalelepipedo {
+        width: 12vw;
+        height: 6vw;
+        left: 15%;
+    }
+
+    #raioCilindro{
+        width: 10vw;
+        height: 8vw;
+
+    }
+    #alturaCilindro {
+        width: 8vw;
+        height: 12vw;
         top: 30%;
+        left: 20%;
+    }
+
+    #raioCone{
+        width: 10vw;
+        height: 8vw;
+        left: 45%;
+    }
+    #alturaCone {
+        width: 8vw;
+        height: 8vw;
+        left: 40%;
+        top: 20%;
     }
 }
